@@ -17,128 +17,8 @@ using TRx.Helpers;
 
 namespace TRx.Handlers
 {
-    public class MeanReversOnBar//:AddedItemHandler<Bar>
+    public partial class MeanReversOnBar//:AddedItemHandler<Bar>
     {
-        private StrategyHeader strategyHeader;
-        private IDataContext tradingData;
-        private ObservableQueue<Signal> signalQueue;
-        private ILogger logger;
-
-        public IndicatorOnBarMaDeviation maDeviation { get; private set; }
-        public Levels levels { get; private set; }
-
-        /// <summary>
-        /// Номера пересеченых уровней для каждого бара
-        /// </summary>
-        public IList<int> Уровень { get; private set; }
-        /// <summary>
-        /// Номера прошлых пересеченых уровней для каждого бара
-        /// </summary>
-        public IList<int> УровеньПрошлый { get; private set; }
-        /// <summary>
-        /// Наличие пересечения по направлению
-        /// </summary>
-        public IList<bool> ПересечениeСверху { get; private set; }
-        /// <summary>
-        /// Наличие пересечения по направлению
-        /// </summary>
-        public IList<bool> ПересечениеСнизу { get; private set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public IList<bool> ОткрытиеВерхний { get; private set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public IList<int> ОткрытиеВерхнийКоличествоУровней { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<bool> ОткрытиеНижний { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<int> ОткрытиеНижнийКоличествоУровней { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<bool> ЗакрытиеВерхний { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<int> ЗакрытиеВерхнийКоличествоУровней { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<bool> ЗакрытиеНижний { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IList<int> ЗакрытиеНижнийКоличествоУровней { get; private set; }
-        /// <summary>
-        /// список стеков
-        /// </summary>
-        public IList<Stack<IList<Signal>>> stackLevel { get; private set; }
-        /// <summary>
-        ///список позиции
-        /// </summary>
-        public IList<Signal> Sell { get; private set; }
-        /// <summary>
-        /// список позиции
-        /// </summary>
-        public IList<Signal> Buy { get; private set; }
-
-
-        public MeanReversOnBar(StrategyHeader strategyHeader, 
-                               IDataContext tradingData, 
-                               ObservableQueue<Signal> signalQueue, 
-                               ILogger logger,
-                               Levels levels,
-                               IndicatorOnBarMaDeviation maDeviation)
-            //:base(tradingData.Get<ObservableCollection<Bar>>())
-        {
-            this.strategyHeader = strategyHeader;
-            this.tradingData = tradingData;
-            this.signalQueue = signalQueue;
-            this.logger = logger;
-
-            this.levels = levels;
-            this.maDeviation = maDeviation;
-            this.maDeviation.AddHandlerValueDe(this.OnValueItemAdded);
-
-            this.Уровень = new List<int>();
-            this.УровеньПрошлый = new List<int>();
-
-            this.ПересечениeСверху = new List<bool>();
-            this.ПересечениеСнизу = new List<bool>();
-
-            ОткрытиеВерхний = new List<bool>();
-            ОткрытиеНижний = new List<bool>();
-            ЗакрытиеВерхний = new List<bool>();
-            ЗакрытиеНижний = new List<bool>();
-
-            ОткрытиеВерхнийКоличествоУровней = new List<int>();
-            ОткрытиеНижнийКоличествоУровней = new List<int>();
-            ЗакрытиеВерхнийКоличествоУровней = new List<int>();
-            ЗакрытиеНижнийКоличествоУровней = new List<int>();
-
-            //System.Collections.Generic.IList<
-            //     System.Collections.Generic.Stack<
-            //         System.Collections.Generic.IList<Signal>>> stackLevel;
-            //это создание списка стеков
-            stackLevel = new System.Collections.Generic.Stack<
-                                System.Collections.Generic.IList<Signal>
-                                                                        >[levels.КоличествоУровней];
-            //здесь создание стеков
-            for (int j = 0; j < levels.КоличествоУровней; j++)
-            {   //
-                stackLevel[j] = new System.Collections.Generic.Stack<
-                                        System.Collections.Generic.IList<Signal>>();
-            }
-            //так формируем список позиции
-            //Sell = new Signal[1];
-            //Buy = new Signal[1];
-        }
         /*
         public override void OnItemAdded(Bar item)
         {
@@ -154,23 +34,23 @@ namespace TRx.Handlers
             // -------------------------------------------------
             #region //пересечение уровней
             // -------------------------------------------------
-            levels.Do(maDeviation.De);
+            Levels.Do(maDeviation.De);
             //IList<bool> ПересеченияСверху = levels.ПересеченияСверху;
             //IList<bool> ПересеченияСнизу = levels.ПересеченияСнизу;
 
-            ПересечениeСверху.Add(levels.ПересечениеСверху);
-            ПересечениеСнизу.Add(levels.ПересечениеСнизу);
+            ПересечениeСверху.Add(Levels.ПересечениеСверху);
+            ПересечениеСнизу.Add(Levels.ПересечениеСнизу);
 
-            Уровень.Add(levels.УровеньТекущий);                     //уровень текщий
-            УровеньПрошлый.Add(levels.УровеньПрошлый);              //уровень предыдущий
+            Уровень.Add(Levels.УровеньТекущий);                     //уровень текщий
+            УровеньПрошлый.Add(Levels.УровеньПрошлый);              //уровень предыдущий
             #endregion
             // -------------------------------------------------
 
-            ОткрытиеСверху();
-            ОткрытиеСнизу();
+            ПроверитьПризнакНаОткрытиеСверху();
+            ПроверитьПризнакНаОткрытиеСнизу();
 
-            ЗакрытиеСверху();
-            ЗакрытиеСнизу();
+            ПроверитьПризнакНаЗакрытиеСверху();
+            ПроверитьПризнакНаЗакрытиеСнизу();
 
             // -------------------------------------------------
             #region // Проверка сигналов по времени
@@ -182,11 +62,14 @@ namespace TRx.Handlers
             // -------------------------------------------------
             #region // Подача заявок
             // -------------------------------------------------
+            /// Сформировать Сигналы на открытие закрытие позиций
             СформироватьСигналы();
             #endregion
             // -------------------------------------------------
         }
-
+        /// <summary>
+        /// Сформировать Сигналы на открытие закрытие позиций
+        /// </summary>
         private void СформироватьСигналы()
         {
             //throw new NotImplementedException();
@@ -197,7 +80,7 @@ namespace TRx.Handlers
             int i = Уровень.Count - 1;
             int MaxLevelPositionCount = 1;
             int ActivePositionCount = 0;
-            ActivePositionCount = stackLevel[Уровень[i]].Count;
+            ActivePositionCount = LevelStack[Уровень[i]].Count;
             // выполнение сигналов для короткой позиции
             if (ОткрытиеВерхний[i])
             {
@@ -218,7 +101,7 @@ namespace TRx.Handlers
                     Sell = new Signal[1];
                     Sell[0] = signalSell;
                     //Sell[1] = null;
-                    stackLevel[Уровень[i]].Push(Sell);
+                    LevelStack[Уровень[i]].Push(Sell);
                 }
             }
             // выполнение сигналов для длинной позиции           
@@ -241,7 +124,7 @@ namespace TRx.Handlers
                     Buy = new Signal[1];
                     Buy[0] = signalBuy;
                     //Buy[1] = null;
-                    stackLevel[Уровень[i]].Push(Buy);
+                    LevelStack[Уровень[i]].Push(Buy);
                 }
             }
             // выполнение сигналов на закрытие короткой позиции
@@ -250,18 +133,18 @@ namespace TRx.Handlers
             {
                 Signal signalBuy;
                 Signal lastSignalSell;
-                for (int j = levels.КоличествоУровней - 1; j > Уровень[i]; j--)
+                for (int j = Levels.КоличествоУровней - 1; j > Уровень[i]; j--)
                 {   //
                     Sell = null;
-                    if (stackLevel[j].Count > 0)
+                    if (LevelStack[j].Count > 0)
                     {
-                        Sell = stackLevel[j].Peek();
+                        Sell = LevelStack[j].Peek();
                     }
                     lastSignalSell = null;
                     if (Sell != null)
                     {
                         lastSignalSell = Sell[0];
-                        stackLevel[j].Pop();
+                        LevelStack[j].Pop();
                     }
                     // Если есть активная короткая позиция
                     // выдаем ордера на закрыте короткой позиции
@@ -287,15 +170,15 @@ namespace TRx.Handlers
                 for (int j = 0; j < Уровень[i]; j++)
                 {   //
                     Buy = null;
-                    if (stackLevel[j].Count > 0)
+                    if (LevelStack[j].Count > 0)
                     {
-                        Buy = stackLevel[j].Peek();
+                        Buy = LevelStack[j].Peek();
                     }
                     lastSignalBuy = null;
                     if (Buy != null)
                     {
                         lastSignalBuy = Buy[0];
-                        stackLevel[j].Pop();
+                        LevelStack[j].Pop();
                     }
                     // Если есть активная длинная позиция 
                     // выдаем ордера на закрыте длинной позиции
@@ -315,9 +198,9 @@ namespace TRx.Handlers
         }
 
         /// <summary>
-        /// Закрытие при пересечении уровней снизу
+        /// Проверить Признак На Закрытие при пересечении уровней ниже середины
         /// </summary>
-        private void ЗакрытиеСнизу()
+        private void ПроверитьПризнакНаЗакрытиеСнизу()
         {
             try
             {
@@ -332,10 +215,10 @@ namespace TRx.Handlers
                     ЗакрытиеНижний[i] = ПересечениеСнизу[i];
                     ЗакрытиеНижний[i] = (ЗакрытиеНижний[i] && (Уровень[i] > УровеньПрошлый[i]));
                     ЗакрытиеНижний[i] = (ЗакрытиеНижний[i] && (Уровень[i] > Уровень[i - 1]));
-                    ЗакрытиеНижний[i] = (ЗакрытиеНижний[i] && (Уровень[i - 1] < levels.УровеньСредний));
+                    ЗакрытиеНижний[i] = (ЗакрытиеНижний[i] && (Уровень[i - 1] < Levels.УровеньСредний));
                     if (ЗакрытиеНижний[i])
                     {
-                        ЗакрытиеНижнийКоличествоУровней[i] = System.Math.Min(Уровень[i], levels.УровеньСредний) - УровеньПрошлый[i];
+                        ЗакрытиеНижнийКоличествоУровней[i] = System.Math.Min(Уровень[i], Levels.УровеньСредний) - УровеньПрошлый[i];
                     }
                 }
             }
@@ -347,9 +230,9 @@ namespace TRx.Handlers
             }
         }
         /// <summary>
-        /// Закрытие при пересечении уровней сверху
+        /// Проверить Признак На Закрытие при пересечении уровней выше середины
         /// </summary>
-        private void ЗакрытиеСверху()
+        private void ПроверитьПризнакНаЗакрытиеСверху()
         {
             try
             {
@@ -364,10 +247,10 @@ namespace TRx.Handlers
                     ЗакрытиеВерхний[i] = ПересечениeСверху[i];
                     ЗакрытиеВерхний[i] = (ЗакрытиеВерхний[i] && (Уровень[i] < УровеньПрошлый[i]));
                     ЗакрытиеВерхний[i] = (ЗакрытиеВерхний[i] && (Уровень[i] < Уровень[i - 1]));
-                    ЗакрытиеВерхний[i] = (ЗакрытиеВерхний[i] && (Уровень[i - 1] > levels.УровеньСредний));
+                    ЗакрытиеВерхний[i] = (ЗакрытиеВерхний[i] && (Уровень[i - 1] > Levels.УровеньСредний));
                     if (ЗакрытиеВерхний[i])
                     {
-                        ЗакрытиеВерхнийКоличествоУровней[i] = УровеньПрошлый[i] - System.Math.Max(Уровень[i], levels.УровеньСредний);
+                        ЗакрытиеВерхнийКоличествоУровней[i] = УровеньПрошлый[i] - System.Math.Max(Уровень[i], Levels.УровеньСредний);
                     }
                 }
             }
@@ -379,9 +262,9 @@ namespace TRx.Handlers
             }
         }
         /// <summary>
-        /// Открытие при пересечении уровней снизу
+        /// Проверить Признак На Открытие при пересечении уровней ниже середины
         /// </summary>
-        private void ОткрытиеСнизу()
+        private void ПроверитьПризнакНаОткрытиеСнизу()
         {
             try
             {
@@ -396,10 +279,10 @@ namespace TRx.Handlers
                     ОткрытиеНижний[i] = ПересечениeСверху[i];
                     ОткрытиеНижний[i] = (ОткрытиеНижний[i] && (Уровень[i] < УровеньПрошлый[i]));
                     ОткрытиеНижний[i] = (ОткрытиеНижний[i] && (Уровень[i] < Уровень[i - 1]));
-                    ОткрытиеНижний[i] = (ОткрытиеНижний[i] && (Уровень[i] < levels.УровеньСредний));
+                    ОткрытиеНижний[i] = (ОткрытиеНижний[i] && (Уровень[i] < Levels.УровеньСредний));
                     if (ОткрытиеНижний[i])
                     {
-                        ОткрытиеНижнийКоличествоУровней[i] = System.Math.Min(УровеньПрошлый[i], levels.УровеньСредний) - Уровень[i];
+                        ОткрытиеНижнийКоличествоУровней[i] = System.Math.Min(УровеньПрошлый[i], Levels.УровеньСредний) - Уровень[i];
                     }
                 }
             }
@@ -411,9 +294,9 @@ namespace TRx.Handlers
             }
         }
         /// <summary>
-        /// Открытие при пересечении уровней сверху
+        /// Проверить Признак На Открытие при пересечении уровней выше сеседины
         /// </summary>
-        private void ОткрытиеСверху()
+        private void ПроверитьПризнакНаОткрытиеСверху()
         {
             try
             {
@@ -428,10 +311,10 @@ namespace TRx.Handlers
                     ОткрытиеВерхний[i] = ПересечениеСнизу[i];
                     ОткрытиеВерхний[i] = (ОткрытиеВерхний[i] && (Уровень[i] > УровеньПрошлый[i]));
                     ОткрытиеВерхний[i] = (ОткрытиеВерхний[i] && (Уровень[i] > Уровень[i - 1]));
-                    ОткрытиеВерхний[i] = (ОткрытиеВерхний[i] && (Уровень[i] > levels.УровеньСредний));
+                    ОткрытиеВерхний[i] = (ОткрытиеВерхний[i] && (Уровень[i] > Levels.УровеньСредний));
                     if (ОткрытиеВерхний[i])
                     {
-                        ОткрытиеВерхнийКоличествоУровней[i] = Уровень[i] - System.Math.Max(УровеньПрошлый[i], levels.УровеньСредний);
+                        ОткрытиеВерхнийКоличествоУровней[i] = Уровень[i] - System.Math.Max(УровеньПрошлый[i], Levels.УровеньСредний);
                     }
                 }
             }

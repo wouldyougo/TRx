@@ -212,3 +212,11 @@ private static string ProcessRemove(Operation operation) { }
 Еще, расширились возможности инициализаторов коллекций, теперь не обязательно, чтобы метод Add был экземплярным.Достаточно, чтобы класс реализовывал интерфейс IEnumerable, и был доступен метод Add – не важно, в этом же классе, или через метод расширения.
 
 Ну и появились фильтры исключений.Вещь полезная, но едва ли сверх часто используемая. 
+
+
+
+The 3 Ways a WCF RT Notification Service can use SignalR
+
+    The WCF service uses the SignalR Persistent Connections feature to push data to clients.
+    The WCF service uses one or more SignalR Hubs through a “direct reference” to the Hub on the server, calling the Hub’s “Client Methods” that invoke a method on the client as the means to push data.This is the simplest implementation of the 3 Ways.
+    The WCF service uses one or more Hubs as a client of SignalR, connecting to the Hub(s) via SignalR’s HTTP endpoint “connection”.  Then, through the HTTP connection as a client, the WCF service calls the Hub’s “Server Methods” as the means to push data. 

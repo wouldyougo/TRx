@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace TRx.Indicators
 {
+    /// <summary>
+    /// Уровни
+    /// </summary>
     public class Levels
 	{
         /// <summary>
-        ///  levelGenType
+        /// ТипУровней
         /// </summary>
         public int ТипУровней { get; set; }
         /// <summary>
