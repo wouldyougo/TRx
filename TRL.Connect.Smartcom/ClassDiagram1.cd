@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TRS.Trader.Smartcom.Commands.GetBarsCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAEBAAAAAAQCAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Commands\GetBarsCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Commands.GetSymbolsCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQCAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\GetSymbolsCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Commands.PlaceOrderCommand" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAQCAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\PlaceOrderCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.AdapterHandlers" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAgIAABACACEAQAAAAAgQAAAAAAACA=</HashCode>
+      <FileName>Data\AdapterHandlers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.BarIntervalFactory" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Data\BarIntervalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.DefaultSubscriber" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\DefaultSubscriber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.ItemAddedLastTimeStamped&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\ItemAddedLastTimeStamped.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.MarketDataProvider" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABACACAAAAgACAAAAABCAAAAAABAAAA=</HashCode>
+      <FileName>Data\MarketDataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.OrderBookLastUpdateTimeStamped" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAACAAAAAAAACAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\OrderBookLastUpdateTimeStamped.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.OrderBookUpdateTimeStamp" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\OrderBookUpdateTimeStamp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.RawOrderFactory" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAEIAAAA=</HashCode>
+      <FileName>Data\RawOrderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.RawTradingData" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAA=</HashCode>
+      <FileName>Data\RawTradingData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.RawTradingDataContext" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAABAAABgAAAAAAQAAIAIAAYAAAAAAAAACAA=</HashCode>
+      <FileName>Data\RawTradingDataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.RawTradingDataProvider" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACQACAAACABAAAgAAAABAAAACAAgAAAA=</HashCode>
+      <FileName>Data\RawTradingDataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.SmartComHandlers" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\SmartComHandlers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.SmartComHandlersDatabase" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAMAQAAAUABEAhAAJQAADAAQAIAgJAAEAAAAyABCAAA=</HashCode>
+      <FileName>Data\SmartComHandlersDatabase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.SmartComSubscriber" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAgEGhAAACIAFAAAAAoAACCAAAQAAAAAAQAAA=</HashCode>
+      <FileName>Data\SmartComSubscriber.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.StBarIntervalFactory" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Data\StBarIntervalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.SymbolsDataProvider" Collapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAACAACAAAAAAAAAAAAAABAAQAAAAAAAAA=</HashCode>
+      <FileName>Data\SymbolsDataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Data.TickDataFeedUpdateTimeStamp" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\TickDataFeedUpdateTimeStamp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Events.DefaultBinder" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Events\DefaultBinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Events.RawUpdateBidAskHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAgAAACAAAAAAgACAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Events\RawUpdateBidAskHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Events.SmartComBinder" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACAAAAAgACAEAAAAAAIAAAAARAAAgEAAAAAAA=</HashCode>
+      <FileName>Events\SmartComBinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.CancelOrderOnUpdateOrder" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAAACAAAAAAAACAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Handlers\CancelOrderOnUpdateOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.CancelOrderOnUpdateOrderWithWrongCookie" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwgAAAAAAAAAAACAAAAAAAACAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Handlers\CancelOrderOnUpdateOrderWithWrongCookie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.ConfirmMoveRequestOnOrderMoveSucceeded" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAQAAAAAACAAAAAAAAggAAAAAAAA=</HashCode>
+      <FileName>Handlers\ConfirmMoveRequestOnOrderMoveSucceeded.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.ExpireOrderOnUpdateOrder" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAABAAAAAAACAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\ExpireOrderOnUpdateOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakeCookieToOrderNoAssociationOnUpdateOrder" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAACAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\MakeCookieToOrderNoAssociationOnUpdateOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakeCookieToOrderNoAssociationOnUpdateOrderWithZeroCookie" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAAAAAACAAAAAAAAAAAAAAAAIAAAAAAABAg=</HashCode>
+      <FileName>Handlers\MakeCookieToOrderNoAssociationOnUpdateOrderWithZeroCookie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakeOrderDeliveryConfirmationOnOrderSucceeded" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAAAAAAAACAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\MakeOrderDeliveryConfirmationOnOrderSucceeded.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakePendingTradeInfoOnTradeInfo" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\MakePendingTradeInfoOnTradeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakeTradeOnCookieToOrderNoAssociation" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQACBABAAAAgAACAAAACAgACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\MakeTradeOnCookieToOrderNoAssociation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.MakeTradeOnPendingTradeInfo" Collapsed="true">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAABAAAAAAACAAAACGAACAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\MakeTradeOnPendingTradeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.RejectMoveRequestOnOrderMoveFailed" Collapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAQAAAAAACAAAAAAAAggAAAAAAAA=</HashCode>
+      <FileName>Handlers\RejectMoveRequestOnOrderMoveFailed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.RejectOrderOnOrderFailed" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAACAAAAAAAACAAAAAAAAoAAAAAAAAA=</HashCode>
+      <FileName>Handlers\RejectOrderOnOrderFailed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.RejectOrderOnUpdateOrder" Collapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAKAAAAAAAACAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Handlers\RejectOrderOnUpdateOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Handlers.UpdateOrderBookOnBidAsk" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Handlers\UpdateOrderBookOnBidAsk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.CookieToOrderNoAssociation" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Models\CookieToOrderNoAssociation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.OrderFailed" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderFailed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.OrderMoveFailed" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderMoveFailed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.OrderMoveSucceeded" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderMoveSucceeded.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.OrderSucceeded" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderSucceeded.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.PendingTradeInfo" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PendingTradeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.RawOrder" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAMAYAAAAAAAgAAAACAQAAQAAUAIQAgBEBACAY=</HashCode>
+      <FileName>Models\RawOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.RawSymbol" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABoBABAIAEAQAQBAAAAAEAAQABjAMAEIwSAAAAADAA=</HashCode>
+      <FileName>Models\RawSymbol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.SetPortfolio" Collapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAAAAEAAAAAAAAAAAABAAAAAQAQAIAAEACAEA=</HashCode>
+      <FileName>Models\SetPortfolio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.TradeInfo" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJAAAAAQAAAAAAAAAAAACABAAAkAQAQBAAAkAACAI=</HashCode>
+      <FileName>Models\TradeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.UpdateBidAsk" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQIAAAgAAAIAAEACAAAAAACAAAARgAAAEAAAAAACQA=</HashCode>
+      <FileName>Models\UpdateBidAsk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.UpdateOrder" Collapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAJJBAAAQAAAAAABAAAAAQAEAAhABAEYQAgBlBAKCY=</HashCode>
+      <FileName>Models\UpdateOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Models.UpdateOrderExtensions" Collapsed="true">
+    <Position X="9" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UpdateOrderExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.Net.SmartComConnector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAABCAAAAAIAAIAAAAABAAAAAAAAABIA=</HashCode>
+      <FileName>Net\SmartComConnector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.SmartCom" Collapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAABAAAAAAAAAAMCBABAAIQAAAACAAAAA=</HashCode>
+      <FileName>SmartCom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.SmartComAdapter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FEABQAAAACAAIADCAMABQAAQYAAAAABAcAAAAgEAAQA=</HashCode>
+      <FileName>SmartComAdapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.SmartComEventsTypes" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQQAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SmartComEventsTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.SmartComOrderManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAgEAAAAACAAAAAAAEAQAAAAAAAAgQAAAAAAA=</HashCode>
+      <FileName>SmartComOrderManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.SmartComEventsExtensions" Collapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAEABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>StServerClassExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRS.Trader.Smartcom.StServerSingleton" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAIQAAAAAAAAAA=</HashCode>
+      <FileName>StServerSingleton.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

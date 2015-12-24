@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="TRL.Charting.ChartMs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             xmlns:mschart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="480">
+    <Grid>
+        <WindowsFormsHost Name="Host">
+            <mschart:Chart x:Name="Chart" />
+        </WindowsFormsHost>
+    </Grid>
+</UserControl>

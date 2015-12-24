@@ -1,0 +1,10 @@
+19/08/2013 8:29:01.606, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131040, 1, 780311815, StOrder_Action_Buy
+19/08/2013 8:29:01.606, BreakOutOnTick, сигнал пробой Signal Id: 11829223, DateTime: 08/19/2013 11:29:01, TradeAction: Sell, OrderType: Market, Price: 131160.0000, Stop: 0.0000, Limit: 0.0000, Amount: 1.0000, StrategyId: 1
+19/08/2013 8:29:01.606, SignalQueueProcessor, формирование заявки по сигналу Signal Id: 11829223, DateTime: 08/19/2013 11:29:01, TradeAction: Sell, OrderType: Market, Price: 131160.0000, Stop: 0.0000, Limit: 0.0000, Amount: 1.0000, StrategyId: 1
+19/08/2013 8:29:01.606, OrderQueueProcessor, отправка заявки Order Id: 11829224, DateTime: 08/19/2013 11:29:01, Portfolio: BP4575-RF-01, Symbol: RTS-9.13_FT, Action: Sell, Type: Market, Price: 0.0000, Amount: 1.0000, Stop: 0.0000, FilledAmount: 0.0000, DeliveryDate: 01/01/0001 00:00:00, RejectDate: 01/01/0001 00:00:00, RejectReason: , ExpirationDate: 08/20/2013 00:00:00, CancellationDate: 01/01/0001 00:00:00, CancellationReason: , Signal: 11829223.
+19/08/2013 8:29:01.606, SmartComOrderManager, отправлена заявка 11829224, BP4575-RF-01, RTS-9.13_FT, StOrder_Action_Sell, StOrder_Type_Market, StOrder_Validity_Day, 0, 1, 0
+19/08/2013 8:29:01.699, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131040, 1, 780311816, StOrder_Action_Buy
+19/08/2013 8:29:01.699, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131030, 1, 780311817, StOrder_Action_Sell
+19/08/2013 8:29:01.715, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131050, 10, 780311818, StOrder_Action_Buy
+19/08/2013 8:29:01.715, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131050, 2, 780311819, StOrder_Action_Buy
+19/08/2013 8:29:01.715, MarketDataProvider, получен Tick RTS-9.13_FT, 19/08/2013 11:29:04.000, 131050, 2, 780311820, StOrder_Action_Buy

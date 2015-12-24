@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5CE1582E-32B5-466F-91FC-465C9D4B3D5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TRL.Connect.Smartcom</RootNamespace>
+    <AssemblyName>TRL.Connect.Smartcom</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\GetBarsCommand.cs" />
+    <Compile Include="Commands\PlaceOrderCommand.cs" />
+    <Compile Include="Data\BarIntervalFactory.cs" />
+    <Compile Include="Data\AdapterHandlers.cs" />
+    <Compile Include="Data\ItemAddedLastTimeStamped.cs" />
+    <Compile Include="Data\OrderBookLastUpdateTimeStamped.cs" />
+    <Compile Include="Data\SymbolsDataProvider.cs" />
+    <Compile Include="Data\DefaultSubscriber.cs" />
+    <Compile Include="Data\RawOrderFactory.cs" />
+    <Compile Include="Data\RawTradingData.cs" />
+    <Compile Include="Data\RawTradingDataProvider.cs" />
+    <Compile Include="Data\RawTradingDataContext.cs" />
+    <Compile Include="Data\SmartComSubscriber.cs" />
+    <Compile Include="Data\StBarIntervalFactory.cs" />
+    <Compile Include="Data\OrderBookUpdateTimeStamp.cs" />
+    <Compile Include="Data\TickDataFeedUpdateTimeStamp.cs" />
+    <Compile Include="Events\DefaultBinder.cs" />
+    <Compile Include="Events\RawUpdateBidAskHandler.cs" />
+    <Compile Include="Handlers\CancelOrderOnUpdateOrderWithWrongCookie.cs" />
+    <Compile Include="Handlers\CancelOrderOnUpdateOrder.cs" />
+    <Compile Include="Handlers\ConfirmMoveRequestOnOrderMoveSucceeded.cs" />
+    <Compile Include="Handlers\ExpireOrderOnUpdateOrder.cs" />
+    <Compile Include="Handlers\MakeCookieToOrderNoAssociationOnUpdateOrderWithZeroCookie.cs" />
+    <Compile Include="Handlers\MakeCookieToOrderNoAssociationOnUpdateOrder.cs" />
+    <Compile Include="Handlers\MakePendingTradeInfoOnTradeInfo.cs" />
+    <Compile Include="Handlers\MakeTradeOnCookieToOrderNoAssociation.cs" />
+    <Compile Include="Handlers\MakeTradeOnPendingTradeInfo.cs" />
+    <Compile Include="Handlers\RejectMoveRequestOnOrderMoveFailed.cs" />
+    <Compile Include="Handlers\RejectOrderOnOrderFailed.cs" />
+    <Compile Include="Handlers\RejectOrderOnUpdateOrder.cs" />
+    <Compile Include="Handlers\MakeOrderDeliveryConfirmationOnOrderSucceeded.cs" />
+    <Compile Include="Handlers\UpdateOrderBookOnBidAsk.cs" />
+    <Compile Include="Models\CookieToOrderNoAssociation.cs" />
+    <Compile Include="Models\PendingTradeInfo.cs" />
+    <Compile Include="Models\OrderMoveFailed.cs" />
+    <Compile Include="Models\OrderMoveSucceeded.cs" />
+    <Compile Include="Models\OrderFailed.cs" />
+    <Compile Include="Models\OrderSucceeded.cs" />
+    <Compile Include="Models\RawSymbol.cs" />
+    <Compile Include="Models\SetPortfolio.cs" />
+    <Compile Include="Models\TradeInfo.cs" />
+    <Compile Include="Models\UpdateBidAsk.cs" />
+    <Compile Include="Models\UpdateOrder.cs" />
+    <Compile Include="Data\SmartComHandlers.cs" />
+    <Compile Include="Data\SmartComHandlersDatabase.cs" />
+    <Compile Include="Data\MarketDataProvider.cs" />
+    <Compile Include="Events\SmartComBinder.cs" />
+    <Compile Include="Models\UpdateOrderExtensions.cs" />
+    <Compile Include="Net\SmartComConnector.cs" />
+    <Compile Include="SmartCom.cs" />
+    <Compile Include="SmartComEventsTypes.cs" />
+    <Compile Include="Models\RawOrder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartComOrderManager.cs" />
+    <Compile Include="Commands\GetSymbolsCommand.cs" />
+    <Compile Include="SmartComAdapter.cs" />
+    <Compile Include="StServerClassExtension.cs" />
+    <Compile Include="StServerSingleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SmartCOM3Lib">
+      <Guid>{8252879C-6E32-4322-A38D-8EBA54E52595}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diagrams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
+      <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
+      <Name>TRL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Configuration\TRL.Configuration.csproj">
+      <Project>{f21d2504-efac-41b0-a799-a2534a2066f2}</Project>
+      <Name>TRL.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Logging\TRL.Logging.csproj">
+      <Project>{b2c1c965-bfd2-40d4-ad7d-e9c4b55c5f30}</Project>
+      <Name>TRL.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Message\TRL.Message.csproj">
+      <Project>{d79dfb3c-b753-42bd-9a56-0ad9616321cf}</Project>
+      <Name>TRL.Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Transaction\TRL.Transaction.csproj">
+      <Project>{53013b47-c5cc-4a49-9535-192c5ba6f3bc}</Project>
+      <Name>TRL.Transaction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

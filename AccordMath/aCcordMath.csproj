@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B9C3E9B-5F22-4137-8269-C21A7D9717A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>aCcordMath</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Accord.Math</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Math\AForge\DoubleRange.cs" />
+    <Compile Include="Math\AForge\IntRange.cs" />
+    <Compile Include="Math\AForge\Math\Complex.cs" />
+    <Compile Include="Math\AForge\Math\FourierTransform.cs" />
+    <Compile Include="Math\AForge\Math\Random\ExponentialGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Random\GaussianGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Random\IRandomNumberGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Random\StandardGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Random\UniformGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Random\UniformOneGenerator.cs" />
+    <Compile Include="Math\AForge\Math\Tools.cs" />
+    <Compile Include="Math\Decomposition\Base\ISolverDecomposition.cs" />
+    <Compile Include="Math\Decomposition\CholeskyDecomposition.cs" />
+    <Compile Include="Math\Decomposition\EigenValueDecomposition.cs" />
+    <Compile Include="Math\Decomposition\GeneralizedEigenvalueDecomposition.cs" />
+    <Compile Include="Math\Decomposition\LuDecomposition.cs" />
+    <Compile Include="Math\Decomposition\NonnegativeFactorization.cs" />
+    <Compile Include="Math\Decomposition\QrDecomposition.cs" />
+    <Compile Include="Math\Decomposition\SingularValueDecomposition.cs" />
+    <Compile Include="Math\Distance.cs" />
+    <Compile Include="Math\Formats\Base\IMatrixFormatProvider.cs" />
+    <Compile Include="Math\Formats\Base\MatrixFormatProviderBase.cs" />
+    <Compile Include="Math\Formats\Base\MatrixFormatter.cs" />
+    <Compile Include="Math\Formats\CSharpJaggedMatrixFormatProvider.cs" />
+    <Compile Include="Math\Formats\CSharpMatrixFormatProvider.cs" />
+    <Compile Include="Math\Formats\DefaultMatrixFormatProvider.cs" />
+    <Compile Include="Math\Formats\OctaveMatrixFormatProvider.cs" />
+    <Compile Include="Math\HilbertTransform.cs" />
+    <Compile Include="Math\Matrix\Matrix.Algebra.cs" />
+    <Compile Include="Math\Matrix\Matrix.Common.cs" />
+    <Compile Include="Math\Matrix\Matrix.Complex.cs" />
+    <Compile Include="Math\Matrix\Matrix.Construction.cs" />
+    <Compile Include="Math\Matrix\Matrix.Conversions.cs" />
+    <Compile Include="Math\Matrix\Matrix.Elementwise.cs" />
+    <Compile Include="Math\Matrix\Matrix.Linear.cs" />
+    <Compile Include="Math\Matrix\Matrix.Parsing.cs" />
+    <Compile Include="Math\Matrix\Matrix.Selection.cs" />
+    <Compile Include="Math\Norm.cs" />
+    <Compile Include="Math\Special.cs" />
+    <Compile Include="Math\Tools.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{195802BB-5F70-44D2-A10E-FF8B56CBC9C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TRL.Common.Test</RootNamespace>
+    <AssemblyName>TRL.Common.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\OrderBookEntryArrayTests.cs" />
+    <Compile Include="Collections\KeyValuePairArrayTests.cs" />
+    <Compile Include="Collections\ObservableCollectionTests.cs" />
+    <Compile Include="Collections\ObservableHashSetTests.cs" />
+    <Compile Include="Collections\OrderQueueTests.cs" />
+    <Compile Include="Collections\SymbolOrderBookTests.cs" />
+    <Compile Include="Collections\TradeSignalQueueTests.cs" />
+    <Compile Include="Collections\HashSetOfNamedMutableTests.cs" />
+    <Compile Include="Configuration\AppSettingsTests.cs" />
+    <Compile Include="Emulation\BacktestOrderManagerTest.cs" />
+    <Compile Include="Handlers\MakeRangeBarsOnTickTests.cs" />
+    <Compile Include="Handlers\MakeBarsOnTickTests.cs" />
+    <Compile Include="Models\BarBuilderTests.cs" />
+    <Compile Include="Models\BarsFactoryTests.cs" />
+    <Compile Include="Collections\ObservableQueueTests.cs" />
+    <Compile Include="Configuration\ArbitrageLegSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\BarSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\OrderSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\DataProviderSettingsTests.cs" />
+    <Compile Include="Configuration\PrefixesFactoryTests.cs" />
+    <Compile Include="Configuration\ProfitPointsSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\SpreadSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\StopLossOrderSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\StopPointsSettingsFactoryTests.cs" />
+    <Compile Include="Configuration\StrategyFactoryTests.cs" />
+    <Compile Include="Configuration\TakeProfitOrderSettingsFactoryTests.cs" />
+    <Compile Include="Data\HistoryDataProviderTests.cs" />
+    <Compile Include="Handlers\StopLoss\PlaceStrategyStopLossByPointsOnTradeMeasureFromSignalPriceTests.cs" />
+    <Compile Include="Handlers\StopLoss\StrategiesPlaceStopLossByPointsOnTradeHandlersTests.cs" />
+    <Compile Include="Handlers\StopLoss\StrategyStopLossByPointsOnTickMeasureFromSignalPriceTests.cs" />
+    <Compile Include="Handlers\StopLoss\StrategyStopLossByPointsOnTickMeasureFromTradePriceTests.cs" />
+    <Compile Include="Handlers\StopLoss\StrategiesStopLossByPointsOnTickHandlersTests.cs" />
+    <Compile Include="Handlers\StopLoss\PlaceStrategyStopLossByPointsOnTradeMeasureFromTradePriceTests.cs" />
+    <Compile Include="Handlers\TakeProfit\StrategiesPlaceTakeProfitByPointsOnTradeHandlersTests.cs" />
+    <Compile Include="Handlers\TakeProfit\StrategiesTakeProfitByPointsOnTickHandlersTests.cs" />
+    <Compile Include="Handlers\TakeProfit\StrategyTakeProfitByPointsOnTickMeasureFromSignalPriceTests.cs" />
+    <Compile Include="Handlers\TakeProfit\StrategyTakeProfitByPointsOnTickMeasureFromTradePriceTests.cs" />
+    <Compile Include="Handlers\TakeProfit\PlaceStrategyTakeProfitByPointsOnTradeMeasureFromTradePriceTests.cs" />
+    <Compile Include="Handlers\UpdateOrderAmountOnTradeTests.cs" />
+    <Compile Include="Mocks\FakeHistoryDataProvider.cs" />
+    <Compile Include="Models\HistoryDataRequestTests.cs" />
+    <Compile Include="Extensions\Data\OrderBookContextExtensionsGetBestPriceTests.cs" />
+    <Compile Include="Extensions\Data\OrderBookContextExtensionsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetCurrentPositionTradesTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetPositionPointsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextUndeliveredExistsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetUndeliveredTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetFilledPartiallyTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextHasShortPositionTests.cs" />
+    <Compile Include="Extensions\Collections\TickCollectionExtensionPriceSpanTests.cs" />
+    <Compile Include="Extensions\Collections\TickCollectionExtensionLastTests.cs" />
+    <Compile Include="Extensions\Collections\TradeCollectionExtensionsSubtractTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextHasLongPositionTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextIsClosingTradeTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextExtensionsGetSymbolTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetLastOpenOrderTradesTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetMoveRequestsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetProfitPointsSettingsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetStopPointsSettingsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextIsOpeningTradeTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextUnfilledExistsTests.cs" />
+    <Compile Include="Extensions\Collections\TradeCollectionExtensionsTakeForAmountTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetProfitAndLossTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetProfitAndLossPointsTests.cs" />
+    <Compile Include="Extensions\Models\TradeExtensionsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetFilledOpenOrdersTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetTradesForOrderTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetFilledCloseOrdersTests.cs" />
+    <Compile Include="Extensions\Models\OrderExtensionsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetAmountTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetCloseOrdersTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetOpenOrdersTests.cs" />
+    <Compile Include="Data\SymbolsSummaryTests.cs" />
+    <Compile Include="Data\DataContextTests.cs" />
+    <Compile Include="Data\NamedDataContextTests.cs" />
+    <Compile Include="Data\OrderBookContextTests.cs" />
+    <Compile Include="Data\QuotesHasBeenUpdatedNotificationTests.cs" />
+    <Compile Include="Data\OrderCancellationRequestFactoryTests.cs" />
+    <Compile Include="Data\Spreads\BuySpreadDataDictionaryFactoryTests.cs" />
+    <Compile Include="Data\Spreads\BuySpreadFactoryTests.cs" />
+    <Compile Include="Data\Spreads\SellSpreadFactoryTests.cs" />
+    <Compile Include="Data\Spreads\SellSpreadDataDictionaryFactoryTests.cs" />
+    <Compile Include="Data\SymbolDataContextTests.cs" />
+    <Compile Include="Data\TradingDataContextTests.cs" />
+    <Compile Include="Data\OrderBookTests.cs" />
+    <Compile Include="Common\DefaultLoggerTests.cs" />
+    <Compile Include="Extensions\Collections\BarCollectionExtensionsTests.cs" />
+    <Compile Include="Extensions\CrossLinesTests.cs" />
+    <Compile Include="Extensions\DoubleExtensionsTests.cs" />
+    <Compile Include="Extensions\Collections\OrderCollectionsExtensionsTests.cs" />
+    <Compile Include="Extensions\Collections\PositionCollectionExtensionsTests.cs" />
+    <Compile Include="Extensions\Models\SignalExtensionsTests.cs" />
+    <Compile Include="Extensions\Collections\StrategyCollectionExtensionsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetTradesTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetUnfilledTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextPositionExistsTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextGetCurrentProfitAndLossTests.cs" />
+    <Compile Include="Extensions\Data\TradingDataExtensionsForEmulationTests.cs" />
+    <Compile Include="Handlers\AddedItemHandlerTests.cs" />
+    <Compile Include="Handlers\Cancel\MakeOrderCancellationRequestOnQuoteChangeTests.cs" />
+    <Compile Include="Handlers\TrailStopOnTickTests.cs" />
+    <Compile Include="Handlers\Spreads\ExitSpreadOnQuoteChangeTests.cs" />
+    <Compile Include="Handlers\Spreads\CoverSpreadOnQuoteChangeTests.cs" />
+    <Compile Include="Handlers\Spreads\SellSpreadOnQuoteChangeTests.cs" />
+    <Compile Include="Handlers\Spreads\CalculateSpreadOnOrderBookChangeTests.cs" />
+    <Compile Include="Handlers\Spreads\ArbitrageLeftLegStrategyOpenPositionOnSpreadValueTests.cs" />
+    <Compile Include="Handlers\Spreads\ArbitrageRightLegStrategyOpenPositionOnSpreadValueTests.cs" />
+    <Compile Include="Handlers\Spreads\ArbitrageLeftLegStrategyClosePositionOnSpreadValueTests.cs" />
+    <Compile Include="Handlers\Spreads\ArbitrageRightLegStrategyClosePositionOnSpreadValueTests.cs" />
+    <Compile Include="Handlers\MarkOrderAsOutdatedOnTickTests.cs" />
+    <Compile Include="Handlers\MarkPartiallyFilledOrderAsOutdatedOnTickTests.cs" />
+    <Compile Include="Handlers\Spreads\BuySpreadOnQuoteChangeTests.cs" />
+    <Compile Include="Extensions\Data\CorrelationExtensionsTests.cs" />
+    <Compile Include="Inputs\BuyOnTickTests.cs" />
+    <Compile Include="Handlers\CancelOrderOnCancellationRequestTests.cs" />
+    <Compile Include="Handlers\CancelOrderOnCancellationConfirmationTests.cs" />
+    <Compile Include="Handlers\CancelOrderOnTradeTests.cs" />
+    <Compile Include="Handlers\CancelStopOrderOnTradeTests.cs" />
+    <Compile Include="Handlers\PlaceCancelOrderRequestOnTickTests.cs" />
+    <Compile Include="Handlers\GenericHashSetObserverTests.cs" />
+    <Compile Include="Handlers\OrderQueueProcessorTests.cs" />
+    <Compile Include="Handlers\RejectOrderHandlerTests.cs" />
+    <Compile Include="Handlers\SignalQueueProcessorTests.cs" />
+    <Compile Include="Handlers\UpdateBarsOnTickTests.cs" />
+    <Compile Include="Handlers\UpdateOrderOnOrderDeliveryConfirmationTests.cs" />
+    <Compile Include="Handlers\UpdatePositionOnTradeTests.cs" />
+    <Compile Include="Inputs\BreakOutOnTickTests.cs" />
+    <Compile Include="Mocks\MockConnector.cs" />
+    <Compile Include="Mocks\MockTraderService.cs" />
+    <Compile Include="Mocks\FakeTimeTracker.cs" />
+    <Compile Include="Mocks\NamedObservableCollection.cs" />
+    <Compile Include="Mocks\SampleTradingDataContextFactoryTests..cs" />
+    <Compile Include="Common\MockTraderServiceTests.cs" />
+    <Compile Include="Extensions\Models\OrderClearingTests.cs" />
+    <Compile Include="Models\BarSettingsTests.cs" />
+    <Compile Include="Models\BidAskTests.cs" />
+    <Compile Include="Models\CloseOrderTests.cs" />
+    <Compile Include="Models\CorrelationTests.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\MoveOrderTests.cs" />
+    <Compile Include="Models\NamedInterfaceTests.cs" />
+    <Compile Include="Models\OpenOrderTests.cs" />
+    <Compile Include="Models\OrderBookEntryTests.cs" />
+    <Compile Include="Models\OrderMoveRequestTests.cs" />
+    <Compile Include="Models\PointsSettingsTests.cs" />
+    <Compile Include="Models\PositionSettingsTests.cs" />
+    <Compile Include="Models\OrderCancellationFailedNotificationTests.cs" />
+    <Compile Include="Models\OrderDeliveryConfirmationComparerTests.cs" />
+    <Compile Include="Models\OrderDeliveryConfirmationTests.cs" />
+    <Compile Include="Models\OrderSettingsEqualityComparerTests.cs" />
+    <Compile Include="Models\OrderSettingsTests.cs" />
+    <Compile Include="Models\OrderTests.cs" />
+    <Compile Include="Models\SignalTests.cs" />
+    <Compile Include="Models\OrderCancellationConfirmationTests.cs" />
+    <Compile Include="Models\IdentifiedEqualityComparerTests.cs" />
+    <Compile Include="Events\EventBinderTests.cs" />
+    <Compile Include="Extensions\ByteArrayExtensionsTests.cs" />
+    <Compile Include="Extensions\StringExtensionTests.cs" />
+    <Compile Include="Mocks\MockEventBinder.cs" />
+    <Compile Include="Mocks\MockQueueObserver.cs" />
+    <Compile Include="Models\OrderCancellationRequestTests.cs" />
+    <Compile Include="Models\OrderRejectionTests.cs" />
+    <Compile Include="Models\PositionEqualityComparerTests.cs" />
+    <Compile Include="Models\SMASettingsTests.cs" />
+    <Compile Include="Models\SpreadSettingsTests.cs" />
+    <Compile Include="Models\SpreadValueTests.cs" />
+    <Compile Include="Models\StopLossOrderSettingsTests.cs" />
+    <Compile Include="Models\StopPointsSettingsTests.cs" />
+    <Compile Include="Models\StrategyPositionTests.cs" />
+    <Compile Include="Models\StrategyTests.cs" />
+    <Compile Include="Models\SymbolSummaryTests.cs" />
+    <Compile Include="Models\SymbolTests.cs" />
+    <Compile Include="Models\PositionTests.cs" />
+    <Compile Include="Models\TakeProfitOrderSettingsTests.cs" />
+    <Compile Include="Models\ProfitPointsSettingsTests.cs" />
+    <Compile Include="Models\TradeTests.cs" />
+    <Compile Include="Models\TrendEqualityComparerTests.cs" />
+    <Compile Include="Models\TrendModelTests.cs" />
+    <Compile Include="Models\SymbolSettingsTests.cs" />
+    <Compile Include="Models\NamedComparerTests.cs" />
+    <Compile Include="Models\StrategyVolumeChangeStepTests.cs" />
+    <Compile Include="Models\ArbitrageSettingsTests.cs" />
+    <Compile Include="Message\ConnectorTests.cs" />
+    <Compile Include="Message\ManagementProtocolMessagesTests.cs" />
+    <Compile Include="Handlers\TraderBaseInitializerTests.cs" />
+    <Compile Include="Statistics\DealListTests.cs" />
+    <Compile Include="TraderBaseTests\RestoreAtNotTradingTimePriceSignalBasedTests.cs" />
+    <Compile Include="TraderBaseTests\RestoreAtTradingTimePriceSignalBasedTests.cs" />
+    <Compile Include="TraderBaseTests\RestoreAtTradingTimePriceTradeBasedTests.cs" />
+    <Compile Include="TraderBaseTests\RestoreAtNotTradingTimePriceTradeBasedTests.cs" />
+    <Compile Include="TraderBaseTests\OpenShortByMarketLimitFailedCloseByEmergencyMarketTest.cs" />
+    <Compile Include="TraderBaseTests\OpenLongByMarketLimitFailedCloseByEmergencyMarketTest.cs" />
+    <Compile Include="TraderBaseTests\OpenShortByMarketCloseByLimitMultipleTradesTest.cs" />
+    <Compile Include="TraderBaseTests\OpenLongByMarketCloseByLimitMultipleTradesTest.cs" />
+    <Compile Include="TraderBaseTests\OpenShortByMarketCloseByStopMultipleTradesTest.cs" />
+    <Compile Include="TraderBaseTests\OpenLongByMarketCloseByStopMultipleTradesTest.cs" />
+    <Compile Include="TraderBaseTests\OpenShortByMarketCloseByLimitTest.cs" />
+    <Compile Include="TraderBaseTests\OpenShortByMarketCloseByStopTest.cs" />
+    <Compile Include="TraderBaseTests\OpenLongByMarketCloseByLimitTest.cs" />
+    <Compile Include="TraderBaseTests\OpenLongByMarketCloseByStopTest.cs" />
+    <Compile Include="TraderBaseTests\OpenPositionWithMarketOrderTest.cs" />
+    <Compile Include="Transaction\ImportPositionsTransactionTests.cs" />
+    <Compile Include="Transaction\ExportPositionsTransactionTests.cs" />
+    <Compile Include="Transaction\ExportTradesTransactionTests.cs" />
+    <Compile Include="Transaction\ImportBarsTransactionTests.cs" />
+    <Compile Include="Data\TextFileStringListFactoryTests.cs" />
+    <Compile Include="Data\TickCollectionFactoryTests.cs" />
+    <Compile Include="Transaction\ImportTradesTransactionTests.cs" />
+    <Compile Include="Transaction\ExportOrdersTransactionTests.cs" />
+    <Compile Include="Transaction\ExportSignalsTransactionTests.cs" />
+    <Compile Include="Transaction\ImportOrdersTransactionTests.cs" />
+    <Compile Include="Transaction\ImportSignalsTransactionTests.cs" />
+    <Compile Include="Common\TimeTrackerTests.cs" />
+    <Compile Include="Common\StructFactoryTests.cs" />
+    <Compile Include="Extensions\Collections\ListExtensionsTests.cs" />
+    <Compile Include="Common\FortsTradingScheduleTests.cs" />
+    <Compile Include="Common\DateTimeExtensionsTests.cs" />
+    <Compile Include="Data\IntegerIdentifierFactoryTests.cs" />
+    <Compile Include="Data\TimePeriodTests.cs" />
+    <Compile Include="Models\BarTests.cs" />
+    <Compile Include="Common\ConnectionCredentialsTests.cs" />
+    <Compile Include="Models\TickTests.cs" />
+    <Compile Include="Common\ProjectRootFolderNameFactory.cs" />
+    <Compile Include="Common\ProjectRootFolderNameFactoryTests.cs" />
+    <Compile Include="Common\BrokerDateTimeTests.cs" />
+    <Compile Include="Common\TextFileLoggerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\trades-backup.txt" />
+    <Content Include="TestData\orders-backup.txt" />
+    <Content Include="TestData\signals-backup.txt" />
+    <Content Include="TestData\logfile.txt" />
+    <Content Include="TestData\positions.txt" />
+    <Content Include="TestData\SPFB.RTS_130807_130807.txt" />
+    <Content Include="TestData\SPFB.SBRF_130802_130802.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\trades.txt" />
+    <Content Include="TestData\orders.txt" />
+    <Content Include="TestData\signals.txt" />
+    <None Include="TestData\restore-multiple.dat" />
+    <None Include="TestData\restore.dat" />
+    <Content Include="TestData\TicksImportData.txt" />
+    <Content Include="TestData\NoBreakoutBars.txt" />
+    <Content Include="TestData\PriceChannelBars.txt" />
+    <Content Include="TestData\FallingMarketBars.txt" />
+    <Content Include="TestData\RisingMarketBars.txt" />
+    <Content Include="TestData\SPFB.RTS.txt" />
+    <Content Include="App_Data\Import\SPFB.RTS_120901_121001_15Min.txt" />
+    <Content Include="App_Data\Import\SPFB.RTS_120901_121001_5Min.txt" />
+    <Content Include="App_Data\Import\SPFB.RTS_120901_121001_Hour.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
+      <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
+      <Name>TRL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Configuration\TRL.Configuration.csproj">
+      <Project>{f21d2504-efac-41b0-a799-a2534a2066f2}</Project>
+      <Name>TRL.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Emulation\TRL.Emulation.csproj">
+      <Project>{8d45f99b-ae4d-4521-8ec1-186628d58575}</Project>
+      <Name>TRL.Emulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Handlers\TRL.Handlers.csproj">
+      <Project>{574d19eb-e390-43fd-958c-88f438ebfb89}</Project>
+      <Name>TRL.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Logging\TRL.Logging.csproj">
+      <Project>{b2c1c965-bfd2-40d4-ad7d-e9c4b55c5f30}</Project>
+      <Name>TRL.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Message\TRL.Message.csproj">
+      <Project>{d79dfb3c-b753-42bd-9a56-0ad9616321cf}</Project>
+      <Name>TRL.Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRL.Transaction\TRL.Transaction.csproj">
+      <Project>{53013b47-c5cc-4a49-9535-192c5ba6f3bc}</Project>
+      <Name>TRL.Transaction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

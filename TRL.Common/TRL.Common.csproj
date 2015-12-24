@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5882134E-DE9B-4E9E-9074-617B5EE31AF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TRL</RootNamespace>
+    <AssemblyName>TRL.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\OrderBookEntryArray.cs" />
+    <Compile Include="Collections\HashSetOfNamedMutable.cs" />
+    <Compile Include="Collections\KeyValuePairArray.cs" />
+    <Compile Include="Collections\ObservableHashSet.cs" />
+    <Compile Include="Collections\SignalQueue.cs" />
+    <Compile Include="Collections\OrderQueue.cs" />
+    <Compile Include="Collections\SymbolOrderBook.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="ConnectionCredentials.cs" />
+    <Compile Include="Data\CorrelationCalculator.cs" />
+    <Compile Include="Data\IHistoryDataProvider.cs" />
+    <Compile Include="Data\PositionTradesFactory.cs" />
+    <Compile Include="Data\ISubscriber.cs" />
+    <Compile Include="Data\SymbolsSummary.cs" />
+    <Compile Include="Data\OrderBook.cs" />
+    <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\INamedDataContext.cs" />
+    <Compile Include="Data\OrderBookContext.cs" />
+    <Compile Include="Data\IQuoteUpdateManager.cs" />
+    <Compile Include="Data\IQuoteProvider.cs" />
+    <Compile Include="Data\ISymbolDataUpdatedNotifier.cs" />
+    <Compile Include="Data\RawBaseNamedDataContext.cs" />
+    <Compile Include="Data\RawBaseDataContext.cs" />
+    <Compile Include="Data\Spreads\BuySpreadDataDictionaryFactory.cs" />
+    <Compile Include="Data\Spreads\BuySpreadFactory.cs" />
+    <Compile Include="Data\Spreads\SellSpreadFactory.cs" />
+    <Compile Include="Data\Spreads\SellSpreadDataDictionaryFactory.cs" />
+    <Compile Include="Data\SymbolDataContext.cs" />
+    <Compile Include="Data\IStrictDataContext.cs" />
+    <Compile Include="Data\TradingData.cs" />
+    <Compile Include="Data\IObservableHashSetFactory.cs" />
+    <Compile Include="Data\TradingDataContext.cs" />
+    <Compile Include="Data\UnfilledOrderCancellationRequestFactory.cs" />
+    <Compile Include="Enums\DataModelType.cs" />
+    <Compile Include="Enums\BarState.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Events\ItemAddedNotifier.cs" />
+    <Compile Include="Extensions\Collections\BarCollectionExtensions.cs" />
+    <Compile Include="Extensions\Data\CorrelationExtensions.cs" />
+    <Compile Include="Extensions\CrossLinesExtensions.cs" />
+    <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\Data\OrderBookContextExtensions.cs" />
+    <Compile Include="Extensions\Collections\OrderCollectionExtensions.cs" />
+    <Compile Include="Extensions\Models\OrderExtensions.cs" />
+    <Compile Include="Extensions\Models\SignalExtensions.cs" />
+    <Compile Include="Extensions\Collections\StrategyCollectionExtensions.cs" />
+    <Compile Include="Extensions\Collections\TickCollectionExtension.cs" />
+    <Compile Include="Extensions\Collections\TradeCollectionExtensions.cs" />
+    <Compile Include="Extensions\Models\BarExtensions.cs" />
+    <Compile Include="Extensions\Models\TradeExtensions.cs" />
+    <Compile Include="Extensions\Data\TradingDataContextExtensions.cs" />
+    <Compile Include="Handlers\AddedItemHandler.cs" />
+    <Compile Include="Handlers\CancelOrderOnCancellationConfirmation.cs" />
+    <Compile Include="Handlers\CancelOrderOnCancellationRequest.cs" />
+    <Compile Include="Handlers\SendItemOnTick.cs" />
+    <Compile Include="Handlers\SendItemOnTrade.cs" />
+    <Compile Include="Handlers\CancelOrderOnTrade.cs" />
+    <Compile Include="Handlers\CancelStopOrderOnTrade.cs" />
+    <Compile Include="Handlers\MakeRangeBarsOnTick.cs" />
+    <Compile Include="Handlers\MarkPartiallyFilledOrderAsOutdatedOnTick.cs" />
+    <Compile Include="Handlers\MarkOrderAsOutdatedOnTick.cs" />
+    <Compile Include="Handlers\SendItemOnOrder.cs" />
+    <Compile Include="Handlers\QuotesHandler.cs" />
+    <Compile Include="Handlers\PlaceCancelOrderRequestOnTick.cs" />
+    <Compile Include="Handlers\GenericHashSetObserver.cs" />
+    <Compile Include="Handlers\OrderQueueProcessor.cs" />
+    <Compile Include="Handlers\RejectOrderOnOrderRejection.cs" />
+    <Compile Include="Handlers\SendItemOnSignal.cs" />
+    <Compile Include="Handlers\SignalQueueProcessor.cs" />
+    <Compile Include="Handlers\SendItemOnBar.cs" />
+    <Compile Include="Handlers\TrailStopOnTick.cs" />
+    <Compile Include="Handlers\MakeBarsOnTick.cs" />
+    <Compile Include="Handlers\UpdateBarsOnTick.cs" />
+    <Compile Include="Handlers\UpdateOrderAmountOnTrade.cs" />
+    <Compile Include="Handlers\UpdateOrderOnOrderDeliveryConfirmation.cs" />
+    <Compile Include="Handlers\UpdatePositionOnTrade.cs" />
+    <Compile Include="Models\ArbitrageSettings.cs" />
+    <Compile Include="Models\BarBuilder.cs" />
+    <Compile Include="Models\BarSettings.cs" />
+    <Compile Include="Models\CloseOrder.cs" />
+    <Compile Include="Models\HistoryDataRequestBase.cs" />
+    <Compile Include="Models\TickHistoryDataRequest.cs" />
+    <Compile Include="Models\Correlation.cs" />
+    <Compile Include="Models\HistoryDataRequest.cs" />
+    <Compile Include="Models\MoveOrder.cs" />
+    <Compile Include="Models\NamedEqualityComparer.cs" />
+    <Compile Include="Models\OrderBookEntry.cs" />
+    <Compile Include="Models\OrderMoveRequest.cs" />
+    <Compile Include="Models\SpreadValue.cs" />
+    <Compile Include="Models\StrategyPosition.cs" />
+    <Compile Include="Models\StrategyVolumeChangeStep.cs" />
+    <Compile Include="Models\SymbolSettings.cs" />
+    <Compile Include="Models\SymbolSummary.cs" />
+    <Compile Include="Models\TenMinutesBarHistoryDataRequest.cs" />
+    <Compile Include="Models\TrendEqualityComparer.cs" />
+    <Compile Include="Models\Named.cs" />
+    <Compile Include="Models\OpenOrder.cs" />
+    <Compile Include="Models\PointsSettings.cs" />
+    <Compile Include="Models\PositionSettings.cs" />
+    <Compile Include="Models\SpreadSettings.cs" />
+    <Compile Include="Models\TakeProfitOrderSettings.cs" />
+    <Compile Include="Models\OrderCancellationFailedNotification.cs" />
+    <Compile Include="Models\OrderDeliveryConfirmation.cs" />
+    <Compile Include="Models\OrderDeliveryConfirmationComparer.cs" />
+    <Compile Include="Models\OrderSettings.cs" />
+    <Compile Include="Models\OrderSettingsComparer.cs" />
+    <Compile Include="Models\SMASettings.cs" />
+    <Compile Include="Models\StopLossOrderSettings.cs" />
+    <Compile Include="Models\StopPointsSettings.cs" />
+    <Compile Include="Models\ProfitPointsSettings.cs" />
+    <Compile Include="Models\Trade.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Signal.cs" />
+    <Compile Include="Models\IdentifiedComparer.cs" />
+    <Compile Include="Models\PositionEqualityComparer.cs" />
+    <Compile Include="Models\OrderCancellationConfirmation.cs" />
+    <Compile Include="Models\OrderCancellationRequest.cs" />
+    <Compile Include="Models\OrderRejection.cs" />
+    <Compile Include="Models\StrategyHeader.cs" />
+    <Compile Include="Models\Symbol.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Trend.cs" />
+    <Compile Include="Models\Mutable.cs" />
+    <Compile Include="Data\IDatabase.cs" />
+    <Compile Include="Data\IGenericFactory.cs" />
+    <Compile Include="Data\IGenericSingleton.cs" />
+    <Compile Include="Events\IBinder.cs" />
+    <Compile Include="Events\IGenericObserver.cs" />
+    <Compile Include="Extensions\Collections\PositionCollectionExtensions.cs" />
+    <Compile Include="Handlers\GenericCollectionObserver.cs" />
+    <Compile Include="Handlers\IOrderManager.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Handlers\TraderBase.cs" />
+    <Compile Include="Statistics\Deal.cs" />
+    <Compile Include="Statistics\DealList.cs" />
+    <Compile Include="TimeHelpers\BrokerDateTime.cs" />
+    <Compile Include="Events\IGenericBinder.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Models\IIdentified.cs" />
+    <Compile Include="Models\IdentifiedEqualityComparer.cs" />
+    <Compile Include="Models\IDateTime.cs" />
+    <Compile Include="Collections\ObservableQueue.cs" />
+    <Compile Include="Data\BaseDataContext.cs" />
+    <Compile Include="TimeHelpers\DateTimeExtensions.cs" />
+    <Compile Include="Data\SerialIntegerFactory.cs" />
+    <Compile Include="Collections\ObservableCollection.cs" />
+    <Compile Include="Extensions\Collections\ListExtensions.cs" />
+    <Compile Include="Data\IOrderFactory.cs" />
+    <Compile Include="Models\Tick.cs" />
+    <Compile Include="Models\TimePeriod.cs" />
+    <Compile Include="Models\Bar.cs" />
+    <Compile Include="Models\BarsFactory.cs" />
+    <Compile Include="Data\TextFileStringListFactory.cs" />
+    <Compile Include="Data\TickCollectionFactory.cs" />
+    <Compile Include="TimeHelpers\TimeTracker.cs" />
+    <Compile Include="StructFactory.cs" />
+    <Compile Include="Models\BidAsk.cs" />
+    <Compile Include="Events\IObserver.cs" />
+    <Compile Include="Events\Subject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimeHelpers\FortsTradingSchedule.cs" />
+    <Compile Include="TimeHelpers\ITimeTrackable.cs" />
+    <Compile Include="TimeHelpers\ITradingSchedule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diagrams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TRL.Logging\TRL.Logging.csproj">
+      <Project>{b2c1c965-bfd2-40d4-ad7d-e9c4b55c5f30}</Project>
+      <Name>TRL.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
