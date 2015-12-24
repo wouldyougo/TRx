@@ -24,7 +24,7 @@ namespace TRx.Indicators
         /// </summary>
         public int КоличествоУровней { get; private set; }
         /// <summary>
-        /// 
+        /// ШагУровней - применяется для генерации списка уровней с некоторым шагом
         /// </summary>
         public double ШагУровней { get; set; }
 
@@ -54,12 +54,12 @@ namespace TRx.Indicators
         public System.Collections.Generic.IList<IList<double>> Values { get; set; }
 
         /// <summary>
-        /// 
+        /// Список Признаков Пересечения уровней Сверху
         /// </summary>
         public IList<bool> ПересеченияСверху { get; private set; }
 
         /// <summary>
-        /// 
+        /// Список Признаков Пересечения уровней Снизу
         /// </summary>
         public IList<bool> ПересеченияСнизу { get; private set; }
 
@@ -77,7 +77,13 @@ namespace TRx.Indicators
         /// НомерСреднегоУровня
         /// </summary>
         public int УровеньСредний { get; private set; }
+        /// <summary>
+        /// Признак Пересечения уровней Сверху
+        /// </summary>
         public bool ПересечениеСверху { get; private set; }
+        /// <summary>
+        /// Признак Пересечения уровней Снизу
+        /// </summary>
         public bool ПересечениеСнизу { get; private set; }
 
         /// <summary>

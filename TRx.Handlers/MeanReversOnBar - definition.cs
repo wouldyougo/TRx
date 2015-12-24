@@ -17,22 +17,29 @@ using TRx.Helpers;
 
 namespace TRx.Handlers
 {
+    /// <summary>
+    /// Возврат к средней на барах
+    /// </summary>
     public partial class MeanReversOnBar//:AddedItemHandler<Bar>
     {
         private StrategyHeader strategyHeader;
         private IDataContext tradingData;
         private ObservableQueue<Signal> signalQueue;
         private ILogger logger;
-
-        public IndicatorOnBarMaDeviation maDeviation { get; private set; }
-        public Levels Levels { get; private set; }
-
         /// <summary>
-        /// Номера пересеченых уровней для каждого бара
+        /// Индикатор отклонения от скользящей средней
+        /// </summary>
+        public IndicatorOnBarMaDeviation maDeviation { get; private set; }
+        /// <summary>
+        /// Индикатор уровни
+        /// </summary>
+        public Levels Levels { get; private set; }
+        /// <summary>
+        /// Номер пересеченного уровня для каждого бара
         /// </summary>
         public IList<int> Уровень { get; private set; }
         /// <summary>
-        /// Номера прошлых пересеченых уровней для каждого бара
+        /// Номера прошлого пересеченного уровня для каждого бара
         /// </summary>
         public IList<int> УровеньПрошлый { get; private set; }
         /// <summary>
