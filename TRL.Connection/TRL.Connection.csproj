@@ -7,8 +7,8 @@
     <ProjectGuid>{04DD5070-B502-4412-92E9-96EF486952AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TRL.Connect</RootNamespace>
-    <AssemblyName>TRL.Connect</AssemblyName>
+    <RootNamespace>TRL.Connection</RootNamespace>
+    <AssemblyName>TRL.Connection</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

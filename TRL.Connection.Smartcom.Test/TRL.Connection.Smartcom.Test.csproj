@@ -9,8 +9,8 @@
     <ProjectGuid>{5E2910C4-12EB-46FC-86A4-D9F83C961C8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TRL.Connect.Smartcom.Test</RootNamespace>
-    <AssemblyName>TRL.Connect.Smartcom.Test</AssemblyName>
+    <RootNamespace>TRL.Connection.Smartcom.Test</RootNamespace>
+    <AssemblyName>TRL.Connection.Smartcom.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -155,9 +155,9 @@
       <Project>{f21d2504-efac-41b0-a799-a2534a2066f2}</Project>
       <Name>TRL.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connect.Smartcom.csproj">
+    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connection.Smartcom.csproj">
       <Project>{5ce1582e-32b5-466f-91fc-465c9d4b3d5b}</Project>
-      <Name>TRL.Connect.Smartcom</Name>
+      <Name>TRL.Connection.Smartcom</Name>
     </ProjectReference>
     <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>

@@ -32,8 +32,8 @@
       <Name>TRL.Common</Name>
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connect.Smartcom.csproj">
-      <Name>TRL.Connect.Smartcom</Name>
+    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connection.Smartcom.csproj">
+      <Name>TRL.Connection.Smartcom</Name>
       <Project>{5ce1582e-32b5-466f-91fc-465c9d4b3d5b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\TRL.csharp\TRL.Csharp.csproj">
