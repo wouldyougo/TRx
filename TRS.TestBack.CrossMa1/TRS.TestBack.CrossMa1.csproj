@@ -147,9 +147,9 @@
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
       <Name>TRL.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connection.Smartcom.csproj">
+    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connect.Smartcom.csproj">
       <Project>{5ce1582e-32b5-466f-91fc-465c9d4b3d5b}</Project>
-      <Name>TRL.Connection.Smartcom</Name>
+      <Name>TRL.Connect.Smartcom</Name>
     </ProjectReference>
     <ProjectReference Include="..\TRL.Emulation\TRL.Emulation.csproj">
       <Project>{8d45f99b-ae4d-4521-8ec1-186628d58575}</Project>

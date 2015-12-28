@@ -8,8 +8,8 @@
     <ProjectGuid>{5CE1582E-32B5-466F-91FC-465C9D4B3D5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TRL.Connection.Smartcom</RootNamespace>
-    <AssemblyName>TRL.Connection.Smartcom</AssemblyName>
+    <RootNamespace>TRL.Connect.Smartcom</RootNamespace>
+    <AssemblyName>TRL.Connect.Smartcom</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
