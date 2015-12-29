@@ -296,7 +296,7 @@ namespace TRx.Base
             //ITransaction getBars = new GetBarsCommand(barSettings.Symbol, barSettings.Interval, barSettings.Period);
             //getBars.Execute();
         }
-        public void IsDisconnected(string reason)
+        virtual public void IsDisconnected(string reason)
         {
             DefaultLogger.Instance.Log("IsDisconnected.");
             Console.WriteLine("IsDisconnected.");

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //using Microsoft.AspNet.SignalR;
 //using Microsoft.Owin.Hosting;
 
-using SmartCOM3Lib;
+//using SmartCOM3Lib;
 
 using TRL.Logging;
 using TRL.Common.Data;

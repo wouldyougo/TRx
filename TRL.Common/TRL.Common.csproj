@@ -139,6 +139,7 @@
     <Compile Include="Handlers\UpdateOrderAmountOnTrade.cs" />
     <Compile Include="Handlers\UpdateOrderOnOrderDeliveryConfirmation.cs" />
     <Compile Include="Handlers\UpdatePositionOnTrade.cs" />
+    <Compile Include="Helpers\Class1.cs" />
     <Compile Include="Models\ArbitrageSettings.cs" />
     <Compile Include="Models\BarBuilder.cs" />
     <Compile Include="Models\BarSettings.cs" />

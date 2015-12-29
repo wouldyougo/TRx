@@ -102,7 +102,8 @@ namespace TRx.Program
             traderBase = new TraderBase(new SmartComOrderManager());
             adapter = new SmartComAdapter();
 
-            SmartComHandlers.Instance.Add<_IStClient_DisconnectedEventHandler>(IsDisconnected);
+            SmartComHandlers.Instance.Disconnected += IsDisconnected;
+            //SmartComHandlers.Instance.Add<_IStClient_DisconnectedEventHandler>(IsDisconnected);
             SmartComHandlers.Instance.Add<_IStClient_ConnectedEventHandler>(IsConnected);
 
             sendItemTrade = new SendItemOnTrade(TradingData.Instance, DefaultLogger.Instance);
@@ -163,6 +164,15 @@ namespace TRx.Program
             Console.WriteLine("SmartCom Adapter.Restart()");
             adapter.Restart();
         }
+
+        override public void IsDisconnected(string reason)
+        {
+            Console.WriteLine("Template IsDisconnected");
+            //DefaultLogger.Instance.Log("Cleaning Bar collection.");
+            //Console.WriteLine("Cleaning Bar collection.");
+            //TradingData.Instance.Get<ICollection<Bar>>().Clear();
+        }
+
         #endregion //
 
         #region // переопределение консольных команд
