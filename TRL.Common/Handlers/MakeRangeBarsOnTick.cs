@@ -223,12 +223,12 @@ namespace TRL.Common.Handlers
             }
 
             /// внутренние состояния бара в процессе обработки тика
-            String state;
+            //String state;
             while (true) {
                 /// п2 если текущий бар отсутсвует
                 if (barCurrent == null)
                 {
-                    state = "Created";
+                    //state = "Created";
                     ///     создаем новый текущий бар
                     ///         поступивший тик добавляем в текущий бар
                     ///         цена открытия = цене поступивщего тика
@@ -239,17 +239,17 @@ namespace TRL.Common.Handlers
                 }
                 /// п0 если текущий бар в состоянии "закончен"
                 if (barCurrent.State == Enums.BarState.Finished) {
-                    state = "Finished";
+                    //state = "Finished";
                     ///         создаем новый текущий бар
                     ///         цена открытия = цене закрытия предыдущего бара
                     barCurrent = barBuilder.CreateBar(barCurrent.Close, tick.DateTime, tick.Symbol);
-                    state = "Updated";
+                    //state = "Updated";
                     ///         переводим текущий бар в состоянии "обновлен"
                     ///         переходим в п1
                 }
                 /// п1 если текущий бар в состоянии "обновлен"
                 if (barCurrent.State == Enums.BarState.Changed) {
-                    state = "Updated";
+                    //state = "Updated";
                     ///     проверяем возможность добавления нового тика в текущий бар
                     ///     если тело бара + расстояние до тика > значения интревала
                     ///     если добавить нельзя - интервал превышен
@@ -257,7 +257,7 @@ namespace TRL.Common.Handlers
                         ///         цена закрытия = цене открытия + интервал
                         ///         переводим текущий бар в состояние "закончен"
                         barBuilder.UpdateBarFinish(barCurrent, tick);
-                        state = "Finished";
+                        //state = "Finished";
                         ///         добавить "законченый" бар в контекст
                         this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
                         this.tradingData.Get<ObservableCollection<Bar>>().Add(barCurrent);
@@ -269,7 +269,7 @@ namespace TRL.Common.Handlers
                     else {
                         ///         поступивший тик добавляем в текущий бар
                         barCurrent = barBuilder.UpdateBar(barCurrent, tick);
-                        state = "Updated";
+                        //state = "Updated";
                         ///         сгенерировать событие бара "обновлен"
                         ///         выходим из процесса обработки
                         break;
@@ -329,13 +329,13 @@ namespace TRL.Common.Handlers
             }
 
             /// внутренние состояния бара в процессе обработки тика
-            String state;
+            //String state;
             while (true)
             {
                 /// п2 если текущий бар отсутсвует
                 if (barCurrent == null)
                 {
-                    state = "Created";
+                    //state = "Created";
                     ///     создаем новый текущий бар
                     ///         поступивший тик добавляем в текущий бар
                     ///         цена открытия = цене поступивщего тика
@@ -347,18 +347,18 @@ namespace TRL.Common.Handlers
                 /// п0 если текущий бар в состоянии "закончен"
                 if (barCurrent.State == Enums.BarState.Finished)
                 {
-                    state = "Finished";
+                    //state = "Finished";
                     ///         создаем новый текущий бар
                     ///         цена открытия = цене закрытия предыдущего бара
                     barCurrent = barBuilder.CreateBar(barCurrent.Close, tick.DateTime, tick.Symbol);
-                    state = "Updated";
+                    //state = "Updated";
                     ///         переводим текущий бар в состоянии "обновлен"
                     ///         переходим в п1
                 }
                 /// п1 если текущий бар в состоянии "обновлен"
                 if (barCurrent.State == Enums.BarState.Changed)
                 {
-                    state = "Updated";
+                    //state = "Updated";
                     ///     проверяем возможность добавления нового тика в текущий бар
                     ///     если тело бара + расстояние до тика > значения интревала
                     ///     если добавить нельзя - интервал превышен
@@ -367,7 +367,7 @@ namespace TRL.Common.Handlers
                         ///         цена закрытия = цене открытия + интервал
                         ///         переводим текущий бар в состояние "закончен"
                         barBuilder.UpdateBarFinish(barCurrent, tick);
-                        state = "Finished";
+                        //state = "Finished";
                         ///         добавить "законченый" бар в контекст
                         this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
                         this.tradingData.Get<ObservableCollection<Bar>>().Add(barCurrent);
@@ -380,7 +380,7 @@ namespace TRL.Common.Handlers
                     {
                         ///         поступивший тик добавляем в текущий бар
                         barCurrent = barBuilder.UpdateBar(barCurrent, tick);
-                        state = "Updated";
+                        //state = "Updated";
                         ///         сгенерировать событие бара "обновлен"
                         ///         выходим из процесса обработки
                         //break;
@@ -391,7 +391,7 @@ namespace TRL.Common.Handlers
                         ///         если текущий бар готов т.е. может быть закончен
                         ///             переводим текущий бар в состояние "закончен"
                         barBuilder.FinishBarState(barCurrent);
-                        state = "Finished";
+                        //state = "Finished";
                         ///             сгенерировать событие на "закончен" бара
                         ///             добавить завершенный бар в контекст                    
                         this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
