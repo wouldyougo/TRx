@@ -172,6 +172,15 @@ namespace TRx.Program
             //Console.WriteLine("Cleaning Bar collection.");
             //TradingData.Instance.Get<ICollection<Bar>>().Clear();
         }
+        override public void IsConnected()
+        {
+            //DefaultLogger.Instance.Log("IsConnected.");
+            Console.WriteLine("IsConnected.");
+            //DefaultLogger.Instance.Log("Requesting history bars.");
+            //Console.WriteLine(String.Format("Requesting history bars Symbol: {0} Interval: {1} Period: {2}", barSettings.Symbol, barSettings.Interval, barSettings.Period));
+            //ITransaction getBars = new GetBarsCommand(barSettings.Symbol, barSettings.Interval, barSettings.Period);
+            //getBars.Execute();
+        }
 
         #endregion //
 
