@@ -15,7 +15,8 @@
 
 using System;
 using System.Collections.Generic;
-using QuantConnect.Brokerages;
+//using QuantConnect.Brokerages;
+using TRL.Connect.Smartcom;
 using TRL.Common.Models;
 //using QuantConnect.Logging;
 //using QuantConnect.Orders;
@@ -28,6 +29,8 @@ namespace QuantConnect.Brokerages.SmartCom
     /// </summary>
     public class BrokerageSmartCom : Brokerage
     {
+        public SmartComOrderManager manager { get; set; }
+
         /// <summary>
         /// Event that fires each time an order is filled
         /// </summary>
@@ -71,6 +74,7 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <returns>True if the request for a new order has been placed, false otherwise</returns>
         public override bool PlaceOrder(Order order) {
             throw new NotImplementedException();
+            //manager.PlaceOrder(order);
         }
 
         /// <summary>
