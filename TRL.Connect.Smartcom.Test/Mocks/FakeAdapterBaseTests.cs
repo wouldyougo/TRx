@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TRL.Connect.Smartcom.Data;
 using TRL.Connect.Smartcom.Events;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 
 namespace TRL.Connect.Smartcom.Test.Mocks
 {

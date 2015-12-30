@@ -5,8 +5,9 @@ using System.Text;
 using TRL.Connect.Smartcom.Events;
 using TRL.Connect.Smartcom.Data;
 using SmartCOM3Lib;
+using TRL.Connector;
 using TRL.Message;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 using TRL.Configuration;
 using TRL.Common.Events;
 using TRL.Common.Data;
@@ -161,6 +162,13 @@ namespace TRL.Connect.Smartcom
                 BrokerDateTime.Make(DateTime.Now), 
                 this.GetType().Name, 
                 reason));
+        }
+        /// <summary>
+        /// stServer.IsConnected()
+        /// </summary>
+        public bool IsConnected
+        {
+            get { return this.connector.IsConnected; }
         }
     }
 }

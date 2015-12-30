@@ -63,6 +63,7 @@
     <Compile Include="BrokerageFactory.cs" />
     <Compile Include="IBrokerage.cs" />
     <Compile Include="IBrokerageFactory.cs" />
+    <Compile Include="IConnector.cs" />
     <Compile Include="ISymbolMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

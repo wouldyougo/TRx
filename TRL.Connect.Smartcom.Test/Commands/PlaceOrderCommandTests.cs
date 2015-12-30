@@ -10,6 +10,7 @@ using TRL.Logging;
 using TRL.Common;
 using TRL.Common.TimeHelpers;
 
+/*
 namespace TRL.Connect.Smartcom.Test.Commands
 {
     [TestClass]
@@ -40,3 +41,4 @@ namespace TRL.Connect.Smartcom.Test.Commands
         }
     }
 }
+*/

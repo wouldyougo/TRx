@@ -11,6 +11,7 @@ using TRL.Logging;
 using TRL.Common;
 using TRL.Common.TimeHelpers;
 
+/*
 namespace TRL.Connect.Smartcom.Commands
 {
     public class PlaceOrderCommand
@@ -50,3 +51,4 @@ namespace TRL.Connect.Smartcom.Commands
         
     }
 }
+*/

@@ -8,12 +8,14 @@ using TRL.Connect.Smartcom.Test.Mocks;
 using TRL.Connect.Smartcom.Data;
 using TRL.Connect.Smartcom.Events;
 using SmartCOM3Lib;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 using TRL.Message;
+using TRL.Connector;
 using System.Threading;
 using TRL.Logging;
 
 namespace TRL.Connect.Smartcom.Test
+
 {
     [TestClass]
     public class SmartComAdapterTests

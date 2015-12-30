@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TRL.Message;
 using TRL.Connect.Smartcom.Test.Mocks;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 using SmartCOM3Lib;
 using TRL.Connect.Smartcom.Data;
 using TRL.Connect.Smartcom.Events;
@@ -13,7 +13,7 @@ using TRL.Common.Data;
 using System.Threading;
 using TRL.Logging;
 
-namespace TRL.Connect.Smartcom.Test.Net
+namespace TRL.Connect.Smartcom.Test.Connector
 {
 	[TestClass]
 	public class SmartComConnectorTests
