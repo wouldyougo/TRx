@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TRL.Connect.Smartcom.Data;
 using TRL.Connect.Smartcom.Events;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 using TRL.Logging;
 
 namespace TRL.Connect.Smartcom.Test.Mocks

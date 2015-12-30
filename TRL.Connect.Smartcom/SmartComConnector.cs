@@ -13,7 +13,7 @@ using TRL.Common.Data;
 using TRL.Logging;
 using TRL.Common;
 
-namespace TRL.Connect.Smartcom.Net
+namespace TRL.Connect.Smartcom
 {
     public class SmartComConnector:IConnector
     {

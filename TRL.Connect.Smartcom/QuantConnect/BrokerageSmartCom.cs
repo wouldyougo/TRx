@@ -31,6 +31,8 @@ namespace QuantConnect.Brokerages.SmartCom
     {
         public SmartComOrderManager manager { get; set; }
 
+        private SmartComAdapter trader { get; set; }
+
         /// <summary>
         /// Event that fires each time an order is filled
         /// </summary>
@@ -54,8 +56,11 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <summary>
         /// Returns true if we're currently connected to the broker
         /// </summary>
-        public override bool IsConnected {
-            get { throw new NotImplementedException(); }
+        public override bool IsConnected
+        {
+            get { throw new NotImplementedException();
+
+            }
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ using TRL.Connect.Smartcom.Events;
 using TRL.Connect.Smartcom.Data;
 using SmartCOM3Lib;
 using TRL.Message;
-using TRL.Connect.Smartcom.Net;
+using TRL.Connect.Smartcom;
 using TRL.Configuration;
 using TRL.Common.Events;
 using TRL.Common.Data;
