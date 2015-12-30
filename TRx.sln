@@ -25,13 +25,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Connector", "TRL.Connec
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B030C0E-03DC-4A10-8438-79BD29F0760D}"
 	ProjectSection(SolutionItems) = preProject
-		GitLog.txt = GitLog.txt
-		HowTo Git.md = HowTo Git.md
-		HowTo.md = HowTo.md
+		Solution Items\CodeMapConnector.dgml = Solution Items\CodeMapConnector.dgml
+		Solution Items\Error.txt = Solution Items\Error.txt
+		Solution Items\Git HowTo.md = Solution Items\Git HowTo.md
+		Solution Items\Git Log.md = Solution Items\Git Log.md
+		Solution Items\HowTo.md = Solution Items\HowTo.md
 		README.md = README.md
-		ToDo.txt = ToDo.txt
-		url.txt = url.txt
-		Обзор возможностей.cs = Обзор возможностей.cs
+		Solution Items\SmartCOM_manual_3_0.pdf = Solution Items\SmartCOM_manual_3_0.pdf
+		Solution Items\url.txt = Solution Items\url.txt
+		Solution Items\Обзор возможностей C#.cs = Solution Items\Обзор возможностей C#.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Indicators", "TRL.Indicators\TRL.Indicators.csproj", "{AA66AB66-CC22-465D-9B80-EF33DFDD77E0}"
@@ -61,15 +63,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D7A1DF
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.WPFClient", "SignalR.WPFClient\SignalR.WPFClient.csproj", "{40C56846-04AF-457A-A68F-EBCABD765E70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.WPFClient", "Projects second\SignalR.WPFClient\SignalR.WPFClient.csproj", "{40C56846-04AF-457A-A68F-EBCABD765E70}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRS.Trader.WPFClient", "TRS.Trader.WpfClient\TRS.Trader.WPFClient.csproj", "{4B0199CB-86E1-4D3B-AC0D-686D2B0EE23D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRx.Program.Client", "TRx.Program.Client\TRx.Program.Client.csproj", "{520D0757-902D-4693-9B53-C676606A7EBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.WpfApplication2", "OxyPlot.WpfApplication2\OxyPlot.WpfApplication2.csproj", "{BC998130-E0C4-4267-B9CA-14B04BDC7B3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.WpfApplication2", "Projects second\OxyPlot.WpfApplication2\OxyPlot.WpfApplication2.csproj", "{BC998130-E0C4-4267-B9CA-14B04BDC7B3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.WpfApplication1", "OxyPlot.WpfApplication1\OxyPlot.WpfApplication1.csproj", "{1DE1E50F-386A-4CF2-8EAB-6F6F7CC40F37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.WpfApplication1", "Projects second\OxyPlot.WpfApplication1\OxyPlot.WpfApplication1.csproj", "{1DE1E50F-386A-4CF2-8EAB-6F6F7CC40F37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Charting", "TRL.Charting\TRL.Charting.csproj", "{AB036B87-F2CC-46CD-94C4-4486D10FF342}"
 EndProject
@@ -83,21 +85,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRS.Trader.Converter.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRx.Indicators", "TRx.Indicators\TRx.Indicators.csproj", "{0C1F9ECB-AA45-46BA-952A-2AE604BB5871}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.WinFormsServer", "SignalR.WinFormsServer\SignalR.WinFormsServer.csproj", "{2368DFE4-48D1-482D-9445-B5F95FEF5424}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.WinFormsServer", "Projects second\SignalR.WinFormsServer\SignalR.WinFormsServer.csproj", "{2368DFE4-48D1-482D-9445-B5F95FEF5424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.Sample", "TRS.Trader.WebClient.Sample\WebClient.Sample.csproj", "{CC7CD55C-A6DB-4810-A327-ACD00DFF5630}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.Sample", "TRS.Trader\TRS.Trader.WebClient.Sample\WebClient.Sample.csproj", "{CC7CD55C-A6DB-4810-A327-ACD00DFF5630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.highstock", "TRS.Trader.WebClient.highstock\WebClient.highstock.csproj", "{16242DFD-AC6D-4773-A7E6-A24EBE812591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.highstock", "TRS.Trader\TRS.Trader.WebClient.highstock\WebClient.highstock.csproj", "{16242DFD-AC6D-4773-A7E6-A24EBE812591}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.highcharts", "TRS.Trader.WebClient.highcharts\WebClient.highcharts.csproj", "{FE0BD298-F4AB-4A8D-8BEA-C4C3DB41073E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient.highcharts", "TRS.Trader\TRS.Trader.WebClient.highcharts\WebClient.highcharts.csproj", "{FE0BD298-F4AB-4A8D-8BEA-C4C3DB41073E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{DB963FCA-0BB4-4414-8EB9-24D0124188B8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects second", "Projects second", "{DB963FCA-0BB4-4414-8EB9-24D0124188B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRL", "TRL", "{623375FA-0C22-458A-86EC-B438C24444BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRx", "TRx", "{E11661AE-20D6-443B-ACC0-85F1EA50A405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aCcordMath", "AccordMath\aCcordMath.csproj", "{5B9C3E9B-5F22-4137-8269-C21A7D9717A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aCcordMath", "Projects second\AccordMath\aCcordMath.csproj", "{5B9C3E9B-5F22-4137-8269-C21A7D9717A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSL.Indicators", "..\TSL\TSL.Indicators\TSL.Indicators.csproj", "{34E42886-FEED-4045-84F9-5CA9598F5D91}"
 EndProject
@@ -144,7 +146,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRS", "TRS", "{8828E24B-D4B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRx.Strategy.Sample1", "TRx.Strategy.Sample1\TRx.Strategy.Sample1.csproj", "{CB3FB486-21C1-4221-A053-6F0513D37A68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationTest", "ConsoleApplicationTest\ConsoleApplicationTest.csproj", "{7853D176-F9B5-4A88-A543-E2BB558A41E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationTest", "Projects second\ConsoleApplicationTest\ConsoleApplicationTest.csproj", "{7853D176-F9B5-4A88-A543-E2BB558A41E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRx.Strategy.Sample2", "TRx.Strategy.Sample2\TRx.Strategy.Sample2.csproj", "{BC3CC68F-A823-4559-AD1F-B4DC898E8C8C}"
 EndProject
