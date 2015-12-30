@@ -31,7 +31,7 @@ namespace QuantConnect.Brokerages.SmartCom
     {
         public SmartComOrderManager manager { get; set; }
 
-        private SmartComAdapter trader { get; set; }
+        private SmartComAdapter adapter { get; set; }
 
         /// <summary>
         /// Event that fires each time an order is filled
@@ -49,25 +49,19 @@ namespace QuantConnect.Brokerages.SmartCom
         //public event EventHandler<BrokerageMessageEvent> Message;
 
         /// <summary>
-        /// Gets the name of the brokerage
-        /// </summary>
-        //public string Name { get; private set; }
-
-        /// <summary>
         /// Returns true if we're currently connected to the broker
         /// </summary>
         public override bool IsConnected
         {
-            get { throw new NotImplementedException();
-
+            get { //throw new NotImplementedException();
+                return this.adapter.IsConnected;
             }
         }
 
         /// <summary>
-        /// Creates a new Brokerage instance with the specified name
+        /// Creates a new SmartCom Brokerage instance with the specified name
         /// </summary>
-        /// <param name="name">The name of the brokerage</param>
-        protected BrokerageSmartCom(string name):base(name)
+        protected BrokerageSmartCom():base("SmartCom")
         {
             //Name = name;
         }
@@ -104,14 +98,16 @@ namespace QuantConnect.Brokerages.SmartCom
         /// Connects the client to the broker's remote servers
         /// </summary>
         public override void Connect() {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            this.adapter.Start();
         }
 
         /// <summary>
         /// Disconnects the client from the broker's remote servers
         /// </summary>
         public override void Disconnect() {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            this.adapter.Stop();
         }
 
         /// <summary>

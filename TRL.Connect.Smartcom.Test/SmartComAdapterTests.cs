@@ -15,6 +15,7 @@ using System.Threading;
 using TRL.Logging;
 
 namespace TRL.Connect.Smartcom.Test
+
 {
     [TestClass]
     public class SmartComAdapterTests

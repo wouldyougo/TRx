@@ -163,5 +163,12 @@ namespace TRL.Connect.Smartcom
                 this.GetType().Name, 
                 reason));
         }
+        /// <summary>
+        /// stServer.IsConnected()
+        /// </summary>
+        public bool IsConnected
+        {
+            get { return this.connector.IsConnected; }
+        }
     }
 }
