@@ -73,7 +73,18 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <returns>True if the request for a new order has been placed, false otherwise</returns>
         public override bool PlaceOrder(Order order) {
             throw new NotImplementedException();
-            //manager.PlaceOrder(order);
+            try
+            {
+                manager.PlaceOrder(order);
+                //Log.Trace("BrokerageSmartCom.PlaceOrder(): Symbol: " + order.Symbol.Value + " Quantity: " + order.Quantity);
+                return true;
+            }
+            catch (Exception err)
+            {
+                throw new NotImplementedException();
+                //Log.Error("BrokerageSmartCom.PlaceOrder(): " + err);
+                return false;
+            }
         }
 
         /// <summary>
@@ -83,6 +94,19 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <returns>True if the request was made for the order to be updated, false otherwise</returns>
         public override bool UpdateOrder(Order order) {
             throw new NotImplementedException();
+            try
+            {
+                //здесь ошибка:
+                manager.MoveOrder(order, order.Price);
+                //Log.Trace("BrokerageSmartCom. UpdateOrder(): Symbol: " + order.Symbol.Value + " Quantity: " + order.Quantity);
+                return true;
+            }
+            catch (Exception err)
+            {
+                throw new NotImplementedException();
+                //Log.Error("BrokerageSmartCom. UpdateOrder(): " + err);
+                return false;
+            }
         }
 
         /// <summary>
@@ -92,6 +116,18 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <returns>True if the request was made for the order to be canceled, false otherwise</returns>
         public override bool CancelOrder(Order order) {
             throw new NotImplementedException();
+            try
+            {
+                //Log.Trace("BrokerageSmartCom.CancelOrder(): Symbol: " + order.Symbol.Value + " Quantity: " + order.Quantity);
+                manager.CancelOrder(order);
+                // canceled order events fired upon confirmation, see HandleError
+            }
+            catch (Exception err)
+            {
+                //Log.Error("BrokerageSmartCom.CancelOrder(): OrderID: " + order.Id + " - " + err);
+                return false;
+            }
+            return true;
         }
 
         /// <summary>
@@ -181,6 +217,40 @@ namespace QuantConnect.Brokerages.SmartCom
         /// <returns>The open orders returned from IB</returns>
         public override List<Order> GetOpenOrders() {
             throw new NotImplementedException();
+            /*
+            var orders = new List<Order>();
+
+            var manualResetEvent = new ManualResetEvent(false);
+
+            // define our handlers
+            EventHandler<IB.OpenOrderEventArgs> clientOnOpenOrder = (sender, args) =>
+            {
+                // convert IB order objects returned from RequestOpenOrders
+                orders.Add(ConvertOrder(args.Order, args.Contract));
+            };
+            EventHandler<EventArgs> clientOnOpenOrderEnd = (sender, args) =>
+            {
+                // this signals the end of our RequestOpenOrders call
+                manualResetEvent.Set();
+            };
+
+            _client.OpenOrder += clientOnOpenOrder;
+            _client.OpenOrderEnd += clientOnOpenOrderEnd;
+            
+            _client.RequestOpenOrders();
+
+            // wait for our end signal
+            if (!manualResetEvent.WaitOne(15000))
+            {
+                throw new TimeoutException("InteractiveBrokersBrokerage.GetOpenOrders(): Operation took longer than 15 seconds.");
+            }
+
+            // remove our handlers
+            _client.OpenOrder -= clientOnOpenOrder;
+            _client.OpenOrderEnd -= clientOnOpenOrderEnd;
+
+            return orders;
+            */
         }
 
         /// <summary>

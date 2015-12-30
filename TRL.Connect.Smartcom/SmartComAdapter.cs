@@ -164,11 +164,21 @@ namespace TRL.Connect.Smartcom
                 reason));
         }
         /// <summary>
+        /// Brokerage
         /// stServer.IsConnected()
         /// </summary>
         public bool IsConnected
         {
             get { return this.connector.IsConnected; }
+            //get { return SmartCom.Instance.IsConnected(); }
+        }
+        /// <summary>
+        /// Brokerage
+        /// SmartCom.Instance
+        /// </summary>
+        public StServer Instance
+        {
+            get { return SmartCom.Instance; }
         }
     }
 }
