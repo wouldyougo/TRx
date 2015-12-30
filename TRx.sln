@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Connect.Smartcom.Test",
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "TRL.ModelingProject", "TRL.ModelingProject\TRL.ModelingProject.modelproj", "{44DD3A15-AA9A-444E-A77B-9FEDD4C5B4AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Connect", "TRL.Connect\TRL.Connect.csproj", "{04DD5070-B502-4412-92E9-96EF486952AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Connector", "TRL.Connect\TRL.Connector.csproj", "{04DD5070-B502-4412-92E9-96EF486952AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B030C0E-03DC-4A10-8438-79BD29F0760D}"
 	ProjectSection(SolutionItems) = preProject

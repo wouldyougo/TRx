@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TRL.Message;
+using TRL.Connector;
 
 namespace TRL.Common.Test.Mocks
 {

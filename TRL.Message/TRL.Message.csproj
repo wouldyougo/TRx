@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectMessage.cs" />
-    <Compile Include="IConnector.cs" />
     <Compile Include="DisconnectMessage.cs" />
     <Compile Include="InServiceMessage.cs" />
     <Compile Include="KeepaliveMessage.cs" />

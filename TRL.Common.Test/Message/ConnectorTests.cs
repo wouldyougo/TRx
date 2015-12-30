@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TRL.Common.Test.Mocks;
-using TRL.Message;
+//using TRL.Connector;
 
-namespace TRL.Message.Test
+namespace TRL.Connector.Test
 {
     [TestClass]
     public class ConnectorTests

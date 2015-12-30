@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SmartCOM3Lib;
+using TRL.Connector;
 using TRL.Message;
 using TRL.Connect.Smartcom.Events;
 using TRL.Connect.Smartcom.Data;

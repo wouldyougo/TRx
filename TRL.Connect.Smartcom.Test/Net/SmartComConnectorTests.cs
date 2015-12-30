@@ -13,7 +13,7 @@ using TRL.Common.Data;
 using System.Threading;
 using TRL.Logging;
 
-namespace TRL.Connect.Smartcom.Test.Net
+namespace TRL.Connect.Smartcom.Test.Connector
 {
 	[TestClass]
 	public class SmartComConnectorTests

@@ -10,6 +10,7 @@ using TRL.Connect.Smartcom.Events;
 using SmartCOM3Lib;
 using TRL.Connect.Smartcom;
 using TRL.Message;
+using TRL.Connector;
 using System.Threading;
 using TRL.Logging;
 
