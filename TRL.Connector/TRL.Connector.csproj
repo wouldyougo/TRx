@@ -58,13 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brokerage.cs" />
-    <Compile Include="BrokerageException.cs" />
-    <Compile Include="BrokerageFactory.cs" />
-    <Compile Include="IBrokerage.cs" />
-    <Compile Include="IBrokerageFactory.cs" />
     <Compile Include="IConnector.cs" />
-    <Compile Include="ISymbolMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
