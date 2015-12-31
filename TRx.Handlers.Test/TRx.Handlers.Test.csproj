@@ -93,6 +93,10 @@
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
       <Name>TRL.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TRS.Trader\TRS.Trader.BackTest\TRS.Trader.BackTest.csproj">
+      <Project>{0620c1c2-9676-4e6f-9d92-7d41d0f7646b}</Project>
+      <Name>TRS.Trader.BackTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TRx.Handlers\TRx.Handlers.csproj">
       <Project>{5c264f1f-ab22-44a2-ac8b-7eb6d743d46d}</Project>
       <Name>TRx.Handlers</Name>
@@ -100,10 +104,6 @@
     <ProjectReference Include="..\TRx.Helpers\TRx.Helpers.csproj">
       <Project>{259cb4d5-447a-40c0-82dd-2fcb92c850d3}</Project>
       <Name>TRx.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TRS.Trader.BackTest\TRS.Trader.BackTest.csproj">
-      <Project>{0620c1c2-9676-4e6f-9d92-7d41d0f7646b}</Project>
-      <Name>TRS.Trader.BackTest</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

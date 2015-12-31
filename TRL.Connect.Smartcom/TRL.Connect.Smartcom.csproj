@@ -143,7 +143,7 @@
       <Project>{f21d2504-efac-41b0-a799-a2534a2066f2}</Project>
       <Name>TRL.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Connect\TRL.Connector.csproj">
+    <ProjectReference Include="..\TRL.Connector\TRL.Connector.csproj">
       <Project>{04dd5070-b502-4412-92e9-96ef486952af}</Project>
       <Name>TRL.Connector</Name>
     </ProjectReference>

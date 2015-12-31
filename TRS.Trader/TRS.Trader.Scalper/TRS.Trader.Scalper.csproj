@@ -113,27 +113,27 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
+    <ProjectReference Include="..\..\TRL.Common\TRL.Common.csproj">
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
       <Name>TRL.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Connect.Smartcom\TRL.Connect.Smartcom.csproj">
+    <ProjectReference Include="..\..\TRL.Connect.Smartcom\TRL.Connect.Smartcom.csproj">
       <Project>{5ce1582e-32b5-466f-91fc-465c9d4b3d5b}</Project>
       <Name>TRL.Connect.Smartcom</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Handlers\TRL.Handlers.csproj">
+    <ProjectReference Include="..\..\TRL.Handlers\TRL.Handlers.csproj">
       <Project>{574d19eb-e390-43fd-958c-88f438ebfb89}</Project>
       <Name>TRL.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Logging\TRL.Logging.csproj">
+    <ProjectReference Include="..\..\TRL.Logging\TRL.Logging.csproj">
       <Project>{b2c1c965-bfd2-40d4-ad7d-e9c4b55c5f30}</Project>
       <Name>TRL.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Message\TRL.Message.csproj">
+    <ProjectReference Include="..\..\TRL.Message\TRL.Message.csproj">
       <Project>{d79dfb3c-b753-42bd-9a56-0ad9616321cf}</Project>
       <Name>TRL.Message</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Transaction\TRL.Transaction.csproj">
+    <ProjectReference Include="..\..\TRL.Transaction\TRL.Transaction.csproj">
       <Project>{53013b47-c5cc-4a49-9535-192c5ba6f3bc}</Project>
       <Name>TRL.Transaction</Name>
     </ProjectReference>
