@@ -111,7 +111,6 @@
     <Compile Include="Events\SmartComBinder.cs" />
     <Compile Include="Models\UpdateOrderExtensions.cs" />
     <Compile Include="SmartComConnector.cs" />
-    <Compile Include="QuantConnect\BrokerageSmartCom.cs" />
     <Compile Include="SmartCom.cs" />
     <Compile Include="SmartComEventsTypes.cs" />
     <Compile Include="Models\RawOrder.cs" />
@@ -133,7 +132,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="QuantConnect\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
