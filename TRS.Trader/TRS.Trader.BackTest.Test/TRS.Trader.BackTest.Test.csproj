@@ -86,15 +86,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TRL.Emulation\TRL.Emulation.csproj">
+    <ProjectReference Include="..\..\TRL.Emulation\TRL.Emulation.csproj">
       <Project>{8d45f99b-ae4d-4521-8ec1-186628d58575}</Project>
       <Name>TRL.Emulation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Logging\TRL.Logging.csproj">
+    <ProjectReference Include="..\..\TRL.Logging\TRL.Logging.csproj">
       <Project>{b2c1c965-bfd2-40d4-ad7d-e9c4b55c5f30}</Project>
       <Name>TRL.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">
+    <ProjectReference Include="..\..\TRL.Common\TRL.Common.csproj">
       <Project>{5882134e-de9b-4e9e-9074-617b5ee31af0}</Project>
       <Name>TRL.Common</Name>
     </ProjectReference>

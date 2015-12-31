@@ -15,8 +15,9 @@
 
 using System;
 using System.Collections.Generic;
-//using QuantConnect.Brokerages;
+using QuantConnect.Brokerages;
 using TRL.Connect.Smartcom;
+using TRL.Connector;
 using TRL.Common.Models;
 //using QuantConnect.Logging;
 //using QuantConnect.Orders;
