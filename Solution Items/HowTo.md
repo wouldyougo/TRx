@@ -1,4 +1,16 @@
 ﻿throw new NotImplementedException();
+this.Id = SerialIntegerFactory.Make();
+Millisecond
+Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fff"));
+Microseconds
+Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.ffffff"));
+Tick
+Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fffffff"));
+Console.WriteLine(DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
+
+var d1 = DateTime.Now;
+Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
+2016.01.12 17:12:00.2385833
 
 Microsoft выпустила предварительную версию Visual studio 2015 и .Net 4.6 для разработчиков. В новом C# 6.0 несколько новых возможностей, которые могут облегчить кодинг.
 
