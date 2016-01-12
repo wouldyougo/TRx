@@ -235,6 +235,10 @@ namespace TRx.Base
                     {   //бары
                         ConsoleHandlerB();
                     }
+                    if (command == "i")
+                    {   //бары
+                        ConsoleHandlerI();
+                    }
                     if (command == "c")
                     {   //очистить
                         ConsoleHandlerС();
@@ -335,6 +339,23 @@ namespace TRx.Base
         }
 
         /// <summary>
+        /// Индикаторы
+        /// </summary>
+        virtual public void ConsoleHandlerI()
+        {
+            Console.Clear();
+            Console.WriteLine("Base.ConsoleHandlerI()");
+            throw new NotImplementedException();
+            //foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
+            ////foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>())
+            //{
+            //    TradeConsole.ConsoleWriteLineBar(item);
+            //    //TradeHubStarter.sendBarString(item);
+            //    TradeHubStarter.sendBar(item);
+            //}
+        }
+
+        /// <summary>
         /// Трейды
         /// </summary>
         virtual public void ConsoleHandlerT()
@@ -379,7 +400,8 @@ namespace TRx.Base
             Console.WriteLine("b - TradingData.Instance.Get<IEnumerable<Bar>>()");
             Console.WriteLine("t - TradingData.Instance.Get<IEnumerable<Trade>>()");
             Console.WriteLine("c - TradeHubStarter.clearChart()");
-            Console.WriteLine("s - Statistics");
+            Console.WriteLine("s - Статистика");
+            Console.WriteLine("i - Индикаторы");
             Console.WriteLine("h - Help");
             Console.WriteLine("x - Stop");
         }
@@ -411,15 +433,22 @@ namespace TRx.Base
         virtual public void ConsoleHandlerX()
         {
             Console.WriteLine("Base.ConsoleHandlerX()");
+            Export.ExportData<Bar>(AppSettings.GetValue<bool>("ExportBarsOnExit"));
+            Export.ExportData<Signal>(AppSettings.GetValue<bool>("ExportSignalsOnExit"));
             Export.ExportData<Order>(AppSettings.GetValue<bool>("ExportOrdersOnExit"));
             Export.ExportData<Trade>(AppSettings.GetValue<bool>("ExportTradesOnExit"));
-            Export.ExportData<Bar>(AppSettings.GetValue<bool>("ExportBarsOnExit"));
+
             ///переделать
-            var dealList = TradeConsole.GetDeals(strategyHeader);
-            if (dealList != null)
+            ///Перенести Список сделок в Контекст
+            if (AppSettings.GetValue<bool>("ExportDealsOnExit"))
             {
-                Export.ExportData<Deal>(dealList.Deals);
+                var dealList = TradeConsole.GetDeals(strategyHeader);
+                if (dealList != null)
+                {
+                    Export.ExportData<Deal>(dealList.Deals);
+                }
             }
+
             MethodWaitExit();
         }
         public static void MethodWaitExit()
