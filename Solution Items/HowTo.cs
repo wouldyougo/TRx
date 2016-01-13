@@ -1,10 +1,5 @@
 ﻿throw new NotImplementedException();
-
-#### Время
-
 this.Id = SerialIntegerFactory.Make();
-
-#### Время
 
 Millisecond
 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fff"));
@@ -18,8 +13,7 @@ var d1 = DateTime.Now;
 Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
 2016.01.12 17:12:00.2385833
 
-#### пример формата даты
-
+//пример формата даты
 DateTime DateTime = new DateTime(2015, 1, 8);
 System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InvariantCulture;
 string result;

@@ -19,18 +19,18 @@ namespace TRL.Common.Data
             return Math.Abs(seconds - 418385000 + counter++);
         }
         
-        /// <summary>
-        /// date.Ticks - 2000.Ticks
-        /// </summary>
-        /// <param name="date"></param>
-        /// <returns></returns>
-        public static long MakeTicks(DateTime date)
-        {
-            long ticks = date.Ticks;
-            ticks = ticks - Date2000.Ticks;
+        ///// <summary>
+        ///// date.Ticks - 2000.Ticks
+        ///// </summary>
+        ///// <param name="date"></param>
+        ///// <returns></returns>
+        //public static long MakeTicks(DateTime date)
+        //{
+        //    long ticks = date.Ticks;
+        //    ticks = ticks - Date2000.Ticks;
 
-            return ticks;
-        }
-        private static DateTime Date2000 = new DateTime(2000, 1, 1);
+        //    return ticks;
+        //}
+        //private static DateTime Date2000 = new DateTime(2000, 1, 1);
     }
 }
