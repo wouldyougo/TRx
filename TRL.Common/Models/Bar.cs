@@ -17,6 +17,8 @@ namespace TRL.Common.Models
         /// </summary>
         public int Interval { get; set; }
 
+        public long ID { get { return DateTime.Ticks; } }
+
         public DateTime DateTime { get; set; }
 
         public double Open { get; set; }

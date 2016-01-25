@@ -39,6 +39,15 @@ namespace TRL.Common.Models
         public int SignalId { get; set; }
         public virtual Signal Signal { get; set; }
 
+        /// <summary>
+        /// BarId на котором был создан ордер
+        /// </summary>
+        public long BarId { get; set; }
+        /// <summary>
+        /// Bar на котором был создан ордер
+        /// </summary>
+        public virtual Bar Bar { get; set; }
+
         public Order()
         {
             this.Id = SerialIntegerFactory.Make();
@@ -74,6 +83,25 @@ namespace TRL.Common.Models
             this.ExpirationDate = new FortsTradingSchedule().SessionEnd;
             this.SignalId = 0;
             this.Signal = null;
+            this.BarId = 0;
+            this.Bar = null;
+        }
+        public Order(int id, DateTime date, string portfolio, string symbol, TradeAction action, OrderType type, double amount, double price, double stop, long barId, Bar bar)
+        {
+            this.Id = id;
+            this.DateTime = date;
+            this.Portfolio = portfolio;
+            this.Symbol = symbol;
+            this.TradeAction = action;
+            this.OrderType = type;
+            this.Amount = amount;
+            this.Price = price;
+            this.Stop = stop;
+            this.ExpirationDate = new FortsTradingSchedule().SessionEnd;
+            this.SignalId = 0;
+            this.Signal = null;
+            this.BarId = barId;
+            this.Bar = bar;
         }
         /// <summary>
         /// переделать

@@ -18,6 +18,8 @@ namespace TRL.Common.Models
 
         public OrderType OrderType { get; set; }
 
+        public double Amount { get; set; }
+
         public double Price { get; set; }
 
         public double Stop { get; set; }
@@ -27,7 +29,15 @@ namespace TRL.Common.Models
         public int StrategyId { get; set; }
         public virtual StrategyHeader Strategy { get; set; }
 
-        public double Amount { get; set; }
+        /// <summary>
+        /// BarId на котором был создан ордер
+        /// </summary>
+        //public long? BarId { get; set; } = null;
+        public long BarId { get; set; }
+        /// <summary>
+        /// Bar на котором был создан ордер
+        /// </summary>
+        public virtual Bar Bar { get; set; }
 
         public Signal() { }
 
@@ -43,6 +53,26 @@ namespace TRL.Common.Models
             this.Stop = stop;
             this.Limit = limit;
             this.Amount = strategyHeader.Amount;
+            //this.BarId = null;
+            this.BarId = 0;
+            this.Bar = null;
+        }
+
+        //public Signal(StrategyHeader strategyHeader, DateTime date, TradeAction action, OrderType type, double price, double stop, double limit, long? barId = null, Bar bar = null)
+        public Signal(StrategyHeader strategyHeader, DateTime date, TradeAction action, OrderType type, double price, double stop, double limit, long barId, Bar bar)
+        {
+            this.Id = SerialIntegerFactory.Make();
+            this.StrategyId = strategyHeader.Id;
+            this.Strategy = strategyHeader;
+            this.DateTime = date;
+            this.TradeAction = action;
+            this.OrderType = type;
+            this.Amount = strategyHeader.Amount;
+            this.Price = price;
+            this.Stop = stop;
+            this.Limit = limit;
+            this.BarId = barId;
+            this.Bar = bar;
         }
 
         public override string ToString()
