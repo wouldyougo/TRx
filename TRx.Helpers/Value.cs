@@ -22,7 +22,7 @@ namespace TRx.Helpers
             set;
         }
 
-        public int Id
+        public long Id
         {
             get;
             set;
@@ -56,7 +56,7 @@ namespace TRx.Helpers
             set;
         }
 
-        public int Id
+        public long Id
         {
             get;
             set;
@@ -89,7 +89,7 @@ namespace TRx.Helpers
             set;
         }
 
-        public int Id
+        public long Id
         {
             get;
             set;

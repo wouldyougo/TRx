@@ -69,6 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="HandlerIndicatorMACDxTest.cs" />
     <Compile Include="HandlerDeviationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BreakOutOnBarTests.cs" />
@@ -104,6 +105,10 @@
     <ProjectReference Include="..\TRx.Helpers\TRx.Helpers.csproj">
       <Project>{259cb4d5-447a-40c0-82dd-2fcb92c850d3}</Project>
       <Name>TRx.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRx.Indicators\TRx.Indicators.csproj">
+      <Project>{0c1f9ecb-aa45-46ba-952a-2ae604bb5871}</Project>
+      <Name>TRx.Indicators</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

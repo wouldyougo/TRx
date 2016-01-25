@@ -8,6 +8,7 @@ Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.ffffff"));
 Tick
 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fffffff"));
 Console.WriteLine(DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
+//Console.WriteLine(DateTime.Now.ToString("yyyyMMddHHmmssfffffff"));
 
 var d1 = DateTime.Now;
 Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));

@@ -111,7 +111,9 @@ namespace TRx.Handlers
 
             this.Levels = levels;
             this.maDeviation = maDeviation;
+            //при появлении нового значения ValueDe вызывается обработчик OnValueItemAdded
             this.maDeviation.AddHandlerValueDe(this.OnValueItemAdded);
+            //ипсравить - добавить OnItemAdded(Bar item) откуда вызывать вычисления индикаторов
 
             this.Уровень = new List<int>();
             this.УровеньПрошлый = new List<int>();

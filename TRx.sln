@@ -29,12 +29,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Solution Items\Error.txt = Solution Items\Error.txt
 		Solution Items\Git HowTo.md = Solution Items\Git HowTo.md
 		Solution Items\Git Log.md = Solution Items\Git Log.md
+		Solution Items\HowTo.cs = Solution Items\HowTo.cs
 		Solution Items\HowTo.md = Solution Items\HowTo.md
 		README.md = README.md
 		Solution Items\SmartCOM_manual_3_0.pdf = Solution Items\SmartCOM_manual_3_0.pdf
 		..\TRS\ToDo.txt = ..\TRS\ToDo.txt
 		Solution Items\url.txt = Solution Items\url.txt
 		Solution Items\Обзор возможностей C#.cs = Solution Items\Обзор возможностей C#.cs
+		Пут-колл паритет.txt = Пут-колл паритет.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRL.Indicators", "TRL.Indicators\TRL.Indicators.csproj", "{AA66AB66-CC22-465D-9B80-EF33DFDD77E0}"
