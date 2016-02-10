@@ -27,27 +27,11 @@ namespace TRx.Handlers
     /// Модифицировать генерацию события
     /// Модифицировать обработчик - добавить параметр конструктора тип скользящей
     /// </summary>
-    public class IndicatorMACDx//: AddedItemHandler<Bar>
-                               : IDataSource<double>
+    public class IndicatorMAx//: AddedItemHandler<Bar>
+                               : DataOutput<double>
     {
         public IDataInput<double> Input { get; private set; }
         //public IList<double> Value { get; private set; }
-        public IList<double> Source(int i = 0)
-        {
-            if (i == 0)
-            {
-                return this.Ma;
-            }
-            else if (i == 1)
-            {
-                return this.De;
-            }
-            else {
-                //throw new NotImplementedException();
-                return null;
-            }
-        }
-
 
         //private StrategyHeader strategyHeader { get; set; }
         //private IDataContext tradingData { get; set; }
@@ -127,11 +111,13 @@ namespace TRx.Handlers
         //    this.ValueDe = new List<ValueDouble>();
         //}
 
-        public IndicatorMACDx(double period, IDataInput<double> dataInput, ILogger logger)
+        public IndicatorMAx(double period, IDataInput<double> dataInput, ILogger logger):base(2)
         {
             this.Period = period;
             this.Input = dataInput;
             this.logger = logger;
+            this.Output[0] = this.Ma;
+            this.Output[1] = this.De;
         }
 
         /// <summary>

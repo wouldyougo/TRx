@@ -64,6 +64,24 @@ namespace TRx.Indicators
         //    }
         //    return dst;
         //}
+
+        /// <summary>
+        /// Пересечение сверху или каксание
+        /// </summary>
+        /// <param name="src1">линия</param>
+        /// <param name="src2">пересекающий</param>
+        /// <returns></returns>
+        public static bool CrossOver(IList<double> src1, IList<double> src2)
+        {
+            int i1 = src1.Count;
+            int i2 = src2.Count;
+            if (src1.Count > 1 && src2.Count > 1)
+            {
+                return CrossOver(src1, src2, i1, i2);
+            }
+            else return false;
+        }
+
         /// <summary>
         /// Пересечение сверху или каксание
         /// </summary>
@@ -87,6 +105,24 @@ namespace TRx.Indicators
             }
             return dst;
         }
+
+        /// <summary>
+        /// Пересечение снизу или касание
+        /// </summary>
+        /// <param name="src1">линия</param>
+        /// <param name="src2">пересекающий</param>
+        /// <returns></returns>
+        public static bool CrossUnder(IList<double> src1, IList<double> src2)
+        {
+            int i1 = src1.Count;
+            int i2 = src2.Count;
+            if (src1.Count > 1 && src2.Count > 1)
+            {
+                return CrossUnder(src1, src2, i1, i2);
+            }
+            else return false;
+        }
+
         /// <summary>
         /// Пересечение снизу или касание
         /// </summary>

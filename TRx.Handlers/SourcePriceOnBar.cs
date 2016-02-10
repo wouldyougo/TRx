@@ -23,7 +23,7 @@ namespace TRx.Handlers
     /// 
     /// Возможные изменения:
     /// </summary>
-    public class SourcePriceOnBar : IDataSource<double> //AddedItemHandler<Bar>
+    public class SourcePriceOnBar : IDataOutput<double> //AddedItemHandler<Bar>
     {
         private StrategyHeader strategyHeader { get; set; }
         private IDataContext tradingData { get; set; }
@@ -68,21 +68,54 @@ namespace TRx.Handlers
             if (barsSet == null || barsSet.Count() == 0)
                 return;
 
-            IEnumerable<double> closePrices = from b in barsSet
+            IEnumerable<double> close = from b in barsSet
                                                  select b.Close;
-            Source = closePrices.ToList<double>();
-        }
-        private IList<double> Source { get; set; }
 
-        IList<double> IDataSource<double>.Source(int i = 0)
+            IEnumerable<double> volume = from b in barsSet
+                                              select b.Volume;
+
+            Close = close.ToList<double>();
+            Volume = volume.ToList<double>();
+        }
+        private IList<double> Close { get; set; }
+        private IList<double> Volume { get; set; }
+
+        /// <summary>
+        /// Предоставляет доступ по индексу i к [i] списку IList<T> с данными
+        /// </summary>
+        /// <param name="index">индекс i для доступа к [i] списку IList<T> с данными</param>
+        /// <returns>IList<T></returns>
+        public IList<double> this[int index]   // indexer declaration
         {
-            if (i == 0)
+            get
             {
-                return this.Source;
+                if (index == 0)
+                {
+                    return this.Close;
+                }
+                if (index == 1)
+                {
+                    return this.Volume;
+                }
+                else {
+                    throw new IndexOutOfRangeException();
+                }
             }
-            else {
-                return null;
+            set
+            {
+                if (index == 0)
+                {
+                    this.Close = value;
+                }
+                if (index == 0)
+                {
+                    this.Volume = value;
+                }
+                else {
+                    throw new IndexOutOfRangeException();
+                }
             }
         }
+
     }
 }

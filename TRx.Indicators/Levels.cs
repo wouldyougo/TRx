@@ -87,10 +87,10 @@ namespace TRx.Indicators
         public bool ПересечениеСнизу { get; private set; }
 
         /// <summary>
-        /// 
+        /// Конструктор уровней
         /// </summary>
         /// <param name="_КоличествоУровней">в каждую сторону</param>
-        /// <param name="_ШагУровней"></param>
+        /// <param name="_ШагУровней">дистанция между уровнями</param>
         public Levels(int _КоличествоУровней, double _ШагУровней, int _ТипУровней = 0)
         {
             this.ПоловинаУровней = _КоличествоУровней + 1;

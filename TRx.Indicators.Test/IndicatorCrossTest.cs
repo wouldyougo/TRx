@@ -55,9 +55,10 @@ namespace TRx.Indicators.Test
         [TestMethod]
         public void IndicatorCross_Check_crossed_lines_of_unequals_length_test()
         {
-            List<double> first = new List<double>(new[] { 2.0, 4.0, 5.0, 3.0, 6.0, 7.0 });
+            List<double> first = new List<double>(
+                        new[] { 2.0, 4.0, 5.0, 3.0, 6.0, 7.0 });
             double[] second = { 1.0, 3.0, 4.0, 4.0 };
-
+            //                  0    1    2    3    4   
             Assert.IsFalse(Indicator.CrossOver(first, second, 3, 3));
             Assert.IsTrue(Indicator.CrossUnder(first, second, 3, 3));
 
