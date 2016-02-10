@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDataSource.cs" />
-    <Compile Include="IndicatorMACDs.cs" />
-    <Compile Include="IndicatorMACDx.cs" />
+    <Compile Include="IDataInput.cs" />
+    <Compile Include="IDataOutput.cs" />
+    <Compile Include="IndicatorMAxs.cs" />
+    <Compile Include="IndicatorMAx.cs" />
     <Compile Include="SourcePriceOnBar.cs" />
     <Compile Include="IndicatorOnBarMaDeviation.cs" />
     <Compile Include="MakeClosePositionSignalByPointsOnBar.cs" />

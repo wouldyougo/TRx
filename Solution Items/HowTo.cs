@@ -28,6 +28,18 @@ result = String.Format("{0}", DateTime);
 Console.WriteLine(result);
 
 
+var a = new List<double>(10) { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+var b = a.Where(x => x < 50).ToList();
+var c = a.Where(x => x < 50);
+public List<double> foo(List<double> c)
+{
+    c[0] = 1;
+    return c;
+}
+foo(a)
+a
+b
+c
 
 Microsoft выпустила предварительную версию Visual studio 2015 и .Net 4.6 для разработчиков. В новом C# 6.0 несколько новых возможностей, которые могут облегчить кодинг.
 
