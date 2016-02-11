@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="IDataInput.cs" />
     <Compile Include="IDataOutput.cs" />
-    <Compile Include="IndicatorMAxs.cs" />
-    <Compile Include="IndicatorMAx.cs" />
+    <Compile Include="IndicatorMaDex.cs" />
+    <Compile Include="IndicatorMaDe.cs" />
     <Compile Include="SourcePriceOnBar.cs" />
     <Compile Include="IndicatorOnBarMaDeviation.cs" />
     <Compile Include="MakeClosePositionSignalByPointsOnBar.cs" />

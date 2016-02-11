@@ -18,7 +18,7 @@ namespace TRx.Handlers.Test
     }
 
     [TestClass]
-    public class HandlerIndicatorMAxsTest
+    public class HandlerIndicatorMaDexTest
     {
         //private IDataContext tradingData;
         //private ObservableQueue<Signal> signalQueue;

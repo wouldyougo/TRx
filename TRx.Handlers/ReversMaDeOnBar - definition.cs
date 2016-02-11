@@ -22,10 +22,21 @@ namespace TRx.Handlers
     /// </summary>
     public partial class ReversMaDeOnBar//:AddedItemHandler<Bar>
     {
+        // -------------------------------------------------
+        #region // TRL
+        // -------------------------------------------------
         private StrategyHeader strategyHeader;
         private IDataContext tradingData;
         private ObservableQueue<Signal> signalQueue;
         private ILogger logger;
+        // -------------------------------------------------
+        #endregion //
+        // -------------------------------------------------
+
+        // -------------------------------------------------
+        #region // Свойства
+        // -------------------------------------------------
+
         /// <summary>
         /// Индикатор отклонения от скользящей средней
         /// </summary>
@@ -94,6 +105,9 @@ namespace TRx.Handlers
         /// список позиции
         /// </summary>
         public IList<Signal> Buy { get; private set; }
+        // -------------------------------------------------
+        #endregion //
+        // -------------------------------------------------
 
 
         public ReversMaDeOnBar(StrategyHeader strategyHeader, 
