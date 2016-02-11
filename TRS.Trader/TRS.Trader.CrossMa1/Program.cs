@@ -121,8 +121,8 @@ namespace TRx.Trader
             indicatorsOnBar.AddCrossUpHandler(TradeConsole.ConsoleWriteLineValueBool);
             indicatorsOnBar.AddCrossDnHandler(TradeConsole.ConsoleWriteLineValueBool);
 
-            ReversOnBar reversHandler =
-                new ReversOnBar(strategyHeader,
+            ReversMaOnBar reversHandler =
+                new ReversMaOnBar(strategyHeader,
                     TradingData.Instance,
                     SignalQueue.Instance,
                     DefaultLogger.Instance)
@@ -350,8 +350,8 @@ namespace TRx.Trader
 //        SignalQueue.Instance,
 //        DefaultLogger.Instance);
 
-//ReversOnTick openHandler =
-//    new ReversOnTick(strategyHeader,
+//ReversMaOnTick openHandler =
+//    new ReversMaOnTick(strategyHeader,
 //        TradingData.Instance,
 //        SignalQueue.Instance,
 //        DefaultLogger.Instance);

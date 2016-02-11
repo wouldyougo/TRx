@@ -56,7 +56,7 @@ namespace TRx.Strategy
 
         private  MakeRangeBarsOnTick updateBarsHandler { get; set; }
         private  IndicatorOnBar2Ma indicatorsOnBar { get; set; }
-        private ReversOnBar reversHandler { get; set; }
+        private ReversMaOnBar reversHandler { get; set; }
 
         private TakeProfitOnBar takeProfitOnBar { get; set; }
 
@@ -178,8 +178,8 @@ namespace TRx.Strategy
                 }
             }
 
-            //ReversOnBar reversHandler =
-            reversHandler = new ReversOnBar(strategyHeader,
+            //ReversMaOnBar reversHandler =
+            reversHandler = new ReversMaOnBar(strategyHeader,
                     TradingData.Instance,
                     SignalQueue.Instance,
                     DefaultLogger.Instance)

@@ -17,7 +17,7 @@ using TRx.Helpers;
 
 namespace TRx.Handlers
 {
-    public partial class MeanReversOnBar//:AddedItemHandler<Bar>
+    public partial class ReversMaDeOnBar//:AddedItemHandler<Bar>
     {
         /*
         public override void OnItemAdded(Bar item)

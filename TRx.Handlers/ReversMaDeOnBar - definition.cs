@@ -20,7 +20,7 @@ namespace TRx.Handlers
     /// <summary>
     /// Возврат к средней на барах
     /// </summary>
-    public partial class MeanReversOnBar//:AddedItemHandler<Bar>
+    public partial class ReversMaDeOnBar//:AddedItemHandler<Bar>
     {
         private StrategyHeader strategyHeader;
         private IDataContext tradingData;
@@ -96,7 +96,7 @@ namespace TRx.Handlers
         public IList<Signal> Buy { get; private set; }
 
 
-        public MeanReversOnBar(StrategyHeader strategyHeader, 
+        public ReversMaDeOnBar(StrategyHeader strategyHeader, 
                                IDataContext tradingData, 
                                ObservableQueue<Signal> signalQueue, 
                                ILogger logger,

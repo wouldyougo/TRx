@@ -28,8 +28,8 @@ namespace TRx.Handlers.Test
         private DataInput<double> dataInput;
         private DataSourceTest dataSource;
         private double Period = 5;
-        private IndicatorMAx handler;
-        private IndicatorMAxs maxs;
+        private IndicatorMaDe handler;
+        private IndicatorMaDex maxs;
         private int series;
         List<double> source;
         IList<double> period;
@@ -43,7 +43,7 @@ namespace TRx.Handlers.Test
             dataSource = new DataSourceTest(source);
             dataInput = new DataInput<double>(dataSource);
 
-            handler = new IndicatorMAx(this.Period, this.dataInput, new NullLogger());
+            handler = new IndicatorMaDe(this.Period, this.dataInput, new NullLogger());
 
             //Assert.AreEqual(0, this.signalQueue.Count);
             Assert.IsNotNull(handler);
@@ -63,7 +63,7 @@ namespace TRx.Handlers.Test
                 period.Add(10 * i);
             }
 
-            maxs = new IndicatorMAxs(period, this.dataInput, new NullLogger());
+            maxs = new IndicatorMaDex(period, this.dataInput, new NullLogger());
             // матрица пересечений                0      1      2      3      4      5     6       
             //macds.CrossTo[2] = new List<bool> { false, false, false, true,  true,  true };
             //macds.CrossTo[3] = new List<bool> { false, false, false, false, true,  true };

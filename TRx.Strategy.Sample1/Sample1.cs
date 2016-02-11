@@ -130,8 +130,8 @@ namespace TRx.Strategy
             SMASettings smaSettings = new SMASettings(strategyHeader, maf, mas);
             TradingData.Instance.Get<ICollection<SMASettings>>().Add(smaSettings);
 
-            //ReversOnBar reversHandler =
-            //    new ReversOnBar(strategyHeader,
+            //ReversMaOnBar reversHandler =
+            //    new ReversMaOnBar(strategyHeader,
             //        TradingData.Instance,
             //        SignalQueue.Instance,
             //        DefaultLogger.Instance);
@@ -255,8 +255,8 @@ namespace TRx.Strategy
             indicatorsOnBar.AddCrossUpHandler(TradeConsole.ConsoleWriteLineValueBool);
             indicatorsOnBar.AddCrossDnHandler(TradeConsole.ConsoleWriteLineValueBool);
 
-            ReversOnBar reversHandler =
-                new ReversOnBar(strategyHeader,
+            ReversMaOnBar reversHandler =
+                new ReversMaOnBar(strategyHeader,
                     TradingData.Instance,
                     SignalQueue.Instance,
                     DefaultLogger.Instance)

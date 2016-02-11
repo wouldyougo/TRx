@@ -11,7 +11,7 @@ namespace TRx.Handlers
     /// Вычисляет последовательные средние за период
     /// Вычисляет отклонение от средних за период
     /// </summary>
-    public class IndicatorMAxs
+    public class IndicatorMaDex
     {
         private ILogger logger { get; set; }
 
@@ -26,7 +26,7 @@ namespace TRx.Handlers
         /// <summary>
         /// Список индикаторов MAx
         /// </summary>
-        public IList<IndicatorMAx> MAx { get; private set; }
+        public IList<IndicatorMaDe> MAx { get; private set; }
         /// <summary>
         /// Список для опеределения пересечений, значениями списка I,J задаем где вычислять пересечения
         /// </summary>
@@ -54,19 +54,19 @@ namespace TRx.Handlers
         /// <param name="period">Список периодов для создания индикаторов MAx</param>
         /// <param name="input">Вход индикатора</param>
         /// <param name="logger">Логгер</param>
-        public IndicatorMAxs(IList<double> period, IDataInput<double> input, ILogger logger)
+        public IndicatorMaDex(IList<double> period, IDataInput<double> input, ILogger logger)
         {
             this.Period = period;
             this.Input = input;
             this.logger = logger;
             //создаем список индикаторов, связываем первый с входом и между собой
-            this.MAx = new List<IndicatorMAx>(period.Count);
+            this.MAx = new List<IndicatorMaDe>(period.Count);
             var dataInput = input;
 
             //Создаем список индикаторов MAx, по количеству Period.Count
             foreach (var p in Period)
             {
-                IndicatorMAx ma_x = new IndicatorMAx(p, dataInput, logger);
+                IndicatorMaDe ma_x = new IndicatorMaDe(p, dataInput, logger);
                 this.MAx.Add(ma_x);
                 //предыдущий является входом для следующего
                 dataInput = new DataInput<double>(ma_x);

@@ -112,8 +112,8 @@ namespace TRx.Trader.TradeConsole
             barItemSender.AddItemHandler(TradeHubStarter.sendBar);
             barItemSender.AddItemHandler(TRx.Helpers.TradeConsole.ConsoleWriteLineBar);
 
-            ReversOnBar1 reversHandler =
-                new ReversOnBar1(strategyHeader,
+            ReversMaOnBar1 reversHandler =
+                new ReversMaOnBar1(strategyHeader,
                     TradingData.Instance,
                     SignalQueue.Instance,
                     DefaultLogger.Instance);
@@ -295,8 +295,8 @@ namespace TRx.Trader.TradeConsole
 //        SignalQueue.Instance,
 //        DefaultLogger.Instance);
 
-//ReversOnTick openHandler =
-//    new ReversOnTick(strategyHeader,
+//ReversMaOnTick openHandler =
+//    new ReversMaOnTick(strategyHeader,
 //        TradingData.Instance,
 //        SignalQueue.Instance,
 //        DefaultLogger.Instance);

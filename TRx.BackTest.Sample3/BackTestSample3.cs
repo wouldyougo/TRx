@@ -96,7 +96,7 @@ namespace TRx.BackTest
             traderBase = new TraderBase(orderManager);
             //new TraderBase(new SmartComOrderManager());
             //strategySettings = new StrategySettings(1,
-            //    "ReversOnBar strategy",
+            //    "ReversMaOnBar strategy",
             //    AppSettings.GetStringValue("Portfolio"),
             //    AppSettings.GetStringValue("Symbol"),
             //    AppSettings.GetValue<double>("Amount"));
