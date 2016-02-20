@@ -77,6 +77,8 @@ namespace TRL.Common.Models
                     Convert.ToDouble(parts[4], provider));
             //-----------------------------------------
 
+            //пока не умеем читать свой формать из 5 частей, 
+            //т.к. добавил формат финам "RTS-6.14,20130802,100001,9826.000000000,10"
             //if(parts.Length == 5)
             //    return new Tick(parts[0],
             //        DateTime.Parse(parts[1], provider),
@@ -84,7 +86,7 @@ namespace TRL.Common.Models
             //        Convert.ToDouble(parts[2], provider),
             //        Convert.ToDouble(parts[3], provider));
 
-            if(parts.Length == 4)
+            if (parts.Length == 4)
                 return new Tick(string.Empty,
                     DateTime.ParseExact(dateTime, pattern, provider),
                     TradeAction.Buy,

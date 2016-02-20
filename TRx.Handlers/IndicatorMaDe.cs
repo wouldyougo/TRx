@@ -27,7 +27,7 @@ namespace TRx.Handlers
     /// Модифицировать генерацию события
     /// Модифицировать обработчик - добавить параметр конструктора тип скользящей
     /// </summary>
-    public class IndicatorMAx//: AddedItemHandler<Bar>
+    public class IndicatorMaDe//: AddedItemHandler<Bar>
                                : DataOutput<double>
     {
         public IDataInput<double> Input { get; private set; }
@@ -111,7 +111,7 @@ namespace TRx.Handlers
         //    this.ValueDe = new List<ValueDouble>();
         //}
 
-        public IndicatorMAx(double period, IDataInput<double> dataInput, ILogger logger):base(2)
+        public IndicatorMaDe(double period, IDataInput<double> dataInput, ILogger logger):base(2)
         {
             this.Period = period;
             this.Input = dataInput;

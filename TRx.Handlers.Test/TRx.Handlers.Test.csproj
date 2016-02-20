@@ -69,7 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="HandlerIndicatorMAxsTest.cs" />
+    <Compile Include="HandlerIndicatorMaDexTest.cs" />
     <Compile Include="HandlerDeviationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BreakOutOnBarTests.cs" />

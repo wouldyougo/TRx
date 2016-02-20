@@ -54,7 +54,7 @@ namespace TRx.Strategy
 
         private  MakeRangeBarsOnTick updateBarsHandler { get; set; }
         private  IndicatorOnBar2Ma indicatorsOnBar { get; set; }
-        private ReversOnBar reversHandler { get; set; }
+        private ReversMaOnBar reversHandler { get; set; }
 
         public Sample2(string[] args)
         {
@@ -135,8 +135,8 @@ namespace TRx.Strategy
             SMASettings smaSettings = new SMASettings(strategyHeader, maf, mas);
             TradingData.Instance.Get<ICollection<SMASettings>>().Add(smaSettings);
 
-            //ReversOnBar reversHandler =
-            //    new ReversOnBar(strategyHeader,
+            //ReversMaOnBar reversHandler =
+            //    new ReversMaOnBar(strategyHeader,
             //        TradingData.Instance,
             //        SignalQueue.Instance,
             //        DefaultLogger.Instance);
@@ -178,8 +178,8 @@ namespace TRx.Strategy
                 }
             }
 
-            //ReversOnBar reversHandler =
-            reversHandler = new ReversOnBar(strategyHeader,
+            //ReversMaOnBar reversHandler =
+            reversHandler = new ReversMaOnBar(strategyHeader,
                     TradingData.Instance,
                     SignalQueue.Instance,
                     DefaultLogger.Instance)

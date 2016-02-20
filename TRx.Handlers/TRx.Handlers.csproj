@@ -43,19 +43,19 @@
   <ItemGroup>
     <Compile Include="IDataInput.cs" />
     <Compile Include="IDataOutput.cs" />
-    <Compile Include="IndicatorMAxs.cs" />
-    <Compile Include="IndicatorMAx.cs" />
+    <Compile Include="IndicatorMaDex.cs" />
+    <Compile Include="IndicatorMaDe.cs" />
     <Compile Include="SourcePriceOnBar.cs" />
     <Compile Include="IndicatorOnBarMaDeviation.cs" />
     <Compile Include="MakeClosePositionSignalByPointsOnBar.cs" />
-    <Compile Include="MeanReversOnBar - definition.cs" />
+    <Compile Include="ReversMaDeOnBar - definition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IndicatorOnBar2Ma.cs" />
-    <Compile Include="MeanReversOnBar.cs" />
-    <Compile Include="ReversOnBar_v1.cs" />
-    <Compile Include="ReversOnBar.cs" />
-    <Compile Include="ReversOnBar_v0.cs" />
-    <Compile Include="ReversOnTick.cs" />
+    <Compile Include="ReversMaDeOnBar.cs" />
+    <Compile Include="ReversMaOnBar_v1.cs" />
+    <Compile Include="ReversMaOnBar.cs" />
+    <Compile Include="ReversMaOnBar_v0.cs" />
+    <Compile Include="ReversMaOnTick.cs" />
     <Compile Include="StopLossOnBar.cs" />
     <Compile Include="TakeProfitOnBar.cs" />
   </ItemGroup>
