@@ -69,6 +69,7 @@ namespace TRL.Common.Test.Models
         [TestMethod]
         public void Tick_Try_Parse_finam_string()
         {
+            //            Дата      время цена           количество
             string src = "20130802,100001,9826.000000000,10";
 
             Tick tick = Tick.Parse(src);
@@ -84,7 +85,10 @@ namespace TRL.Common.Test.Models
         [TestMethod]
         public void Tick_parse_my_own_export_string_test()
         {
+            //string tickString = "RTS-6.14,01/01/2014 00:00:00,10.0000,1.0000,Sell";
             string tickString = "RTS-6.14,01/01/2014 00:00:00,10.0000,1.0000,Sell";
+            //пока не умеем читать свой формать из 5 частей, 
+            //т.к. добавил формат финам "RTS-6.14,20130802,100001,9826.000000000,10"
 
             Tick tick = Tick.Parse(tickString);
 

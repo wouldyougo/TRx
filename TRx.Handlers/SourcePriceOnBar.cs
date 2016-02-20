@@ -107,7 +107,7 @@ namespace TRx.Handlers
                 {
                     this.Close = value;
                 }
-                if (index == 0)
+                if (index == 1)
                 {
                     this.Volume = value;
                 }

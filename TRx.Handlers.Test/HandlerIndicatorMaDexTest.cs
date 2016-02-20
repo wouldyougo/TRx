@@ -82,7 +82,7 @@ namespace TRx.Handlers.Test
         }
 
         [TestMethod]
-        public void IndicatorMAx_init_test()
+        public void IndicatorMaDe_init_test()
         {
             ///проверяем Input
             Assert.IsNotNull(handler);
@@ -97,7 +97,7 @@ namespace TRx.Handlers.Test
         }
 
         [TestMethod]
-        public void IndicatorMAx_do_test()
+        public void IndicatorMaDe_do_test()
         {
             var ema = Indicator.EMA(source, 3);
             handler.Do(0);
@@ -113,15 +113,15 @@ namespace TRx.Handlers.Test
         }
 
         [TestMethod]
-        public void IndicatorMAxs_init_test()
+        public void IndicatorMaDex_init_test()
         {
-            Assert.AreEqual(series, maxs.MAx.Count);
+            Assert.AreEqual(series, maxs.MaDe.Count);
             //проверяем входы
-            Assert.AreEqual(this.dataInput, maxs.MAx[0].Input);
+            Assert.AreEqual(this.dataInput, maxs.MaDe[0].Input);
             for (int i = 1; i < series; i++)
             {
-                Assert.AreEqual(maxs.MAx[i - 1], maxs.MAx[i].Input.DataOutput);
-                Assert.AreEqual(period[i], maxs.MAx[i].Period);
+                Assert.AreEqual(maxs.MaDe[i - 1], maxs.MaDe[i].Input.DataOutput);
+                Assert.AreEqual(period[i], maxs.MaDe[i].Period);
             }
             
             // матрица пересечений через список кортежей
@@ -136,7 +136,7 @@ namespace TRx.Handlers.Test
             Assert.AreEqual(maxs.CrossTo.Last().Item2, 6);
         }
         [TestMethod]
-        public void IndicatorMAxs_do_test()
+        public void IndicatorMaDex_do_test()
         {
             Assert.AreEqual(maxs.CrossUp[2, 3].Count, 0);
             Assert.AreEqual(maxs.CrossDn[2, 3].Count, 0);
@@ -144,7 +144,7 @@ namespace TRx.Handlers.Test
             //проверяем работу
             long id = 10;
             maxs.Do(id);
-            foreach (var mx in maxs.MAx)
+            foreach (var mx in maxs.MaDe)
             {
                 Assert.AreEqual(mx.Ma.Last(), 90);                
             }
