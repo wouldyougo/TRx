@@ -73,8 +73,7 @@ namespace TRx.Handlers
         private void СформироватьСигналы()
         {
             //throw new NotImplementedException();
-            // переделать
-            // вопрос - как найти количество активных позиций
+            //TODO 8. вопрос - как найти количество активных позиций
 
             double Price = maDeviation.bar.Close;
             int i = Уровень.Count - 1;

@@ -369,7 +369,8 @@ namespace TRL.Common.Handlers
                         barBuilder.UpdateBarFinish(barCurrent, tick);
                         //state = "Finished";
                         ///         добавить "законченый" бар в контекст
-                        this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
+                        this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fffffff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
+                        //this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fffffff}, {1}, добавлен новый бар {2}", barCurrent.DateTime, this.GetType().Name, barCurrent.ToString()));
                         this.tradingData.Get<ObservableCollection<Bar>>().Add(barCurrent);
                         ///         переходим в п0
                         continue;
@@ -394,7 +395,8 @@ namespace TRL.Common.Handlers
                         //state = "Finished";
                         ///             сгенерировать событие на "закончен" бара
                         ///             добавить завершенный бар в контекст                    
-                        this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
+                        this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fffffff}, {1}, добавлен новый бар {2}", DateTime.Now, this.GetType().Name, barCurrent.ToString()));
+                        //this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fffffff}, {1}, добавлен новый бар {2}", barCurrent.DateTime, this.GetType().Name, barCurrent.ToString()));
                         this.tradingData.Get<ObservableCollection<Bar>>().Add(barCurrent);
                     }
                     ///         выходим из процесса обработки

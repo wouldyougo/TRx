@@ -41,9 +41,13 @@ namespace TRL.Common.Models
         /// </summary>
         public BarSettings BarSettings { get; private set; }
 
+        public Bar LastBar { get; private set; }
+
         public BarBuilder(BarSettings barSettings)
         {
             this.BarSettings = barSettings;
+            LastBar = new Bar();
+            LastBar.DateTime = DateTime.MinValue;
         }
 
         /// <summary>
@@ -172,6 +176,7 @@ namespace TRL.Common.Models
         public Bar FinishBarState(Bar bar)
         {
             bar.State = Enums.BarState.Finished;
+            UpdateDateId(bar);
             return bar;
         }
 
@@ -342,7 +347,6 @@ namespace TRL.Common.Models
             double low = price;
             double volume = 0;
             double volumePrice = 0;
-
             return new Bar
             {
                 Symbol = symbol,
@@ -411,12 +415,34 @@ namespace TRL.Common.Models
                 bar.Close = bar.High;
             }
             bar.DateTime = tick.DateTime;
+
+            ///bar.State = Enums.BarState.Finished;
+            ///UpdateDateId(bar);
+            FinishBarState(bar);
+
             //bar.Volume += tick.Volume;
             //bar.VolumePrice += tick.Price * tick.Volume;
             //bar.State = Enums.BarState.Changed;
-            bar.State = Enums.BarState.Finished;
             //return bar;
             //throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Обновить ID (DateTime.Ticks) в зависимости от ID предыдущего бара
+        /// </summary>
+        /// <param name="bar"></param>
+        private void UpdateDateId(Bar bar)
+        {
+            /// При завершении бара сравнить ID (DateTime.Ticks) с ID предыдущего бара,
+            /// если совпадают (или меньше) - это значит бар "фиктивный", 
+            /// т.е. сфомирован за счет быстрого движения,
+            /// чтобы ID (DateTime.Ticks) отличались нужно увеличить Ticks для текущего бара
+            if (bar.DateID <= LastBar.DateID)
+            {
+                bar.DateTime = LastBar.DateTime.AddTicks(1);
+            }
+            /// Хранить в построителе предыдущий завершенный бар
+            LastBar = bar;
         }
     }
 }

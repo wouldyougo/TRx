@@ -7,7 +7,7 @@ namespace TRL.Common.TimeHelpers
 {
     public class BrokerDateTime
     {
-        ///переделать
+        ///TODO переделать BrokerDateTime
         public static DateTime Make(DateTime localDate)
         {
             //TimeZoneInfo timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(ReadBrokerServerTimezoneIdFromAppConfig());

@@ -104,7 +104,6 @@ namespace TRx.Base
             tmp.Do();
         }
         public Template(string[] args)
-
         {
             this.args = args;            
         }
@@ -433,15 +432,16 @@ namespace TRx.Base
         virtual public void ConsoleHandlerX()
         {
             Console.WriteLine("Base.ConsoleHandlerX()");
+            Console.WriteLine("Base.ConsoleHandlerX().ExportDataOnExit");
             Export.ExportData<Bar>(AppSettings.GetValue<bool>("ExportBarsOnExit"));
             Export.ExportData<Signal>(AppSettings.GetValue<bool>("ExportSignalsOnExit"));
             Export.ExportData<Order>(AppSettings.GetValue<bool>("ExportOrdersOnExit"));
             Export.ExportData<Trade>(AppSettings.GetValue<bool>("ExportTradesOnExit"));
 
-            ///переделать
-            ///Перенести Список сделок в Контекст
+            ///TODO 2. Перенести Список сделок в Контекст
             if (AppSettings.GetValue<bool>("ExportDealsOnExit"))
             {
+                Console.WriteLine("Base.ConsoleHandlerX().ExportDealsOnExit");
                 var dealList = TradeConsole.GetDeals(strategyHeader);
                 if (dealList != null)
                 {

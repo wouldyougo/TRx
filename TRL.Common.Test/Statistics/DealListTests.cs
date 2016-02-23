@@ -141,7 +141,7 @@ namespace TRL.Common.Statistics.Test
             Assert.AreEqual(0, open.GetTradeResult(close));
             dealList.OnItemAdded(open);
             dealList.OnItemAdded(close);
-            // переделать проверку на разные портфели
+            //TODO 3. сделать проверку на разные портфели
             Assert.AreEqual(0, dealList.Sum);
         }
 

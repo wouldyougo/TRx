@@ -30,10 +30,10 @@ namespace TRL.Common.Models
         public virtual StrategyHeader Strategy { get; set; }
 
         /// <summary>
-        /// BarId на котором был создан ордер
+        /// BarDateId на котором был создан ордер
         /// </summary>
-        //public long? BarId { get; set; } = null;
-        public long BarId { get; set; }
+        public long BarDateId { get; set; }
+        //public long? BarDateId { get; set; } = null;
         /// <summary>
         /// Bar на котором был создан ордер
         /// </summary>
@@ -53,13 +53,13 @@ namespace TRL.Common.Models
             this.Stop = stop;
             this.Limit = limit;
             this.Amount = strategyHeader.Amount;
-            //this.BarId = null;
-            this.BarId = 0;
+            //this.BarDateId = null;
+            this.BarDateId = 0;
             this.Bar = null;
         }
 
         //public Signal(StrategyHeader strategyHeader, DateTime date, TradeAction action, OrderType type, double price, double stop, double limit, long? barId = null, Bar bar = null)
-        public Signal(StrategyHeader strategyHeader, DateTime date, TradeAction action, OrderType type, double price, double stop, double limit, long barId, Bar bar)
+        public Signal(StrategyHeader strategyHeader, DateTime date, TradeAction action, OrderType type, double price, double stop, double limit, long barDateId, Bar bar)
         {
             this.Id = SerialIntegerFactory.Make();
             this.StrategyId = strategyHeader.Id;
@@ -71,18 +71,20 @@ namespace TRL.Common.Models
             this.Price = price;
             this.Stop = stop;
             this.Limit = limit;
-            this.BarId = barId;
+            this.BarDateId = barDateId;
             this.Bar = bar;
         }
 
         public override string ToString()
         {
-            return ToString("Signal Id: {0}, DateTime: {1}, TradeAction: {2}, OrderType: {3}, Price: {4}, Stop: {5}, Limit: {6}, Amount: {7}, StrategyId: {8}");
+            //return ToString("Signal Id: {0}, DateTime: {1}, TradeAction: {2}, OrderType: {3}, Price: {4}, Stop: {5}, Limit: {6}, Amount: {7}, StrategyId: {8}");
+            return ToString("Signal Id: {0}, DateTime: {1}, TradeAction: {2}, OrderType: {3}, Price: {4}, Stop: {5}, Limit: {6}, Amount: {7}, StrategyId: {8}, BarDateId: {9}");
         }
 
         public string ToImportString()
         {
-            return ToString("{0},{1},{2},{3},{4},{5},{6},{7},{8}");
+            //return ToString("{0},{1},{2},{3},{4},{5},{6},{7},{8}");
+            return ToString("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}");
         }
 
         private string ToString(string format)
@@ -90,7 +92,8 @@ namespace TRL.Common.Models
             CultureInfo ci = CultureInfo.InvariantCulture;
 
             return String.Format(format,
-                this.Id, this.DateTime.ToString(ci), this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id);
+                //this.Id, this.DateTime.ToString(ci), this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id);
+                this.Id, this.DateTime.ToString(ci), this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id, this.BarDateId);
         }
 
         public static Signal Parse(string src)

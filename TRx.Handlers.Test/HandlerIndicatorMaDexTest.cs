@@ -29,7 +29,7 @@ namespace TRx.Handlers.Test
         private DataSourceTest dataSource;
         private double Period = 5;
         private IndicatorMaDe handler;
-        private IndicatorMaDex maxs;
+        private IndicatorMaDex maDex;
         private int series;
         List<double> source;
         IList<double> period;
@@ -63,22 +63,22 @@ namespace TRx.Handlers.Test
                 period.Add(10 * i);
             }
 
-            maxs = new IndicatorMaDex(period, this.dataInput, new NullLogger());
+            maDex = new IndicatorMaDex(period, this.dataInput, new NullLogger());
             // матрица пересечений                0      1      2      3      4      5     6       
             //macds.CrossTo[2] = new List<bool> { false, false, false, true,  true,  true };
             //macds.CrossTo[3] = new List<bool> { false, false, false, false, true,  true };
             //macds.CrossTo[4] = new List<bool> { false, false, false, false, false, true, true };
 
             // матрица пересечений через список кортежей
-            maxs.CrossTo.Add(new Tuple<int, int>(2, 3));
-            maxs.CrossTo.Add(new Tuple<int, int>(2, 4));
-            maxs.CrossTo.Add(new Tuple<int, int>(2, 5));
+            maDex.CrossTo.Add(new Tuple<int, int>(2, 3));
+            maDex.CrossTo.Add(new Tuple<int, int>(2, 4));
+            maDex.CrossTo.Add(new Tuple<int, int>(2, 5));
 
-            maxs.CrossTo.Add(new Tuple<int, int>(3, 4));
-            maxs.CrossTo.Add(new Tuple<int, int>(3, 5));
+            maDex.CrossTo.Add(new Tuple<int, int>(3, 4));
+            maDex.CrossTo.Add(new Tuple<int, int>(3, 5));
 
-            maxs.CrossTo.Add(new Tuple<int, int>(4, 5));
-            maxs.CrossTo.Add(new Tuple<int, int>(4, 6));
+            maDex.CrossTo.Add(new Tuple<int, int>(4, 5));
+            maDex.CrossTo.Add(new Tuple<int, int>(4, 6));
         }
 
         [TestMethod]
@@ -115,42 +115,42 @@ namespace TRx.Handlers.Test
         [TestMethod]
         public void IndicatorMaDex_init_test()
         {
-            Assert.AreEqual(series, maxs.MaDe.Count);
+            Assert.AreEqual(series, maDex.MaDe.Count);
             //проверяем входы
-            Assert.AreEqual(this.dataInput, maxs.MaDe[0].Input);
+            Assert.AreEqual(this.dataInput, maDex.MaDe[0].Input);
             for (int i = 1; i < series; i++)
             {
-                Assert.AreEqual(maxs.MaDe[i - 1], maxs.MaDe[i].Input.DataOutput);
-                Assert.AreEqual(period[i], maxs.MaDe[i].Period);
+                Assert.AreEqual(maDex.MaDe[i - 1], maDex.MaDe[i].Input.DataOutput);
+                Assert.AreEqual(period[i], maDex.MaDe[i].Period);
             }
             
             // матрица пересечений через список кортежей
-            //maxs.CrossTo.Add(new Tuple<int, int>(2, 3));
+            //maDex.CrossTo.Add(new Tuple<int, int>(2, 3));
             //...
-            //maxs.CrossTo.Add(new Tuple<int, int>(4, 6));
+            //maDex.CrossTo.Add(new Tuple<int, int>(4, 6));
 
             //проверяем список для пересечений
-            Assert.AreEqual(maxs.CrossTo.First().Item1, 2);
-            Assert.AreEqual(maxs.CrossTo.First().Item2, 3);
-            Assert.AreEqual(maxs.CrossTo.Last().Item1, 4);
-            Assert.AreEqual(maxs.CrossTo.Last().Item2, 6);
+            Assert.AreEqual(maDex.CrossTo.First().Item1, 2);
+            Assert.AreEqual(maDex.CrossTo.First().Item2, 3);
+            Assert.AreEqual(maDex.CrossTo.Last().Item1, 4);
+            Assert.AreEqual(maDex.CrossTo.Last().Item2, 6);
         }
         [TestMethod]
         public void IndicatorMaDex_do_test()
         {
-            Assert.AreEqual(maxs.CrossUp[2, 3].Count, 0);
-            Assert.AreEqual(maxs.CrossDn[2, 3].Count, 0);
+            Assert.AreEqual(maDex.CrossUp[2, 3].Count, 0);
+            Assert.AreEqual(maDex.CrossDn[2, 3].Count, 0);
 
             //проверяем работу
             long id = 10;
-            maxs.Do(id);
-            foreach (var mx in maxs.MaDe)
+            maDex.Do(id);
+            foreach (var mx in maDex.MaDe)
             {
                 Assert.AreEqual(mx.Ma.Last(), 90);                
             }
             // пересечения посчитаны
-            Assert.AreEqual(maxs.CrossUp[2, 3].Count, 1);
-            Assert.AreEqual(maxs.CrossDn[2, 3].Count, 1);
+            Assert.AreEqual(maDex.CrossUp[2, 3].Count, 1);
+            Assert.AreEqual(maDex.CrossDn[2, 3].Count, 1);
             // пересечения посчитаны, но как точно надо проверять другим тестом
         }
 

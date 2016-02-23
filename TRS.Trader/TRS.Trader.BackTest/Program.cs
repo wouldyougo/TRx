@@ -177,7 +177,7 @@ namespace TRx.Trader.BackTest
 
                 foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
                 {
-                    logger.Log(item.ToFinamString());
+                    logger.Log(item.ToStringFinam());
                 }
             }
             else

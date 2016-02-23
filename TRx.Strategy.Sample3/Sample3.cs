@@ -36,6 +36,9 @@ using TRL.Connect.Smartcom.Commands;
 
 namespace TRx.Strategy
 {
+    //TODO 3. Добавить отображение в ipython notebook данных по стратегии
+    //TODO 3. Добавить отображение в ipython notebook результатов стратегии
+
     /// <summary>
     /// пример стратегии с пересечением скользящих 
     /// с тейк профитом
