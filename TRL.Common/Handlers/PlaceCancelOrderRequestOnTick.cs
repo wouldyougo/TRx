@@ -32,7 +32,7 @@ namespace TRL.Common.Handlers
 
         public override void OnItemAdded(Tick item)
         {
-            // переделать - здесь что-то очень медленно:
+            //TODO здесь что-то очень медленно:
             IEnumerable<Order> unfilled = this.tradingData.Get<ICollection<Order>>().GetUnfilled(item.Symbol);
 
             if (unfilled == null)

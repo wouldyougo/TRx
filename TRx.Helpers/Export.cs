@@ -59,15 +59,18 @@ namespace TRx.Helpers
 
             if (prefix == "Bar")
             {
-                logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>");
+                //logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>");
+                logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>,<DATEID>");
 
                 foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
                 {
-                    logger.Log(item.ToFinamString());
+                    //logger.Log(item.ToStringFinam());
+                    logger.Log(item.ToStringDateID());
                 }
             }
             else
             {
+                ///TODO 1. ExportData<T> Добавить BarDateId
                 foreach (T item in TradingData.Instance.Get<IEnumerable<T>>())
                     logger.Log(item.ToString());
             }

@@ -113,7 +113,7 @@ namespace TRL.Common.Extensions.Collections
         {
             try
             {
-                // переделать
+                //TODO здесь что-то очень медленно:
                 //return collection.Where(o => o.Symbol == symbol
                 //    && !o.IsCanceled
                 //    && !o.IsExpired

@@ -12,6 +12,8 @@ Console.WriteLine(DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
 
 var d1 = DateTime.Now;
 Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
+d1 = d1.AddTicks(1);
+Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
 2016.01.12 17:12:00.2385833
 
 //пример формата даты

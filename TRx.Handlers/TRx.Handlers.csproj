@@ -48,7 +48,7 @@
     <Compile Include="SourcePriceOnBar.cs" />
     <Compile Include="IndicatorOnBarMaDeviation.cs" />
     <Compile Include="MakeClosePositionSignalByPointsOnBar.cs" />
-    <Compile Include="ReversMaDeOnBar - definition.cs" />
+    <Compile Include="ReversMaDeOnBar - Declaration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IndicatorOnBar2Ma.cs" />
     <Compile Include="ReversMaDeOnBar.cs" />

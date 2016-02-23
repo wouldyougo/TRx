@@ -9,6 +9,11 @@ namespace TRL.Common.Models
 {
     public class Bar
     {
+        ///TODO 0. Добавить UID
+        ///TODO 2. Добавить DateTime Open
+        ///TODO 2. Добавить TimeSpan = DateTimeClose - DateTimeOpen 
+        /// практически готовый индикатор скорости Range bara
+
         public string Symbol { get; set; }
         /// <summary>
         /// Интервал
@@ -17,8 +22,13 @@ namespace TRL.Common.Models
         /// </summary>
         public int Interval { get; set; }
 
-        public long ID { get { return DateTime.Ticks; } }
-
+        /// <summary>
+        /// long DateTime.Ticks
+        /// </summary>
+        public long DateID { get { return DateTime.Ticks; } }
+        /// <summary>
+        /// Close DateTime
+        /// </summary>
         public DateTime DateTime { get; set; }
 
         public double Open { get; set; }
@@ -169,26 +179,43 @@ namespace TRL.Common.Models
         }
         public override string ToString()
         {
-            return ToString("Symbol: {0}, Interval: {1}, DateTime: {2}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}");
+            //return ToString("Symbol: {0}, Interval: {1}, DateTime: {2}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}");
+            return ToString("Symbol: {0}, Interval: {1}, DateTime: {2:yyyyMMdd HHmmss fffffff}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}");            
         }
 
         public string ToImportString()
         {
-            return ToString("{0},{1},{2:yyyyMMdd,HHmmss},{3},{4},{5},{6},{7}");
+            //return ToString("{0},{1},{2:yyyyMMdd,HHmmss},{3},{4},{5},{6},{7}");
+            return ToString("{0},{1},{2:yyyyMMdd,HHmmssfffffff},{3},{4},{5},{6},{7}");            
         }
 
-        public string ToFinamString()
+        public string ToStringFinam()
         {
             CultureInfo ci = CultureInfo.InvariantCulture;
-            return String.Format("{0},{1},{2:yyyyMMdd,HHmmss},{3},{4},{5},{6},{7}", 
+            //return String.Format("{0},{1},{2:yyyyMMdd,HHmmss},{3},{4},{5},{6},{7}", 
+            return String.Format("{0},{1},{2:yyyyMMdd,HHmmssfffffff},{3},{4},{5},{6},{7}",
                 this.Symbol, this.Interval, this.DateTime, this.Open.ToString("0.0000", ci), this.High.ToString("0.0000", ci), this.Low.ToString("0.0000", ci), this.Close.ToString("0.0000", ci), this.Volume.ToString("0.0000", ci));
+        }
+        //Millisecond
+        //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fff"));
+        //Microseconds
+        //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.ffffff"));
+        //Tick
+        //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fffffff"));
+        //Console.WriteLine(DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
+        public string ToStringDateID()
+        {
+            CultureInfo ci = CultureInfo.InvariantCulture;
+            return String.Format("{0},{1},{2:yyyyMMdd,HHmmssfffffff},{3},{4},{5},{6},{7},{8}",
+                this.Symbol, this.Interval, this.DateTime, this.Open.ToString("0.0000", ci), this.High.ToString("0.0000", ci), this.Low.ToString("0.0000", ci), this.Close.ToString("0.0000", ci), this.Volume.ToString("0.0000", ci), this.DateID);            
         }
 
         private string ToString(string format)
         {
             CultureInfo ci = CultureInfo.InvariantCulture;
-            // заменить  this.DateTime.ToString(ci) на this.DateTime, протестировать
-            return String.Format(format, this.Symbol, this.Interval, this.DateTime.ToString(ci), this.Open.ToString("0.0000", ci), this.High.ToString("0.0000", ci), this.Low.ToString("0.0000", ci), this.Close.ToString("0.0000", ci), this.Volume.ToString("0.0000", ci));
+            //TODO 2. Заменил  this.DateTime.ToString(ci) на this.DateTime, протестировать
+            //return String.Format(format, this.Symbol, this.Interval, this.DateTime.ToString(ci), this.Open.ToString("0.0000", ci), this.High.ToString("0.0000", ci), this.Low.ToString("0.0000", ci), this.Close.ToString("0.0000", ci), this.Volume.ToString("0.0000", ci));
+            return String.Format(format, this.Symbol, this.Interval, this.DateTime, this.Open.ToString("0.0000", ci), this.High.ToString("0.0000", ci), this.Low.ToString("0.0000", ci), this.Close.ToString("0.0000", ci), this.Volume.ToString("0.0000", ci));
         }
 
         #endregion

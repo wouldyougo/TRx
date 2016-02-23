@@ -163,8 +163,8 @@ namespace TRx.Handlers
             {   
                 Id = barsCount - 1,
                 DateTime = item.DateTime,
-                Name = "MaFast",                //ToDo
-                // сейчас отрисовывается по имени MaFast, надо переделать на стороне отрисовки
+                Name = "MaFast",
+                //TODO 4. сейчас отрисовывается по имени MaFast, надо переделать на стороне отрисовки
                 //Name = "MaDeviation",
                 Value = iDe
             });

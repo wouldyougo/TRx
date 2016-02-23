@@ -46,7 +46,7 @@ namespace TRL.Common.Handlers
         {
             Signal signal = this.signalQueue.Dequeue();
 
-            // переделать
+            //TODO переделать ItIsTimeToTrade
             //if (!this.schedule.ItIsTimeToTrade(BrokerDateTime.Make(DateTime.Now)))
             //{
             //    this.logger.Log(String.Format("{0:dd/MM/yyyy H:mm:ss.fff}, {1}, сигнал удален, потому что в настоящий момент торгов нет.", DateTime.Now, this.GetType().Name));

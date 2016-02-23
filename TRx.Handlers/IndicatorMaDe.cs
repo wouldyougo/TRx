@@ -30,6 +30,7 @@ namespace TRx.Handlers
     public class IndicatorMaDe//: AddedItemHandler<Bar>
                                : DataOutput<double>
     {
+        //TODO 3. Добавить в индикатор Имя и Номер
         public IDataInput<double> Input { get; private set; }
         //public IList<double> Value { get; private set; }
 
@@ -164,8 +165,8 @@ namespace TRx.Handlers
             {
                 Id = id,
                 //DateTime = item.DateTime,
-                Name = "De",                //ToDo
-                // сейчас отрисовывается по имени MaFast, надо переделать на стороне отрисовки
+                Name = "De",
+                //TODO 4. сейчас отрисовывается по имени MaFast, надо переделать на стороне отрисовки
                 //Name = "MaDeviation",
                 Value = iDe
             });

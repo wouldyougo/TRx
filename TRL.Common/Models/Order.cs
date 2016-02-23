@@ -40,9 +40,9 @@ namespace TRL.Common.Models
         public virtual Signal Signal { get; set; }
 
         /// <summary>
-        /// BarId на котором был создан ордер
+        /// BarDateId на котором был создан ордер
         /// </summary>
-        public long BarId { get; set; }
+        public long BarDateId { get; set; }
         /// <summary>
         /// Bar на котором был создан ордер
         /// </summary>
@@ -83,10 +83,10 @@ namespace TRL.Common.Models
             this.ExpirationDate = new FortsTradingSchedule().SessionEnd;
             this.SignalId = 0;
             this.Signal = null;
-            this.BarId = 0;
+            this.BarDateId = 0;
             this.Bar = null;
         }
-        public Order(int id, DateTime date, string portfolio, string symbol, TradeAction action, OrderType type, double amount, double price, double stop, long barId, Bar bar)
+        public Order(int id, DateTime date, string portfolio, string symbol, TradeAction action, OrderType type, double amount, double price, double stop, long barDateId, Bar bar)
         {
             this.Id = id;
             this.DateTime = date;
@@ -100,14 +100,15 @@ namespace TRL.Common.Models
             this.ExpirationDate = new FortsTradingSchedule().SessionEnd;
             this.SignalId = 0;
             this.Signal = null;
-            this.BarId = barId;
+            this.BarDateId = barDateId;
             this.Bar = bar;
         }
         /// <summary>
-        /// переделать
+        ///
         /// </summary>
         public bool IsExpired
         {
+            //TODO переделать BrokerDateTime
             //get { return BrokerDateTime.Make(DateTime.Now) > ExpirationDate; }
             get { return DateTime.Now > ExpirationDate; }
         }
