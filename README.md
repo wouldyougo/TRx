@@ -12,8 +12,8 @@ TRx Trading Library has SmartCOM connect for MOEX market.
 
 -	TRL - базовая открытая часть trading library
 -	TRx - открытая часть библиотеки - содержит индикаторы, открытые стратегии - примеры
--	TRS - приватный часть библиотеки - содержит стратегии
--	TLS - приватный часть библиотеки - содержит индикаторы для TSLab
+-	TRS - приватная часть библиотеки - содержит стратегии
+-	TLS - приватная часть библиотеки - содержит индикаторы для TSLab
 
 ### TRx содержит 3 примера:
 
@@ -23,9 +23,9 @@ TRx Trading Library has SmartCOM connect for MOEX market.
 | TRx.Strategy.Sample2 | TRx.BackTest.Sample2 | TRx.Program.Sample2 |
 | TRx.Strategy.Sample3 | TRx.BackTest.Sample3 | TRx.Program.Sample3 |
 
--	Strategy - сама стратегия.
--	Program - боевой режим работы.
--	BackTest - сейчас однопроходный бактест.
+-	Strategy - сама стратегия
+-	Program - боевой режим работы
+-	BackTest - сейчас однопроходный бактест
 
 В Strategy пишется сама стратегия 1 раз. 
 Затем эта сборка без изменения используется в Program или BackTest,
@@ -35,7 +35,9 @@ TRx Trading Library has SmartCOM connect for MOEX market.
 Sample3 - содержит пример стратегии пересечения 2х скользящих средних.
 
 ### Порядок сборки решения, после скачивания с репозитория.
-Правой кнопкой мыши на решении "Восстановить пакеты NuGet".
+-	Правой кнопкой мыши на решении "Восстановить пакеты NuGet".
 ![Alt text](Solution Items/img-2016-03-16-13-25-40.png?raw=true "Восстановить пакеты NuGet")
-![Alt text](https://github.com/wouldyougo/TRx/blob/master/Solution%20Items/img-2016-03-16-13-25-40.png "Восстановить пакеты NuGet")
-Правой кнопкой мыши на решении "Собрать решение".
+-	Правой кнопкой мыши на решении "Собрать решение".
+![Alt text](https://github.com/wouldyougo/TRx/blob/master/Solution%20Items/img-2016-03-16-13-26-16.png "Собрать решение")
+-	Если что-то из папок TRS или TLS вам недоступно и мешает сборке решения, это можно выгрузить из решения по кнопке "Выгрузить проект"
+![Alt text](Solution Items/img-2016-03-16-13-24-27.png?raw=true "Выгрузить проект")
