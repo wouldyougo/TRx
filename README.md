@@ -9,6 +9,13 @@ TRx Trading Library has SmartCOM connect for MOEX market.
 -	TSL - private TSLab indicators & strategies based on TRx
 
 ------
+Библиотека TRx на языке программирования C# для разработки и тестирования торговых стратегий
+для рынков Московской биржи.
+http://moex.com/
+В бибилиотеке реализован коннектор через SmartCOM для подключения к торговым сервером брокера.
+http://www.itinvest.ru/software/smartcom/
+Описание API SmartCOM
+http://www.itinvest.ru/editorfiles/File/smartcom/SmartCOM_manual_3_0.pdf
 
 -	TRL - базовая открытая часть trading library
 -	TRx - открытая часть библиотеки - содержит индикаторы, открытые стратегии - примеры
