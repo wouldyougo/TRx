@@ -133,7 +133,7 @@ namespace TRx.Handlers
                                                  select b.Close;
 
             ///вычисляем новые занчения
-            double iMa = Indicator.EMAi(closePrices.ToList<double>(), Period, Ma.ToList<double>());
+            double iMa = Indicator.EMA_i(closePrices.ToList<double>(), Period, Ma.ToList<double>());
             double iDe = closePrices.Last() - iMa;
 
             Ma.Add(iMa);

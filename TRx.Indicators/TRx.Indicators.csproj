@@ -44,6 +44,8 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Indicator.Cross.cs" />
     <Compile Include="Indicator.Difference.cs" />
+    <Compile Include="Indicator.Lowest.cs" />
+    <Compile Include="Indicator.Highest.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="Indicator.xATL.cs" />
     <Compile Include="Indicator.Ema.cs" />

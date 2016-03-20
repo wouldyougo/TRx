@@ -9,25 +9,28 @@ namespace TRx.Indicators
 {
     public static partial class Indicator
 	{
-        public static IList<double> EMA_TSLab(IList<double> candles, int period)
+        public static partial class IndicatorTSLab
         {
-            int count = candles.Count;
-            double[] array = new double[count];
-            int num = Math.Min(count, period);
-            double num2 = 0.0;
-            for (int i = 0; i < num; i++)
+            public static IList<double> EMA(IList<double> candles, int period)
             {
-                num2 += candles[i];
-                array[i] = num2 / (double)(i + 1);
+                int count = candles.Count;
+                double[] array = new double[count];
+                int num = Math.Min(count, period);
+                double num2 = 0.0;
+                for (int i = 0; i < num; i++)
+                {
+                    num2 += candles[i];
+                    array[i] = num2 / (double)(i + 1);
+                }
+                double num3 = 2.0 / (1.0 + (double)period);
+                for (int j = num; j < count; j++)
+                {
+                    double num4 = candles[j];
+                    double num5 = array[j - 1];
+                    array[j] = num3 * (num4 - num5) + num5;
+                }
+                return array;
             }
-            double num3 = 2.0 / (1.0 + (double)period);
-            for (int j = num; j < count; j++)
-            {
-                double num4 = candles[j];
-                double num5 = array[j - 1];
-                array[j] = num3 * (num4 - num5) + num5;
-            }
-            return array;
         }
 
         /// <summary>
@@ -51,9 +54,9 @@ namespace TRx.Indicators
             return ema;
         }
         /// <summary>
-        ///EMA(i) = EMA(i−1) + α⋅(p(i) − EMA(i−1))
-        ///EMA(i) = α⋅p(i) + (1 − α)⋅EMA(i−1)
-        ///α = 2/(Period + 1) - фактор сглаживания;
+        /// EMA(i) = EMA(i−1) + α⋅(p(i) − EMA(i−1))
+        /// EMA(i) = α⋅p(i) + (1 − α)⋅EMA(i−1)
+        /// α = 2/(Period + 1) - фактор сглаживания;
         /// </summary>
         /// <param name="p">источник</param>
         /// <param name="period">период</param>
@@ -77,12 +80,14 @@ namespace TRx.Indicators
         }
         /// <summary>
         /// EMA(i) = EMA(i−1) + a*(p(i) − EMA(i−1))
+        /// EMA(i) = α⋅p(i) + (1 − α)⋅EMA(i−1)
+        /// α = 2/(Period + 1) - фактор сглаживания;
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="period"></param>
+        /// <param name="p">источник</param>
+        /// <param name="period">период</param>
         /// <param name="ema"></param>
         /// <returns></returns>
-        public static double EMAi(List<double> p, double period, List<double> ema)
+        public static double EMA_i(List<double> p, double period, List<double> ema)
         {
             double emai = 0;
             if (ema.Count == 0)

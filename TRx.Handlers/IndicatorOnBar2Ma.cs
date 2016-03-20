@@ -136,8 +136,8 @@ namespace TRx.Handlers
 
             //IEnumerable<double> MaFast = Indicator.EMA(closePrices.ToList<double>(), ss.FastPeriod);
             //IEnumerable<double> MaSlow = Indicator.EMA(closePrices.ToList<double>(), ss.SlowPeriod);
-            double iMaFast = Indicator.EMAi(closePrices.ToList<double>(), ss.PeriodFast, MaFast.ToList<double>());
-            double iMaSlow = Indicator.EMAi(closePrices.ToList<double>(), ss.PeriodSlow, MaSlow.ToList<double>());
+            double iMaFast = Indicator.EMA_i(closePrices.ToList<double>(), ss.PeriodFast, MaFast.ToList<double>());
+            double iMaSlow = Indicator.EMA_i(closePrices.ToList<double>(), ss.PeriodSlow, MaSlow.ToList<double>());
 
             MaFast.Add(iMaFast);
             MaSlow.Add(iMaSlow);

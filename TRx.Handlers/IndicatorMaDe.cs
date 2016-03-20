@@ -134,7 +134,7 @@ namespace TRx.Handlers
             ///Input
             //double iMa = Indicator.EMAi(closePrices.ToList<double>(), Period, Ma.ToList<double>());
             //double iDe = closePrices.Last() - iMa;
-            double iMa = Indicator.EMAi(Input.Value.ToList<double>(), Period, Ma.ToList<double>());
+            double iMa = Indicator.EMA_i(Input.Value.ToList<double>(), Period, Ma.ToList<double>());
             double iDe = Input.Value.Last() - iMa;
 
 
