@@ -10,7 +10,7 @@ namespace TRx.Indicators
     public static partial class Indicator
 	{
         /// <summary>
-        /// пример из TSLab.Script.Helpers
+        /// Пример из TSLab.Script.Helpers
         /// </summary>
         public static partial class IndicatorTSLab
         {

@@ -6,6 +6,7 @@ using TRL.Common.Models;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator.Lowest_i")]
     public static class Lowest
     {
         public static IEnumerable<double> LowCollection(IEnumerable<Bar> src, int period)

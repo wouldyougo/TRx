@@ -6,9 +6,9 @@ using TRL.Common.Models;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator.Highest_i")]
     public class Highest
     {
-
         public static IEnumerable<double> HighCollection(IEnumerable<Bar> src, int period)
         {
             return MakeCollection(src.OrderByDescending(o=>o.DateTime).Select(i => i.High).ToList(), period);
