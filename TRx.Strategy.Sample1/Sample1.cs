@@ -116,6 +116,7 @@ namespace TRx.Strategy
         /// <param name="args"></param>
         public void SetupStrategy(string[] args)
         {
+            ///TODO 91. вопрос как изолировать стратегию от процесса инициализации параметров стратегии и AppSettings
             //AddStrategySettings();
             //TradingData.Instance.Get<ICollection<Strategy>>().Add(strategyHeader);
             //TradingData.Instance.Get<ICollection<BarSettings>>().Add(barSettings);
