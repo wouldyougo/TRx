@@ -6,6 +6,7 @@ using TRL.Common.Models;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator")]
     public class SMA
     {
         public static IEnumerable<double> Close(IEnumerable<Bar> collection, int period)

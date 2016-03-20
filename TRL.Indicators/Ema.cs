@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator.EMA_i")]
     public class Ema
     {
         public static IEnumerable<double> Make(IEnumerable<double> source, int period)

@@ -9,6 +9,9 @@ namespace TRx.Indicators
 {
     public static partial class Indicator
 	{
+        /// <summary>
+        /// Пример из TSLab.Script.Helpers
+        /// </summary>
         public static partial class IndicatorTSLab
         {
             public static IList<double> EMA(IList<double> candles, int period)
