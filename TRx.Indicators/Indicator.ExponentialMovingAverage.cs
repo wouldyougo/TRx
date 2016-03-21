@@ -10,30 +10,29 @@ namespace TRx.Indicators
     public static partial class Indicator
 	{
         /// <summary>
-        /// Пример из TSLab.Script.Helpers
+        /// EMA(i) = EMA(i−1) + a*(p(i) − EMA(i−1))
+        /// EMA(i) = α⋅p(i) + (1 − α)⋅EMA(i−1)
+        /// α = 2/(Period + 1) - фактор сглаживания;
         /// </summary>
-        public static partial class IndicatorTSLab
+        /// <param name="p">источник</param>
+        /// <param name="period">период</param>
+        /// <param name="ema"></param>
+        /// <returns></returns>
+        public static double EMA_i(List<double> p, double period, List<double> ema)
         {
-            public static IList<double> EMA(IList<double> candles, int period)
+            double emai = 0;
+            if (ema.Count == 0)
             {
-                int count = candles.Count;
-                double[] array = new double[count];
-                int num = Math.Min(count, period);
-                double num2 = 0.0;
-                for (int i = 0; i < num; i++)
-                {
-                    num2 += candles[i];
-                    array[i] = num2 / (double)(i + 1);
-                }
-                double num3 = 2.0 / (1.0 + (double)period);
-                for (int j = num; j < count; j++)
-                {
-                    double num4 = candles[j];
-                    double num5 = array[j - 1];
-                    array[j] = num3 * (num4 - num5) + num5;
-                }
-                return array;
+                emai = p.Last();
+                return emai;
             }
+            else
+            {
+                double a = 2.0 / (period + 1);
+                emai = ema.Last() + a * (p.Last() - ema.Last());
+            }
+            return emai;
+            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -81,30 +80,35 @@ namespace TRx.Indicators
             }
             return ema;
         }
-        /// <summary>
-        /// EMA(i) = EMA(i−1) + a*(p(i) − EMA(i−1))
-        /// EMA(i) = α⋅p(i) + (1 − α)⋅EMA(i−1)
-        /// α = 2/(Period + 1) - фактор сглаживания;
-        /// </summary>
-        /// <param name="p">источник</param>
-        /// <param name="period">период</param>
-        /// <param name="ema"></param>
-        /// <returns></returns>
-        public static double EMA_i(List<double> p, double period, List<double> ema)
+    }
+}
+
+namespace TRx.Indicators.TSLab
+{
+    /// <summary>
+    /// Пример из TSLab.Script.Helpers
+    /// </summary>
+    public static partial class Indicator
+    {
+        public static IList<double> EMA(IList<double> candles, int period)
         {
-            double emai = 0;
-            if (ema.Count == 0)
+            int count = candles.Count;
+            double[] array = new double[count];
+            int num = Math.Min(count, period);
+            double num2 = 0.0;
+            for (int i = 0; i < num; i++)
             {
-                emai = p.Last();
-                return emai;
+                num2 += candles[i];
+                array[i] = num2 / (double)(i + 1);
             }
-            else
+            double num3 = 2.0 / (1.0 + (double)period);
+            for (int j = num; j < count; j++)
             {
-                double a = 2.0 / (period + 1);
-                emai = ema.Last() + a * (p.Last() - ema.Last());
+                double num4 = candles[j];
+                double num5 = array[j - 1];
+                array[j] = num3 * (num4 - num5) + num5;
             }
-            return emai;
-            //throw new NotImplementedException();
+            return array;
         }
     }
 }

@@ -30,12 +30,13 @@ namespace TRx.Indicators
         public static IList<double> Lowest(IList<double> p, int period)
         {
             int count = p.Count;
-            double[] numArray = new double[count];
+            double[] result = new double[count];
             for (int i = 0; i < count; i++)
             {
-                numArray[i] = Indicator.Lowest_i(p.Take(i+1).Skip(i + 1 - period).ToList(), period);
+                //numArray[i] = Indicator.Lowest_i(p.Take(i+1).Skip(i + 1 - period).ToList(), period);
+                result[i] = Indicator.Lowest_i(p.Take(i + 1).ToList(), period);
             }
-            return numArray;
+            return result;
         }
     }
 }
