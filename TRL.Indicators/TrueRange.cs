@@ -6,6 +6,7 @@ using TRL.Common.Models;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator.TrueRange")]
     public class TrueRange
     {
         /// <summary>

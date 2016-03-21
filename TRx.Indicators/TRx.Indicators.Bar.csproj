@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Indicator.ATR.cs" />
+    <Compile Include="Indicator.AverageTrueRange - Obsolete.cs" />
+    <Compile Include="Indicator.AverageTrueRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@ using TRL.Common.Models;
 
 namespace TRL.Indicators
 {
+    [System.Obsolete("используйте TRx.Indicators.Indicator.AverageTrueRange")]
     public class ATR
     {
         public static double Value(IEnumerable<Bar> bars)
