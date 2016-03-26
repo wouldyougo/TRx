@@ -8,21 +8,22 @@ namespace TRx.Indicators
 {
     public static partial class Indicator
     {
-        public static double SMA_i(IList<double> p, int period)
+        public static double Sma_i(IList<double> p, int period)
         {
-            var window = p.Skip(p.Count - period).Take(period);
-            //var sma = window.Sum() / period;
-            var sma = window.Sum() / window.Count();
-            return sma;
+            //var window = p.Skip(p.Count - period).Take(period);
+            //var sma = window.Average();
+            ////var sma = window.Sum() / period;
+            ////var sma = window.Sum() / window.Count();
+            return p.Skip(p.Count - period).Take(period).Average();
         }
-        public static IList<double> SMA(IList<double> p, int period)
+        public static IList<double> Sma(IList<double> p, int period)
         {
             int count = p.Count;
             double[] result = new double[count];
             for (int i = 0; i < count; i++)
             {
                 //numArray[i] = Indicator.SMA_i(p.Take(i + 1).Skip(i + 1 - period).ToList(), period);
-                result[i] = Indicator.SMA_i(p.Take(i + 1).ToList(), period);
+                result[i] = Indicator.Sma_i(p.Take(i + 1).ToList(), period);
             }
             return result;
         }
