@@ -56,13 +56,14 @@ namespace TRx.Indicators
             return result;
         }
 
+        [System.Obsolete("Надо протестировать работу индикатора")]
         /// <summary>
         /// Вычисляет значение TrueRange для последних значений (количеством period) из набора.
         /// </summary>
         /// <param name="bars">Исходный набор свечек</param>
         /// <param name="period">period</param>
         /// <returns></returns>
-        public static double AverageTrueRange(IList<Bar> bars, int period)
+        public static double AverageTrueRange_i(IList<Bar> bars, int period)
         {
             int count = bars.Count();
             if (count == 0) return 0;
