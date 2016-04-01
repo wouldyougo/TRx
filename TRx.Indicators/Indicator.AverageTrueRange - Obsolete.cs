@@ -26,7 +26,7 @@ namespace TRx.Indicators.Obsolete
             double[] result = new double[count];
             //if (count == 0) return result;
             for (int i = 0; i < count; i++)
-                result[i] = TRx.Indicators.Indicator.TrueRange_i(bars, i);
+                result[i] = TRx.Indicators.BarSource.Indicator.TrueRange_i(bars, i);
             return result;
         }
 
@@ -44,7 +44,7 @@ namespace TRx.Indicators.Obsolete
 
             double[] tr = new double[count];
             for (int i = 0; i < count; i++)
-                tr[i] = TRx.Indicators.Indicator.TrueRange_i(bars, i);
+                tr[i] = TRx.Indicators.BarSource.Indicator.TrueRange_i(bars, i);
 
             //return Math.Round(tr.Average(), 4);
             return tr.Average();

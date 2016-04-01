@@ -7,8 +7,8 @@
     <ProjectGuid>{110EBF18-D0A5-4D2F-9779-F5170601559B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TRx.Indicators</RootNamespace>
-    <AssemblyName>TRx.Indicators</AssemblyName>
+    <RootNamespace>TRx.Indicators.Bar</RootNamespace>
+    <AssemblyName>TRx.Indicators.Bar</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Indicator.AverageTrueRange - Obsolete.cs" />
     <Compile Include="Indicator.AverageTrueRange.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo2.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TRL.Common\TRL.Common.csproj">

@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="IDataInput.cs" />
     <Compile Include="IDataOutput.cs" />
+    <Compile Include="IndicatorTrueRange.cs" />
+    <Compile Include="IndicatorLowest.cs" />
+    <Compile Include="IndicatorHighest.cs" />
     <Compile Include="IndicatorMaDex.cs" />
     <Compile Include="IndicatorMaDe.cs" />
     <Compile Include="SourcePriceOnBar.cs" />
@@ -71,6 +74,10 @@
     <ProjectReference Include="..\TRx.Helpers\TRx.Helpers.csproj">
       <Project>{259cb4d5-447a-40c0-82dd-2fcb92c850d3}</Project>
       <Name>TRx.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRx.Indicators\TRx.Indicators.Bar.csproj">
+      <Project>{110ebf18-d0a5-4d2f-9779-f5170601559b}</Project>
+      <Name>TRx.Indicators.Bar</Name>
     </ProjectReference>
     <ProjectReference Include="..\TRx.Indicators\TRx.Indicators.csproj">
       <Project>{0c1f9ecb-aa45-46ba-952a-2ae604bb5871}</Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TRL.Common.Models;
 
 //namespace TSLab.Script.Helpers
-namespace TRx.Indicators
+namespace TRx.Indicators.BarSource
 {
     public static partial class Indicator
 	{
