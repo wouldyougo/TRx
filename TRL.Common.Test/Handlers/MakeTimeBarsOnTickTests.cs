@@ -17,7 +17,7 @@ using TRL.Common.Test;
 namespace TRL.Common.Handlers.Test
 {
     [TestClass]
-    public class MakeBarsOnTickTests
+    public class MakeTimeBarsOnTickTests
     {
 
         private IDataContext tradingData;

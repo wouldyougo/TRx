@@ -18,7 +18,7 @@ namespace TRL.Common.Models.Test
         private ObservableCollection<Tick> ticks;
         //private ObservableCollection<Bar> bars;
 
-        private BarBuilder barBuilder;
+        private BarBuilderRangeBar barBuilder;
         private BarSettings barSettings;
         private Common.Enums.DataModelType barType;
 
@@ -40,7 +40,7 @@ namespace TRL.Common.Models.Test
             this.ticks.Add(new Tick{ Symbol = "SBER", DateTime = new DateTime(2012, 10, 23, 20, 22, 20), Price = 520, Volume = 100, TradeAction = TradeAction.Buy });
             this.ticks.Add(new Tick{ Symbol = "SBER", DateTime = new DateTime(2012, 10, 23, 20, 22, 45), Price = 500, Volume = 100, TradeAction = TradeAction.Buy });
 
-            barBuilder = BarBuilder(out barSettings, out barType);
+            barBuilder = CreateBarBuilderRangeBar(out barSettings, out barType);
         }
 
         public void TicksChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -54,7 +54,7 @@ namespace TRL.Common.Models.Test
         /// <param name="barSettings"></param>
         /// <param name="barType"></param>
         /// <returns></returns>
-        private static BarBuilder BarBuilder(out BarSettings barSettings, out Common.Enums.DataModelType barType)
+        private static BarBuilderRangeBar CreateBarBuilderRangeBar(out BarSettings barSettings, out Common.Enums.DataModelType barType)
         {
             string symbol = "SBER";
             StrategyHeader strategyHeader = new StrategyHeader(1, "Break out strategyHeader", "BP12345-RF-01", symbol, 10);
@@ -63,18 +63,18 @@ namespace TRL.Common.Models.Test
 
             barSettings = new BarSettings(strategyHeader, symbol, interval, 0, barType);
 
-            return new BarBuilder(barSettings);
+            return new BarBuilderRangeBar(barSettings);
         }
 
         [TestMethod]
         public void BarBuilder_СоздатьЭкземплар()
         {
-            BarBuilder barBuilder = null;
+            BarBuilderRangeBar barBuilder = null;
             Assert.IsNull(barBuilder);
             BarSettings barSettings;
 
             Common.Enums.DataModelType barType;
-            barBuilder = BarBuilder(out barSettings, out barType);
+            barBuilder = CreateBarBuilderRangeBar(out barSettings, out barType);
 
             Assert.IsNotNull(barBuilder);
             Assert.AreEqual(barBuilder.BarSettings.BarType, barType);
@@ -270,5 +270,51 @@ namespace TRL.Common.Models.Test
         //    Tick tick = new Tick("RTS-6.15_FT", tickDate, TradeAction.Buy, value, volume);
         //    return tick;
         //}
+
+        [TestMethod]
+        public void BarBuilderTimeBar_СоздатьЭкземплар()
+        {
+            BarBuilderTimeBar barBuilder = null;
+            Assert.IsNull(barBuilder);
+            BarSettings barSettings;
+
+            Common.Enums.DataModelType barType;
+            barBuilder = CreateBarBuilderTimeBar(out barSettings, out barType);
+
+            Assert.IsNotNull(barBuilder);
+            Assert.AreEqual(barBuilder.BarSettings.BarType, barType);
+            Assert.IsNotNull(barBuilder.BarList);
+            Assert.AreEqual(barBuilder.TimeSpanInterval.TotalSeconds, barBuilder.BarSettings.Interval);
+            Assert.AreEqual(barBuilder.DateTimeStart.Date, DateTime.Now.Date);
+            Assert.AreEqual(barBuilder.DateTimeStart.TimeOfDay, barBuilder.BarSettings.DateTimeStart.TimeOfDay);
+            Assert.AreNotEqual(barBuilder.BarList.Count, 0);
+            ///15 чаосов * 60 мин = 900 мин
+            Assert.AreEqual(barBuilder.BarList.Count, 900);
+            Assert.AreEqual(barBuilder.BarList.First().DateTimeOpen, (DateTime.Now.Date).AddHours(9));
+            Assert.AreEqual(barBuilder.BarList.First().DateTime,     (DateTime.Now.Date).AddHours(9) + barBuilder.TimeSpanInterval);
+            Assert.AreEqual(barBuilder.BarList.Last().DateTimeOpen, (DateTime.Now.Date).AddHours(24) - barBuilder.TimeSpanInterval); 
+            Assert.AreEqual(barBuilder.BarList.Last().DateTime, (DateTime.Now.Date).AddHours(24));
+
+            Assert.AreEqual(barBuilder.BarList.Last().Interval, barBuilder.BarSettings.Interval);
+            Assert.AreEqual(barBuilder.BarList.Last().Symbol, barBuilder.BarSettings.Symbol);
+        }
+        /// <summary>
+        /// Создаем екземпляр построителя баров
+        /// </summary>
+        /// <param name="barSettings"></param>
+        /// <param name="barType"></param>
+        /// <returns></returns>
+        private static BarBuilderTimeBar CreateBarBuilderTimeBar(out BarSettings barSettings, out Common.Enums.DataModelType barType)
+        {
+            string symbol = "SBER";
+            StrategyHeader strategyHeader = new StrategyHeader(1, "Break out strategyHeader", "BP12345-RF-01", symbol, 10);
+            int interval = 60;
+            barType = Common.Enums.DataModelType.TimeBar;
+
+            barSettings = new BarSettings(strategyHeader, symbol, interval, 0, barType);
+            barSettings.DateTimeStart = (new DateTime()).AddHours(9);
+
+            return new BarBuilderTimeBar(barSettings);
+        }
     }
 }

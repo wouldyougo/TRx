@@ -77,6 +77,7 @@
     <Compile Include="Collections\HashSetOfNamedMutableTests.cs" />
     <Compile Include="Configuration\AppSettingsTests.cs" />
     <Compile Include="Emulation\BacktestOrderManagerTest.cs" />
+    <Compile Include="Handlers\MakeTimeBarsOnTickTests.cs" />
     <Compile Include="Handlers\MakeRangeBarsOnTickTests.cs" />
     <Compile Include="Handlers\MakeBarsOnTickTests.cs" />
     <Compile Include="Models\BarBuilderTests.cs" />

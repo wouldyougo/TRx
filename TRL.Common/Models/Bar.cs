@@ -26,6 +26,12 @@ namespace TRL.Common.Models
         /// long DateTime.Ticks
         /// </summary>
         public long DateID { get { return DateTime.Ticks; } }
+
+        /// <summary>
+        /// Open DateTime
+        /// </summary>
+        public DateTime DateTimeOpen { get; set; }
+
         /// <summary>
         /// Close DateTime
         /// </summary>
@@ -44,7 +50,7 @@ namespace TRL.Common.Models
         public Bar() { }
 
         public Bar(DateTime dateTime, double open, double high, double low, double close, double volume)
-        :this("", 0, dateTime, open, high, low, close, volume){}
+            :this("", 0, dateTime, open, high, low, close, volume){}
 
         public Bar(string symbol, int interval, DateTime dateTime, double open, double high, double low, double close, double volume)
         {
@@ -56,8 +62,41 @@ namespace TRL.Common.Models
             this.Low = low;
             this.Close = close;
             this.Volume = volume;
+
+            this.DateTimeOpen = dateTime.AddSeconds(-interval);
+        }
+        public Bar(string symbol, DateTime dateTimeOpen, DateTime dateTimeClose)
+            : this(symbol, dateTimeOpen, dateTimeClose, 0, 0, 0, 0, 0) {}
+        public Bar(string symbol, DateTime dateTimeOpen, DateTime dateTimeClose, double open, double high, double low, double close, double volume)
+        {
+            this.Symbol = symbol;
+            this.DateTimeOpen = dateTimeOpen;
+            this.DateTime = dateTimeClose;
+            this.Open = open;
+            this.High = high;
+            this.Low = low;
+            this.Close = close;
+            this.Volume = volume;
+
+            this.Interval = (int)(dateTimeClose - DateTimeOpen).TotalSeconds;
         }
 
+        /// <summary>
+        /// В общем случае для других типов Bar может быть 
+        /// interval <> dateTimeClose - dateTimeOpen
+        /// </summary>
+        public Bar(string symbol, int interval, DateTime dateTimeOpen, DateTime dateTimeClose, double open, double high, double low, double close, double volume)
+        {
+            this.Symbol = symbol;
+            this.Interval = interval;
+            this.DateTimeOpen = dateTimeOpen;
+            this.DateTime = dateTimeClose;
+            this.Open = open;
+            this.High = high;
+            this.Low = low;
+            this.Close = close;
+            this.Volume = volume;
+        }
         /// <summary>
         /// Параметр свечи
         /// </summary>
@@ -239,6 +278,17 @@ namespace TRL.Common.Models
             get { return Range; }
             set { Range = Convert.ToDouble(value); }
         }
+        public RangeBar(string symbol, int interval, DateTime dateTime, double open, double high, double low, double close, double volume)
+        {
+            this.Symbol = symbol;
+            this.Interval = interval;
+            this.DateTime = dateTime;
+            this.Open = open;
+            this.High = high;
+            this.Low = low;
+            this.Close = close;
+            this.Volume = volume;
+        }
     }
 
     /// <summary>
@@ -258,6 +308,17 @@ namespace TRL.Common.Models
         {
             get { return VolumeLimit; }
             set { VolumeLimit = Convert.ToDouble(value); }
+        }
+        public VolumeBar(string symbol, int interval, DateTime dateTime, double open, double high, double low, double close, double volume)
+        {
+            this.Symbol = symbol;
+            this.Interval = interval;
+            this.DateTime = dateTime;
+            this.Open = open;
+            this.High = high;
+            this.Low = low;
+            this.Close = close;
+            this.Volume = volume;
         }
     }
 

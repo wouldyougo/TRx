@@ -117,6 +117,8 @@
     <Compile Include="Handlers\AddedItemHandler.cs" />
     <Compile Include="Handlers\CancelOrderOnCancellationConfirmation.cs" />
     <Compile Include="Handlers\CancelOrderOnCancellationRequest.cs" />
+    <Compile Include="Handlers\MakeBarsOnTick2.cs" />
+    <Compile Include="Handlers\MakeTimeBarsOnTick.cs" />
     <Compile Include="Handlers\SendItemOnTick.cs" />
     <Compile Include="Handlers\SendItemOnTrade.cs" />
     <Compile Include="Handlers\CancelOrderOnTrade.cs" />
@@ -141,6 +143,8 @@
     <Compile Include="Handlers\UpdatePositionOnTrade.cs" />
     <Compile Include="Helpers\Class1.cs" />
     <Compile Include="Models\ArbitrageSettings.cs" />
+    <Compile Include="Models\BarBuilderTimeBar.cs" />
+    <Compile Include="Models\BarBuilderRangeBar.cs" />
     <Compile Include="Models\BarBuilder.cs" />
     <Compile Include="Models\BarSettings.cs" />
     <Compile Include="Models\CloseOrder.cs" />

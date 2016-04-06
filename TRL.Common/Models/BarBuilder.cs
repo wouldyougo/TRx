@@ -39,9 +39,9 @@ namespace TRL.Common.Models
         /// в секундах - для времеонного интервала
         /// в единицах - для volume или range бара
         /// </summary>
-        public BarSettings BarSettings { get; private set; }
+        public BarSettings BarSettings { get; protected set; }
 
-        public Bar LastBar { get; private set; }
+        public Bar LastBar { get; protected set; }
 
         public BarBuilder(BarSettings barSettings)
         {
@@ -55,7 +55,7 @@ namespace TRL.Common.Models
         /// Вызвать исключение
         /// </summary>
         /// <param name="tick"></param>
-        private void CheckSymbol(string Symbol)
+        protected virtual void CheckSymbol(string Symbol)
         {
             if (BarSettings.Symbol != null)
                 if (Symbol != BarSettings.Symbol)
@@ -64,7 +64,7 @@ namespace TRL.Common.Models
                 }
         }
 
-        private void CheckSymbol(string Symbol1, string Symbol2)
+        protected virtual void CheckSymbol(string Symbol1, string Symbol2)
         {
             if (BarSettings.Symbol != null) {
                 if (Symbol1 != BarSettings.Symbol)
@@ -83,7 +83,7 @@ namespace TRL.Common.Models
         /// Вызвать исключение
         /// </summary>
         /// <param name="tick"></param>
-        private void CheckState(Enums.BarState State)
+        protected virtual void CheckState(Enums.BarState State)
         {
             if (State == Enums.BarState.Finished)
             {
@@ -96,7 +96,7 @@ namespace TRL.Common.Models
         /// </summary>
         /// <param name="tick"></param>
         /// <returns>Новый бар</returns>
-        public Bar CreateBar(Tick tick)
+        protected virtual Bar CreateBar(Tick tick)
         {
             return this.CreateBar(tick, tick.DateTime);
         }
@@ -107,7 +107,7 @@ namespace TRL.Common.Models
         /// <param name="tick"></param>
         /// <param name="barDate">DateTime начала нового бара</param>
         /// <returns>Новый бар</returns>
-        public Bar CreateBar(Tick tick, DateTime barDate)
+        public virtual Bar CreateBar(Tick tick, DateTime barDate)
         {
             //if (tick.Symbol != BarSettings.Symbol)
             //{
@@ -145,7 +145,7 @@ namespace TRL.Common.Models
         /// <param name="bar"></param>
         /// <param name="tick"></param>
         /// <returns>Новый бар</returns>
-        public Bar UpdateBar(Bar bar, Tick tick)
+        public virtual Bar UpdateBar(Bar bar, Tick tick)
         {
             CheckSymbol(bar.Symbol, tick.Symbol);
             CheckState(bar.State);
@@ -173,22 +173,11 @@ namespace TRL.Common.Models
         /// <param name="bar"></param>
         /// <param name="tick"></param>
         /// <returns>Новый бар</returns>
-        public Bar FinishBarState(Bar bar)
+        public virtual Bar FinishBarState(Bar bar)
         {
             bar.State = Enums.BarState.Finished;
             UpdateDateId(bar);
             return bar;
-        }
-
-        /// <summary>
-        /// Проверить достигнут ли RangeBar интервал
-        /// </summary>
-        /// <param name="bar"></param>
-        /// <returns></returns>      
-        public bool CheckRangeReach(Bar bar)
-        {
-            bool finish = (bar.BarLengthHL() >= this.BarSettings.Interval);
-            return finish;
         }
 
         //Bar bar2 = CreateBar(tick, tick.DateTime);
@@ -301,7 +290,7 @@ namespace TRL.Common.Models
         /// </summary>
         /// <param name="bars"></param>
         /// <returns>Новый бар</returns>
-        private Bar MakeBar(List<Bar> bars)
+        protected virtual Bar MakeBar(List<Bar> bars)
         {
             //throw new NotImplementedException();
             double open = bars.First().Open;
@@ -333,7 +322,7 @@ namespace TRL.Common.Models
         /// <param name="price"></param>
         /// <param name="barDate">DateTime начала нового бара</param>
         /// <returns>Новый бар</returns>
-        internal Bar CreateBar(double price, DateTime dateTime, string symbol)
+        public virtual Bar CreateBar(double price, DateTime dateTime, string symbol)
         {
             //if (tick.Symbol != BarSettings.Symbol)
             //{
@@ -365,38 +354,13 @@ namespace TRL.Common.Models
         }
 
         /// <summary>
-        ///     проверяем возможность добавления нового тика в текущий бар
-        ///     если тело бара + расстояние до тика > значения интревала
-        ///     true - интервал превышен
-        /// </summary>
-        /// <param name="bar"></param>
-        /// <param name="tick"></param>
-        /// <returns></returns>
-        internal bool CheckRangeExcess(Bar bar, Tick tick)
-        {
-            double step = 0;
-            if (tick.Price < bar.Low)
-            {
-                step = bar.Low - tick.Price;
-            }
-            else
-            if (tick.Price > bar.High)
-            {
-                step = tick.Price - bar.High;
-            }
-            bool finish = (bar.BarLengthHL() + step > this.BarSettings.Interval);
-            return finish;
-
-            //throw new NotImplementedException();
-        }
-        /// <summary>
         /// Обновляет новый бар интервалом после поступления тика
         /// цена закрытия = цене открытия + интервал
         /// </summary>
         /// <param name="bar"></param>
         /// <param name="tick"></param>
         /// <returns>Новый бар</returns> 
-        internal void UpdateBarFinish(Bar bar, Tick tick)
+        public virtual void UpdateBarFinish(Bar bar, Tick tick)
         {
             CheckSymbol(bar.Symbol, tick.Symbol);
             CheckState(bar.State);
@@ -431,7 +395,7 @@ namespace TRL.Common.Models
         /// Обновить ID (DateTime.Ticks) в зависимости от ID предыдущего бара
         /// </summary>
         /// <param name="bar"></param>
-        private void UpdateDateId(Bar bar)
+        protected virtual void UpdateDateId(Bar bar)
         {
             /// При завершении бара сравнить ID (DateTime.Ticks) с ID предыдущего бара,
             /// если совпадают (или меньше) - это значит бар "фиктивный", 

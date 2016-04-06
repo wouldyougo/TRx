@@ -26,6 +26,12 @@ namespace TRL.Common.Models
         /// --в единицах - для volume или range бара.
         /// </summary>
         public int Interval { get; set; }
+
+        /// <summary>
+        /// дата и (или) время начала сессии
+        /// </summary>
+        public DateTime DateTimeStart { get; set; }
+
         /// <summary>
         /// Период;
         /// начальное количество баров в списке
@@ -85,7 +91,6 @@ namespace TRL.Common.Models
         }
 
         /// <summary>
-        /// NoTest
         /// Тип бара
         /// </summary>
         public DataModelType BarType { get; set; }
