@@ -106,11 +106,16 @@ namespace TRL.Common.Models
         /// <returns></returns>
         internal static Bar SetBarOHLCV(Bar bar, Bar source)
         {
-            bar.Open = source.Open;
-            bar.High = source.High;
-            bar.Low = source.Low;
+            //bar.Open = source.Open;
+            //bar.High = source.High;
+            //bar.Low = source.Low;
+            //bar.Close = source.Close;
+            //bar.Volume = source.Volume;
+            bar.Open =  source.Close;
+            bar.High =  source.Close;
+            bar.Low =   source.Close;
             bar.Close = source.Close;
-            bar.Volume = source.Volume;
+            bar.Volume = 0;
             return bar;
             //throw new NotImplementedException();
         }

@@ -68,7 +68,7 @@ namespace TRL.Common.Handlers
                 //// Если Тик попадает в текущий бар
                 ////// Выходим    
                 //if ((barCurrent.DateTime.AddSeconds(-barSettings.Interval) < item.DateTime)&&
-                if ((barCurrent.DateTimeOpen < tick.DateTime) &&
+                if ((barCurrent.DateTimeOpen <= tick.DateTime) &&
                     (barCurrent.DateTime     > tick.DateTime))
                     return;
                 if (barCurrent.DateTimeOpen > tick.DateTime) {
@@ -99,11 +99,12 @@ namespace TRL.Common.Handlers
             //////if (barTicks == null)
             /////    return;
             if (barTicks.Count() == 0)
-            {
+            {   //заполнить бар по предыдущему бару
                 barCurrent = BarBuilderTimeBar.SetBarOHLCV(barCurrent, barPrevious);
                 //return;
             }
-            else {
+            else
+            {   //заполнить бар по списку тиков
                 barCurrent = BarBuilderTimeBar.SetBarOHLCV(barCurrent, barTicks);
             }
             barBuilder.FinishBarState(barCurrent);
