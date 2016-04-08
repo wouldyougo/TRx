@@ -8,26 +8,8 @@ using TRL.Common.Extensions.Models;
 
 namespace TRL.Common.Models
 {
-    //сущность:
-    //  включает сущности:
-    //  реализует методы:
-
-    //сущность:
-    //  фабрика баров
-    //  включает сущности:
-    //      тик
-    //      бар
-    //      настройки баров (тип бара, параметр для формирования бара)
-
-    //  фабрика баров
-    //  реализует методы:
-    //      создает новый бар добавлением нового тика
-    //      обновляет существующий бар добавлением нового тика
-
     /// <summary>
     /// Постритель баров
-    /// (создает новый бар добавлением нового тика
-    ///  обновляет существующий бар добавлением нового тика)
     /// </summary>
     public class BarBuilderTimeBar : BarBuilder
     {
@@ -40,6 +22,7 @@ namespace TRL.Common.Models
         ///// в единицах - для volume или range бара
         ///// </summary>
         //public BarSettings BarSettings { get; private set; }
+        //public Bar LastBar { get; private set; }
 
         /// <summary>
         /// Заготовки для баров под заданный таймфрейм
@@ -55,9 +38,6 @@ namespace TRL.Common.Models
         
         public System.TimeSpan TimeSpanInterval { get; private set; }
 
-
-        //public Bar LastBar { get; private set; }
-
         public BarBuilderTimeBar(BarSettings barSettings)
             : base(barSettings)
         {
@@ -68,7 +48,12 @@ namespace TRL.Common.Models
             BarList = NewBarList(DateTime.Now);
             
         }
-
+        /// <summary>
+        /// Сформировать список заготовок под бары
+        /// на основе dateTime.Date
+        /// </summary>
+        /// <param name="dateTime">dateTime.Date</param>
+        /// <returns>список заготовок под бары</returns>
         private List<Bar> NewBarList(DateTime dateTime)
         {
             //Вычисляем колчискво интервалов для секунд и минут
@@ -88,41 +73,93 @@ namespace TRL.Common.Models
             }
             return res;
         }
-
         /// <summary>
-        /// Проверить достигнут ли RangeBar интервал
+        /// Установить значения OHLCV для существующего бара
         /// </summary>
-        /// <param name="bar"></param>
-        /// <returns></returns>      
-        public bool CheckTimeReach(Bar bar)
+        /// <param name="bar">текущий бар</param>
+        /// <param name="ticks">набор тиков</param>
+        /// <returns></returns>
+        public static Bar SetBarOHLCV(Bar bar, IEnumerable<Tick> ticks)
         {
-            bool finish = (bar.BarLengthHL() >= this.BarSettings.Interval);
-            return finish;
+            double open = ticks.First().Price;
+            double close = ticks.Last().Price;
+
+            IEnumerable<Tick> orderedByPrice = TicksOrderByPrice(ticks);
+
+            double high = orderedByPrice.Last().Price;
+            double low =  orderedByPrice.First().Price;
+
+            double volume = orderedByPrice.Sum(i => i.Volume);
+
+            bar.Open = open;
+            bar.High = high;
+            bar.Low = low;
+            bar.Close = close;
+            bar.Volume = volume;
+            return bar;
         }
         /// <summary>
-        ///     проверяем возможность добавления нового тика в текущий бар
-        ///     если тело бара + расстояние до тика > значения интревала
-        ///     true - интервал превышен
+        /// Установить значения OHLCV для существующего бара
         /// </summary>
-        /// <param name="bar"></param>
-        /// <param name="tick"></param>
+        /// <param name="bar">текущий бар</param>
+        /// <param name="source">бар источник OHLCV</param>
         /// <returns></returns>
-        public bool CheckTimeExcess(Bar bar, Tick tick)
+        internal static Bar SetBarOHLCV(Bar bar, Bar source)
         {
-            double step = 0;
-            if (tick.Price < bar.Low)
-            {
-                step = bar.Low - tick.Price;
-            }
-            else
-            if (tick.Price > bar.High)
-            {
-                step = tick.Price - bar.High;
-            }
-            bool finish = (bar.BarLengthHL() + step > this.BarSettings.Interval);
-            return finish;
-
+            bar.Open = source.Open;
+            bar.High = source.High;
+            bar.Low = source.Low;
+            bar.Close = source.Close;
+            bar.Volume = source.Volume;
+            return bar;
             //throw new NotImplementedException();
         }
+
+        public static IEnumerable<Tick> TicksOrderByPrice(IEnumerable<Tick> ticks)
+        {
+            return ticks.OrderBy(i => i.Price);
+        }
+
+        int recursion = 0;
+        /// <summary>
+        /// Получить заготовку нового бара
+        /// </summary>
+        /// <param name="tick">тик, время которого будет лежать в интервале нового бара</param>
+        /// <returns>Заготовка нового бара</returns>
+        public Bar GetBarTemplate(Tick tick)
+        {
+            recursion += 1;
+            Bar bar = null;
+            try
+            {
+                bar = BarList.First(t => t.Symbol == tick.Symbol &&
+                                    t.DateTimeOpen <= tick.DateTime &&
+                                    t.DateTime > tick.DateTime);
+            }
+            catch (System.InvalidOperationException e)
+            {
+                if (bar == null)
+                {
+                    if (recursion == 3) //throw new Exception("Не удалось создать нужный интервал");
+                        return null;
+                    // Если в текущем списка нет нужного значения
+                    // Формируем новый список значений
+                    BarList = NewBarList(tick.DateTime);
+                    bar = GetBarTemplate(tick);
+                }
+            }//var bars = BarList.Select(t => t.Symbol == tick.Symbol && t.DateTime < tick.DateTime);
+
+            // Удаляем заготовки под бары с начала списка по текущий бар включительно
+            int Index = BarList.IndexOf(bar);
+            for (int i = 0; i <= Index; i++)
+                BarList.RemoveAt(0);
+            recursion = 0;
+            return bar;
+        }   //throw new NotImplementedException();
+
+        //public static IEnumerable<Tick> TicksOrderByDateTime(IEnumerable<Tick> ticks)
+        //{
+        //    return ticks.OrderBy(i => i.DateTime);
+        //}
     }
 }

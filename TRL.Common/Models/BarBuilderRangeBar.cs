@@ -87,5 +87,17 @@ namespace TRL.Common.Models
 
             //throw new NotImplementedException();
         }
+        /// <summary>
+        /// Завершает новый бар
+        /// </summary>
+        /// <param name="bar"></param>
+        /// <param name="tick"></param>
+        /// <returns>Новый бар</returns>
+        public override Bar FinishBarState(Bar bar)
+        {
+            bar.State = Enums.BarState.Finished;
+            UpdateDateId(bar);
+            return bar;
+        }
     }
 }

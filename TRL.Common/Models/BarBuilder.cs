@@ -176,7 +176,7 @@ namespace TRL.Common.Models
         public virtual Bar FinishBarState(Bar bar)
         {
             bar.State = Enums.BarState.Finished;
-            UpdateDateId(bar);
+            //UpdateDateId(bar);
             return bar;
         }
 

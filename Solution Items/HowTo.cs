@@ -29,6 +29,10 @@ Console.WriteLine(result);
 result = String.Format("{0}", DateTime);
 Console.WriteLine(result);
 
+/// <summary>
+/// 9 часов утра какой-то даты Date
+/// </summary>
+DateTime.Date.AddHours(9);
 
 var a = new List<double>(10) { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
 var b = a.Where(x => x < 50).ToList();

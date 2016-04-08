@@ -11,7 +11,6 @@ namespace TRL.Common.Models
 {
     public class BarsFactory
     {
-
         public static Bar MakeBar(IEnumerable<Tick> ticks, DateTime barDate)
         {
             double open = ticks.First().Price;

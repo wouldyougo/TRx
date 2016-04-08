@@ -52,6 +52,9 @@ namespace TRL.Common.Models
         public Bar(DateTime dateTime, double open, double high, double low, double close, double volume)
             :this("", 0, dateTime, open, high, low, close, volume){}
 
+        public Bar(string symbol, int interval, DateTime dateTime)
+            : this(symbol, interval, dateTime, 0, 0, 0, 0, 0) { }
+
         public Bar(string symbol, int interval, DateTime dateTime, double open, double high, double low, double close, double volume)
         {
             this.Symbol = symbol;

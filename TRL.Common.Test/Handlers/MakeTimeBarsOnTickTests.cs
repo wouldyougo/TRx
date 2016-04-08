@@ -33,26 +33,27 @@ namespace TRL.Common.Handlers.Test
         {
             StrategyHeader strategyHeader = new StrategyHeader(2, "Strategy 2", "BP12345-RF-01", "RTS-9.13_FT", 10);
             this.tradingData.Get<ObservableHashSet<StrategyHeader>>().Add(strategyHeader);
+            DateTime start = new DateTime(2013, 7, 10, 10, 0, 0, 0);
 
             BarSettings barSettings = new BarSettings(strategyHeader, strategyHeader.Symbol, 60, 0);
+            barSettings.DateTimeStart = start;
             this.tradingData.Get<ObservableHashSet<BarSettings>>().Add(barSettings);
-
-            DateTime start = new DateTime(2013, 7, 10, 10, 0, 0, 0);
 
             FakeTimeTracker ftt = new FakeTimeTracker(start, start);
 
-            MakeBarsOnTick handler = new MakeBarsOnTick(barSettings, ftt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, ftt, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(-500), TradeAction.Buy, 150000, 25));
+            // приход тика до начала торгов
+            //this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(-500), TradeAction.Buy, 150000, 25));
 
             for (int i = 0; i < barSettings.Interval * 2; i++)
                 this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(i * 500), TradeAction.Buy, 150000, 25));
 
             ftt.IncrementStopDate(barSettings.Interval);
 
-            Assert.AreEqual(121, this.tradingData.Get<ObservableCollection<Tick>>().Count);
+            Assert.AreEqual(120, this.tradingData.Get<ObservableCollection<Tick>>().Count);
             Assert.AreEqual(new DateTime(2013, 7, 10, 10, 0, 59, 500), this.tradingData.Get<ObservableCollection<Tick>>().Last().DateTime);
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -80,14 +81,15 @@ namespace TRL.Common.Handlers.Test
         [TestMethod]
         public void Handlers_Make_First_Bar_For_Hour()
         {
+            DateTime start = new DateTime(2013, 5, 15, 10, 0, 0);
             StrategyHeader s = new StrategyHeader(1, "Strategy 1", "BP12345-RF-01", "RTS-12.12_FT", 10);
             BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
+            barSettings.DateTimeStart = start;
 
-            DateTime start = new DateTime(2013, 5, 15, 10, 0, 0);
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -105,8 +107,9 @@ namespace TRL.Common.Handlers.Test
                 tt.IncrementStopDate(1);
             }
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(-1), Symbol = "RTS-12.12_FT", Price = 148000, TradeAction = TradeAction.Buy, Volume = 100 });
-            Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
+            // приход тика до начала торгов
+            //this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(-1), Symbol = "RTS-12.12_FT", Price = 148000, TradeAction = TradeAction.Buy, Volume = 100 });
+            //Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(3600), Symbol = "RTS-12.12_FT", Price = 155500, TradeAction = TradeAction.Buy, Volume = 100 });
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
@@ -127,18 +130,17 @@ namespace TRL.Common.Handlers.Test
         public void Handlers_Do_Nothing_If_Bar_With_Same_Date_Exists()
         {
             StrategyHeader s = new StrategyHeader(1, "Strategy 1", "BP12345-RF-01", "RTS-12.12_FT", 10);
-            BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
-
             DateTime start = new DateTime(2013, 5, 15, 10, 0, 0);
+            BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
+            barSettings.DateTimeStart = start;
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = barSettings.Symbol, DateTime = start.AddHours(1), Open = 100, High = 100, Low = 100, Close = 100, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, start.AddHours(1))
+                                                                  { Open = 100, High = 100, Low = 100, Close = 100, Volume = 100 });
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
-
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-
 
             for (int i = 0; i < barSettings.Interval; i++)
             {
@@ -153,7 +155,7 @@ namespace TRL.Common.Handlers.Test
                 tt.IncrementStopDate(1);
             }
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(-1), Symbol = "RTS-12.12_FT", Price = 148000, TradeAction = TradeAction.Buy, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(-1), Symbol = "RTS-12.12_FT", Price = 148000, TradeAction = TradeAction.Buy, Volume = 100 });
             this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = start.AddSeconds(3600), Symbol = "RTS-12.12_FT", Price = 155500, TradeAction = TradeAction.Buy, Volume = 100 });
 
             IEnumerable<Tick> ticks = this.tradingData.Get<ObservableCollection<Tick>>().Where(t => t.DateTime >= start && t.DateTime < start.AddSeconds(3600));
@@ -179,15 +181,14 @@ namespace TRL.Common.Handlers.Test
             BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
 
             DateTime start = new DateTime(2013, 5, 14, 23, 50, 0);
-
+            //barSettings.DateTimeStart = start;
             DateTime end = new DateTime(2013, 5, 16, 10, 0, 0);
 
             FakeTimeTracker tt = new FakeTimeTracker(start, end);
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-
 
             for (int i = 0; i < barSettings.Interval; i++)
             {
@@ -198,7 +199,6 @@ namespace TRL.Common.Handlers.Test
                     this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = end.AddSeconds(1000), Symbol = "RTS-12.12_FT", Price = 149000, TradeAction = TradeAction.Buy, Volume = 100 });
                     this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = end.AddSeconds(2000), Symbol = "RTS-12.12_FT", Price = 154500, TradeAction = TradeAction.Buy, Volume = 100 });
                 }
-
                 tt.IncrementStopDate(1);
             }
 
@@ -225,15 +225,19 @@ namespace TRL.Common.Handlers.Test
             BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
 
             DateTime start = new DateTime(2013, 5, 15, 0, 0, 0);
-
+            barSettings.DateTimeStart = start;
             DateTime end = new DateTime(2013, 5, 16, 11, 0, 0);
 
             FakeTimeTracker tt = new FakeTimeTracker(start, end);
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, start)
+                                                                    { Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, end)
+                                                                    { Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
 
             Assert.AreEqual(2, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -279,17 +283,22 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, end);
             StrategyHeader s = new StrategyHeader(1, "Strategy 2", "BP12345-RF-01", "RTS-12.12_FT", 10);
-            BarSettings settings = new BarSettings(s, "RTS-12.12_FT", 900, 10);
+            BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 900, 10);
+            barSettings.DateTimeStart = start;
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(settings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, start)
+            { Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, end)
+            { Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
 
             Assert.AreEqual(2, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
 
-            for (int i = 0; i < settings.Interval * 4; i++)
+            for (int i = 0; i < barSettings.Interval * 4; i++)
             {
                 this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = end.AddSeconds(i), Symbol = "RTS-12.12_FT", Price = 150000 + i, TradeAction = TradeAction.Buy, Volume = 100 });
 
@@ -298,7 +307,6 @@ namespace TRL.Common.Handlers.Test
                     this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = end.AddSeconds(1000), Symbol = "RTS-12.12_FT", Price = 149000, TradeAction = TradeAction.Buy, Volume = 100 });
                     this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick { DateTime = end.AddSeconds(2000), Symbol = "RTS-12.12_FT", Price = 154500, TradeAction = TradeAction.Buy, Volume = 100 });
                 }
-
                 tt.IncrementStopDate(1);
             }
 
@@ -322,13 +330,12 @@ namespace TRL.Common.Handlers.Test
         public void Handlers_Do_Nothing_When_No_Ticks_With_TradeSettings_Symbol()
         {
             StrategyHeader s = new StrategyHeader(1, "Strategy 1", "BP12345-RF-01", "RTS-12.12_FT", 10);
-            BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
-
             DateTime start = new DateTime(2013, 5, 15, 10, 0, 0);
+            BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 3600, 19);
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -361,12 +368,16 @@ namespace TRL.Common.Handlers.Test
 
             DateTime start = new DateTime(2013, 5, 15, 10, 0, 0);
             DateTime stop = start.AddSeconds(3600);
+            barSettings.DateTimeStart = start;
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeBarsOnTick updateBars = new MakeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
 
-            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = stop, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = stop, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+            this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, stop)
+            { Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
+
 
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -417,52 +428,27 @@ namespace TRL.Common.Handlers.Test
             }
             Assert.AreEqual(fake, true);
         }
-        //[TestMethod]
-        //public void MakeBarsOnTick2Test()
-        //{
-        //    StrategyHeader strategyHeader = new StrategyHeader(2, "Strategy 2", "BP12345-RF-01", "RTS-9.13_FT", 10);
-        //    this.tradingData.Get<ObservableHashSet<StrategyHeader>>().Add(strategyHeader);
 
-        //    BarSettings barSettings = new BarSettings(strategyHeader, strategyHeader.Symbol, 60, 0);
-        //    this.tradingData.Get<ObservableHashSet<BarSettings>>().Add(barSettings);
+        [TestMethod]
+        public void MakeTimeBarsOnTickTest()
+        {
+            StrategyHeader strategyHeader = new StrategyHeader(2, "Strategy 2", "BP12345-RF-01", "RTS-9.16_FT", 10);
+            this.tradingData.Get<ObservableHashSet<StrategyHeader>>().Add(strategyHeader);
 
-        //    FakeTimeTracker2 ftt = new FakeTimeTracker2(DateTime.Now, DateTime.Now);
+            BarSettings barSettings = new BarSettings(strategyHeader, strategyHeader.Symbol, 60, 0);
+            this.tradingData.Get<ObservableHashSet<BarSettings>>().Add(barSettings);
 
-        //    MakeBarsOnTick2 handler = new MakeBarsOnTick2(barSettings, ftt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, null, this.tradingData, new NullLogger());
 
-        //    Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
+            Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
-        //    DateTime start = new DateTime(2013, 7, 10, 10, 0, 0, 0);
-        //    //this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(-500), TradeAction.Buy, 150000, 25));
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 9, 59, 59, 600), TradeAction.Buy, 151000, 25));
-        //    //for (int i = 0; i < barSettings.Interval * 2; i++)
-        //    //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(i * 500), TradeAction.Buy, 150000, 25));
-
-        //    //ftt.IncrementStopDate(barSettings.Interval);
-
-        //    //Assert.AreEqual(121, this.tradingData.Get<ObservableCollection<Tick>>().Count);
-        //    //Assert.AreEqual(new DateTime(2013, 7, 10, 10, 0, 59, 500), this.tradingData.Get<ObservableCollection<Tick>>().Last().DateTime);
-        //    //Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 600), TradeAction.Buy, 151000, 25));
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 59, 700), TradeAction.Buy, 149000, 25));
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 2, 59, 800), TradeAction.Buy, 150000, 25));
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 3, 59, 900), TradeAction.Buy, 149500, 25));
-        //    //Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-
-        //    // Обработчик генерирует новый бар, только когда время пришедшего тика располагается в диапазоне следующего бара.
-        //    this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 0, 0), TradeAction.Buy, 150000, 25));
-        //    Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-
-        //    Bar bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
-        //    //Assert.AreEqual(ftt.start.AddSeconds(60), bar.DateTime);
-        //    Assert.AreEqual(barSettings.Symbol, bar.Symbol);
-        //    Assert.AreEqual(barSettings.Interval, bar.Interval);
-        //    Assert.AreEqual(150000, bar.Open);
-        //    Assert.AreEqual(151000, bar.High);
-        //    Assert.AreEqual(149000, bar.Low);
-        //    Assert.AreEqual(149500, bar.Close);
-        //    Assert.AreEqual(3100, bar.Volume);
-        //}
+            DateTime start = new DateTime(2016, 7, 10, 10, 0, 0, 0);
+            //this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, start.AddMilliseconds(-500), TradeAction.Buy, 150000, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 9, 59, 59, 600), TradeAction.Buy, 151000, 25));
+            Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Tick>>().Count);
+            Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 10, 0, 00, 000), TradeAction.Buy, 151000, 25));
+            Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
+        }
     }
 }
