@@ -40,6 +40,5 @@ namespace TRL.Common.Test
         {
             this.stop = this.stop.AddSeconds(seconds);
         }
-
     }
 }

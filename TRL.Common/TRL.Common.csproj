@@ -117,6 +117,7 @@
     <Compile Include="Handlers\AddedItemHandler.cs" />
     <Compile Include="Handlers\CancelOrderOnCancellationConfirmation.cs" />
     <Compile Include="Handlers\CancelOrderOnCancellationRequest.cs" />
+    <Compile Include="Handlers\MakeBarsOnTickBackTest.cs" />
     <Compile Include="Handlers\MakeTimeBarsOnTick.cs" />
     <Compile Include="Handlers\SendItemOnTick.cs" />
     <Compile Include="Handlers\SendItemOnTrade.cs" />
