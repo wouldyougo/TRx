@@ -29,26 +29,25 @@ namespace TRL.Common.Handlers
     ////// Запрашиваем новый текущий бар у барбилдера
     ////// Выходим    
 
-
     /// <summary>
     /// делаем из тиков бары
     /// </summary>
     public class MakeTimeBarsOnTick:AddedItemHandler<Tick>
     {
-        private IDataContext tradingData;
         private BarSettings barSettings;
-        private ITimeTrackable timeTracker;
+        private IDataContext tradingData;
         private ILogger logger;
+
         private BarBuilderTimeBar barBuilder;
         private Bar barCurrent;
         private Bar barPrevious = new Bar();
 
-        public MakeTimeBarsOnTick(BarSettings barSettings, ITimeTrackable timeTracker, IDataContext tradingData, ILogger logger)
+        //public MakeTimeBarsOnTick(BarSettings barSettings, ITimeTrackable timeTracker, IDataContext tradingData, ILogger logger)
+        public MakeTimeBarsOnTick(BarSettings barSettings, IDataContext tradingData, ILogger logger)
             : base(tradingData.Get<ObservableCollection<Tick>>())
         {
             this.tradingData = tradingData;
             this.barSettings = barSettings;
-            this.timeTracker = timeTracker;
             this.logger = logger;
             //подменяем тип бара на TimeBar
             if (this.barSettings.BarType != Enums.DataModelType.TimeBar)
@@ -60,14 +59,12 @@ namespace TRL.Common.Handlers
 
         public override void OnItemAdded(Tick tick)
         {
-
             if (barSettings.Symbol != tick.Symbol)
                 return;
             // П1
             // Проверяем попадание Тика в текущий бар           
             try
-            {
-                //// У10
+            {   //// У10
                 //// Если Тик попадает в текущий бар
                 ////// Выходим    
                 //if ((barCurrent.DateTime.AddSeconds(-barSettings.Interval) < item.DateTime)&&
@@ -80,8 +77,7 @@ namespace TRL.Common.Handlers
                 }
             }
             catch (System.NullReferenceException e)
-            {
-                // П2
+            {   // П2
                 //// Исключение
                 //// Если текущий бар отсутсвует
                 ////// Запрашиваем новый текущий бар у барбилдера
@@ -129,18 +125,6 @@ namespace TRL.Common.Handlers
             ////// Выходим
         }
 
-        private IEnumerable<Tick> GetTicksInRangeOf(Tick item, DateTime begin, DateTime end)
-        {
-            //try
-            {
-                return this.tradingData.Get<IEnumerable<Tick>>().Where(t => t.Symbol == item.Symbol && t.DateTime >= begin && t.DateTime < end);
-            }
-            //catch
-            {
-                //throw;
-                //return null;
-            }
-        }
         private bool TradingDataBarExists(DateTime date)
         {
             return this.tradingData.Get<IEnumerable<Bar>>().Any(b => b.Symbol == this.barSettings.Symbol
@@ -153,6 +137,19 @@ namespace TRL.Common.Handlers
             //&& b.DateTime.Minute == date.Minute
             //&& b.DateTime.Second == date.Second
             //&& b.DateTime.Millisecond == date.Millisecond);
+        }
+
+        private IEnumerable<Tick> GetTicksInRangeOf(Tick item, DateTime begin, DateTime end)
+        {
+            //try
+            {
+                return this.tradingData.Get<IEnumerable<Tick>>().Where(t => t.Symbol == item.Symbol && t.DateTime >= begin && t.DateTime < end);
+            }
+            //catch
+            {
+                //throw;
+                //return null;
+            }
         }
     }
 }

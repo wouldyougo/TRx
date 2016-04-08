@@ -41,7 +41,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker ftt = new FakeTimeTracker(start, start);
 
-            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, ftt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -89,7 +89,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -139,7 +139,7 @@ namespace TRL.Common.Handlers.Test
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, start.AddHours(1))
                                                                   { Open = 100, High = 100, Low = 100, Close = 100, Volume = 100 });
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             for (int i = 0; i < barSettings.Interval; i++)
@@ -186,7 +186,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, end);
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -230,7 +230,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, end);
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
             //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
@@ -286,7 +286,7 @@ namespace TRL.Common.Handlers.Test
             BarSettings barSettings = new BarSettings(s, "RTS-12.12_FT", 900, 10);
             barSettings.DateTimeStart = start;
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = start, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
             //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = end, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
@@ -335,7 +335,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
@@ -372,7 +372,7 @@ namespace TRL.Common.Handlers.Test
 
             FakeTimeTracker tt = new FakeTimeTracker(start, start);
 
-            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, tt, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick updateBars = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             //this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar { Symbol = "RTS-12.12_FT", DateTime = stop, Open = 150000, High = 160000, Low = 140000, Close = 145000, Volume = 100 });
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar(barSettings.Symbol, barSettings.Interval, stop)
@@ -438,7 +438,7 @@ namespace TRL.Common.Handlers.Test
             BarSettings barSettings = new BarSettings(strategyHeader, strategyHeader.Symbol, 60, 0);
             this.tradingData.Get<ObservableHashSet<BarSettings>>().Add(barSettings);
 
-            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, null, this.tradingData, new NullLogger());
+            MakeTimeBarsOnTick handler = new MakeTimeBarsOnTick(barSettings, this.tradingData, new NullLogger());
 
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
