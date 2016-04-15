@@ -99,11 +99,11 @@ namespace TRL.Common.Test.TraderBaseTests
             Assert.IsTrue(tpOrder.IsRejected);
 
             // Тик не дошел до цены закрытия, поэтому сигнал экстренного закрытия по тейк профиту не срабатывает
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 150490, 100));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", BrokerDateTime.Make(DateTime.Now), 150490, 100));
             Assert.AreEqual(3, this.tradingData.Get<IEnumerable<Order>>().Count());
 
             // Тик дошел до цены закрытия, поэтому срабатывает сигнал экстренного закрытия по тейк профиту 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 150500, 150));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", BrokerDateTime.Make(DateTime.Now), 150500, 150));
             Assert.AreEqual(4, this.tradingData.Get<IEnumerable<Order>>().Count());
 
             // Извлекаем копию отправленной брокеру заявки чтобы убедиться в том, что отправлена нужная нам заявка

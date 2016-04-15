@@ -60,6 +60,12 @@ namespace TRL.Common.Statistics
 
         public Deal(TradeAction tradeAction, Trade buyTrade, Trade sellTrade)
         {
+            if (buyTrade.Portfolio != sellTrade.Portfolio)
+            {
+                throw new Exception("Deal Portfolio Exception");
+            }
+
+            
             Symbol = buyTrade.Symbol;
             if (Symbol != sellTrade.Symbol)
             {

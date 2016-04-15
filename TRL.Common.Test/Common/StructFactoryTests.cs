@@ -29,7 +29,8 @@ namespace TRL.Common.Test
         [TestMethod]
         public void Common_ConvertStringToDecimal()
         {
-            string source = "100,00";
+            //string source = "100,00";
+            string source = "100.00";
 
             Assert.AreEqual(100m, StructFactory.Make<Decimal>(source));
         }
@@ -37,7 +38,8 @@ namespace TRL.Common.Test
         [TestMethod]
         public void Common_ConvertStringToNullableDecimal()
         {
-            string source = "100,00";
+            //string source = "100,00";
+            string source = "100.00";
 
             Assert.AreEqual(100m, StructFactory.MakeNullable<Decimal>(source));
         }
@@ -45,7 +47,8 @@ namespace TRL.Common.Test
         [TestMethod]
         public void Common_ConvertStringToFloat()
         {
-            string source = "100,00";
+            //string source = "100,00";
+            string source = "100.00";
 
             Assert.AreEqual(100F, StructFactory.Make<float>(source));
         }
@@ -53,7 +56,8 @@ namespace TRL.Common.Test
         [TestMethod]
         public void Common_ConvertStringToNullableFloat()
         {
-            string source = "100,00";
+            //string source = "100,00";
+            string source = "100.00";
 
             Assert.AreEqual(100F, StructFactory.MakeNullable<float>(source));
         }

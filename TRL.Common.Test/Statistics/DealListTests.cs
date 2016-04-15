@@ -19,7 +19,7 @@ namespace TRL.Common.Statistics.Test
         public void Setup()
         {
             symbol = "RTS-12.13_FT";
-            StrategyHeader sh = new StrategyHeader(1, "1", "1", symbol, 1);
+            StrategyHeader sh = new StrategyHeader(1, "1", "BP12345-RF-01", symbol, 1);
             //dealList = new DealList(symbol);
             dealList = new DealList(sh);
         }

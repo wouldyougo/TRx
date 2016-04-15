@@ -44,17 +44,17 @@ namespace TRL.Common.Handlers.Test
 
             MakeRangeBarsOnTick handler = new MakeRangeBarsOnTick(barSettings, ftt, this.tradingData, new NullLogger());
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 600), TradeAction.Buy, 510, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 600), 510, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 700), TradeAction.Buy, 530, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 700), 530, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 800), TradeAction.Buy, 500, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 800), 500, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 900), TradeAction.Buy, 550, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 900), 550, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             // Обработчик генерирует новый бар, только когда цена пришедшего тика располагается в диапазоне следующего бара.
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 0, 0), TradeAction.Buy, 560, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 0, 0), 560, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             Bar bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
@@ -84,17 +84,17 @@ namespace TRL.Common.Handlers.Test
 
             MakeRangeBarsOnTick handler = new MakeRangeBarsOnTick(barSettings, ftt, this.tradingData, new NullLogger());
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 600), TradeAction.Buy, 510, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 600), 510, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 700), TradeAction.Buy, 530, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 700), 530, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 800), TradeAction.Buy, 500, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 800), 500, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 900), TradeAction.Buy, 550, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 0, 59, 900), 550, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             // Обработчик генерирует новый бар, только когда цена пришедшего тика располагается в диапазоне следующего бара.
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 0, 0), TradeAction.Buy, 560, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2013, 7, 10, 10, 1, 0, 0), 560, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             Bar bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
@@ -128,22 +128,22 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 600), TradeAction.Buy, 10, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 600), 10, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 700), TradeAction.Buy, 30, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 700), 30, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 800), TradeAction.Buy, 00, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 800), 00, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             // Обработчик генерирует новый бар, только когда цена пришедшего тика располагается в диапазоне следующего бара.
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 900), TradeAction.Buy, 50, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 900), 50, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 0, 0),    TradeAction.Buy, 70, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 900), 70, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             Bar bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
@@ -157,11 +157,11 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(50, bar.Close);
             Assert.AreEqual(100, bar.Volume);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 0, 0), TradeAction.Buy, 180, 25));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 0, 0), 180, 25));
             Assert.AreEqual(3, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
-            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 1, 0, 0), bar.DateTime);
+            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 1, 0, 0).ToLongTimeString(), bar.DateTime.ToLongTimeString());
             Assert.AreEqual(barSettings.Symbol, bar.Symbol);
             Assert.AreEqual(barSettings.Interval, bar.Interval);
             Assert.AreEqual(100, bar.Open);
@@ -190,22 +190,22 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 600), TradeAction.Buy, 10, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 600), 10, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 700), TradeAction.Buy, 30, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 700), 30, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 800), TradeAction.Buy, 00, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 800), 00, 25));
             Assert.AreEqual(0, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             // Обработчик генерирует новый бар, только когда цена пришедшего тика располагается в диапазоне следующего бара.
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 900), TradeAction.Buy, 50, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 0, 59, 900), 50, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 00, 000), TradeAction.Buy, 70, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 00, 000), 70, 25));
             Assert.AreEqual(1, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             Bar bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
@@ -220,11 +220,11 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(100, bar.Volume);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 00, 000), TradeAction.Buy, 180, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 1, 00, 000), 180, 25));
             Assert.AreEqual(3, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
-            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 1, 0, 0), bar.DateTime);
+            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 1, 0, 0).ToLongTimeString(), bar.DateTime.ToLongTimeString());
             Assert.AreEqual(barSettings.Symbol, bar.Symbol);
             Assert.AreEqual(barSettings.Interval, bar.Interval);
             Assert.AreEqual(100, bar.Open);
@@ -234,7 +234,7 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(00, bar.Volume);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 10, 00, 000), TradeAction.Buy, 110, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 10, 00, 000), 110, 25));
             Assert.AreEqual(4, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
@@ -248,11 +248,11 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(25, bar.Volume);
 
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 20, 00, 000), TradeAction.Buy, 30, 25));
+                new Tick(barSettings.Symbol, new DateTime(2015, 7, 10, 10, 20, 00, 000), 30, 25));
             Assert.AreEqual(6, this.tradingData.Get<ObservableCollection<Bar>>().Count);
 
             bar = this.tradingData.Get<ObservableCollection<Bar>>().Last();
-            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 20, 0, 0), bar.DateTime);
+            Assert.AreEqual(new DateTime(2015, 7, 10, 10, 20, 0, 0).ToLongTimeString(), bar.DateTime.ToLongTimeString());
             Assert.AreEqual(barSettings.Symbol, bar.Symbol);
             Assert.AreEqual(barSettings.Interval, bar.Interval);
             Assert.AreEqual(80, bar.Open);

@@ -46,7 +46,7 @@ namespace TRL.Common.Handlers.Test
             Signal sSignal = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Sell, OrderType.Stop, 150010, 149910, 0);
             this.tradingData.AddSignalAndItsOrder(sSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Sell, 150020, 10));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 150020, 10, TradeAction.Sell));
 
             Assert.AreEqual(1, this.tradingData.Get<IEnumerable<MoveOrder>>().Count());
         }
@@ -60,7 +60,7 @@ namespace TRL.Common.Handlers.Test
             Signal sSignal = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Sell, OrderType.Stop, 150010, 149910, 0);
             this.tradingData.AddSignalAndItsOrder(sSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Sell, 150020, 10));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 150020, 10, TradeAction.Sell));
 
             Assert.AreEqual(1, this.tradingData.Get<IEnumerable<MoveOrder>>().Count());
         }
@@ -74,7 +74,7 @@ namespace TRL.Common.Handlers.Test
             Signal sSignal = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Buy, OrderType.Stop, 150010, 150110, 0);
             this.tradingData.AddSignalAndItsOrder(sSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Sell, 150000, 10));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 150000, 10, TradeAction.Sell));
 
             Assert.AreEqual(1, this.tradingData.Get<IEnumerable<MoveOrder>>().Count());
         }

@@ -93,7 +93,7 @@ namespace TRL.Common.Models
 
             return String.Format(format,
                 //this.Id, this.DateTime.ToString(ci), this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id);
-                this.Id, this.DateTime.ToString(ci), this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id, this.BarDateId);
+                this.Id, this.DateTime, this.TradeAction, this.OrderType, this.Price.ToString("0.0000", ci), this.Stop.ToString("0.0000", ci), this.Limit.ToString("0.0000", ci), this.Amount.ToString("0.0000", ci), this.Strategy.Id, this.BarDateId);
         }
 
         public static Signal Parse(string src)
@@ -112,6 +112,7 @@ namespace TRL.Common.Models
                 Limit = Convert.ToDouble(parts[6].Trim(), ci),
                 Amount = Convert.ToDouble(parts[7].Trim(), ci),
                 StrategyId = Convert.ToInt32(parts[8].Trim(), ci),
+                BarDateId = Convert.ToInt64(parts[9].Trim(), ci),
             };
         }
 
@@ -119,7 +120,8 @@ namespace TRL.Common.Models
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
 
-            string pattern = "MM/dd/yyyy HH:mm:ss";
+            //string pattern = "MM/dd/yyyy HH:mm:ss";
+            string pattern = "dd.MM.yyyy HH:mm:ss";
 
             return DateTime.ParseExact(src.Trim(), pattern, provider);
         }

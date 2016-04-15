@@ -68,7 +68,7 @@ namespace TRL.Extensions.Inputs.Test
         public void Inputs_do_nothing_when_tick_has_other_symbol_test()
         {
             this.tradingData.Get<ObservableCollection<Tick>>().Add(
-                new Tick("Si", DateTime.Now, TradeAction.Buy, 1000000, 1));
+                new Tick("Si", DateTime.Now, 1000000, 1));
 
             Assert.AreEqual(0, this.signalQueue.Count);
         }
@@ -176,7 +176,7 @@ namespace TRL.Extensions.Inputs.Test
                     0);
             this.tradingData.AddSignalAndItsOrder(openSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 20, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), 20, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 
@@ -193,7 +193,7 @@ namespace TRL.Extensions.Inputs.Test
                     0);
             this.tradingData.AddSignalAndItsOrder(openSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, -1, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), -1, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 
@@ -210,7 +210,7 @@ namespace TRL.Extensions.Inputs.Test
                     0);
             this.tradingData.AddSignalAndItsOrder(openSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, -1, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), -1, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 
@@ -227,7 +227,7 @@ namespace TRL.Extensions.Inputs.Test
                     0);
             this.tradingData.AddSignalAndItsOrder(openSignal);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 20, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), 20, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 
@@ -236,7 +236,7 @@ namespace TRL.Extensions.Inputs.Test
         {
             this.tradingData.Get<ICollection<Bar>>().Clear();
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 20, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), 20, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 
@@ -247,7 +247,7 @@ namespace TRL.Extensions.Inputs.Test
 
             this.tradingData.Get<ICollection<Bar>>().Remove(last);
 
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), TradeAction.Buy, 20, 1));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, BrokerDateTime.Make(DateTime.Now), 20, 1));
             Assert.AreEqual(0, this.signalQueue.Count);
         }
 

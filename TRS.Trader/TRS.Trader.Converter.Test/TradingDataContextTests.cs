@@ -48,12 +48,12 @@ namespace TRx.Trader.Converter.Test
 
             Assert.AreEqual(0, handler.TickCounter);
 
-            Tick tick = new Tick("RTS-3.14_FT", DateTime.Now, TradeAction.Buy, 145000, 10);
+            Tick tick = new Tick("RTS-3.14_FT", DateTime.Now, 145000, 10, TradeAction.Buy);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(1, handler.TickCounter);
 
-            Tick oneMoreTick = new Tick("Si-3.14_FT", DateTime.Now, TradeAction.Sell, 33500, 10);
+            Tick oneMoreTick = new Tick("Si-3.14_FT", DateTime.Now, 33500, 10, TradeAction.Sell);
             this.tradingData.Get<ICollection<Tick>>().Add(oneMoreTick);
 
             Assert.AreEqual(2, this.tradingData.Get<IEnumerable<Tick>>().Count());

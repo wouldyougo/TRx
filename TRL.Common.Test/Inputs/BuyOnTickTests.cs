@@ -53,7 +53,7 @@ namespace TRL.Extensions.Inputs.Test
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 40, 0), 128, 133, 127, 132, 10));
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 45, 0), 129, 134, 128, 133, 10));
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 50, 0), 130, 135, 129, 134, 10));
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", new DateTime(2013, 8, 8, 10, 50, 0), TradeAction.Sell, 134, 10));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", new DateTime(2013, 8, 8, 10, 50, 0), 134, 10, TradeAction.Sell));
 
 
             Assert.AreEqual(1, this.signalQueue.Count);
@@ -89,7 +89,7 @@ namespace TRL.Extensions.Inputs.Test
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 40, 0), 112, 117, 111, 116, 10));
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 45, 0), 111, 116, 110, 115, 10));
             this.tradingData.Get<ObservableCollection<Bar>>().Add(new Bar("RTS-9.13_FT", barSettings.Interval, new DateTime(2013, 8, 8, 10, 50, 0), 110, 115, 109, 114, 10));
-            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", new DateTime(2013, 8, 8, 10, 50, 0), TradeAction.Sell, 114, 10));
+            this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.13_FT", new DateTime(2013, 8, 8, 10, 50, 0), 114, 10, TradeAction.Sell));
 
             Assert.AreEqual(1, this.signalQueue.Count);
             Signal signal = this.signalQueue.Dequeue();

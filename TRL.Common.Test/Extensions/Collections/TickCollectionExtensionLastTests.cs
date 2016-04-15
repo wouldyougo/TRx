@@ -20,13 +20,13 @@ namespace TRL.Common.Extensions.Collections.Test
         {
             this.ticks = new List<Tick>();
 
-            this.ticks.Add(new Tick("SBRF-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 0), TradeAction.Buy, 10800, 90));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 0), TradeAction.Buy, 150000, 100));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 10), TradeAction.Buy, 150000, 100));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 20), TradeAction.Buy, 150000, 100));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 30), TradeAction.Buy, 150000, 100));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 40), TradeAction.Buy, 150000, 100));
-            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 50), TradeAction.Buy, 150000, 100));
+            this.ticks.Add(new Tick("SBRF-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 0), 10800, 90));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 0) , 150000, 100));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 10), 150000, 100));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 20), 150000, 100));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 30), 150000, 100));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 40), 150000, 100));
+            this.ticks.Add(new Tick("RTS-12.13_FT", new DateTime(2013, 1, 1, 10, 0, 50), 150000, 100));
         }
 
         [TestMethod]

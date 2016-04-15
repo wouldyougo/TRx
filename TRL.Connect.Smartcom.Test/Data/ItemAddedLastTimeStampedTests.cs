@@ -29,7 +29,7 @@ namespace TRL.Connect.Smartcom.Test.Data
         [TestMethod]
         public void notify_DateTime_of_last_incoming_tick_test()
         {
-            this.dataContext.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.14", DateTime.Now, TradeAction.Buy, 125000, 3));
+            this.dataContext.Get<ObservableCollection<Tick>>().Add(new Tick("RTS-9.14", DateTime.Now, 125000, 3));
             Assert.AreNotEqual(DateTime.MinValue, this.lastItemAdded.DateTime);
         }
     }

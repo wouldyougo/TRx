@@ -98,8 +98,10 @@ namespace TRL.Common.Models.tests
 
             CultureInfo ci = CultureInfo.InvariantCulture;
 
-            string result = String.Format("Symbol: {0}, Interval: {1}, DateTime: {2}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}",
-                bar.Symbol, bar.Interval, bar.DateTime.ToString(ci), bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
+            //string result = String.Format("Symbol: {0}, Interval: {1}, DateTime: {2}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}",
+            string result = String.Format("Symbol: {0}, Interval: {1}, DateTime: {2:yyyyMMdd HHmmss fffffff}, Open: {3}, High: {4}, Low: {5}, Close: {6}, Volume: {7}",
+            //bar.Symbol, bar.Interval, bar.DateTime.ToString(ci), bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
+            bar.Symbol, bar.Interval, bar.DateTime, bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
 
             Assert.AreEqual(result, bar.ToString());
         }
@@ -111,8 +113,9 @@ namespace TRL.Common.Models.tests
 
             CultureInfo ci = CultureInfo.InvariantCulture;
 
-            string result = String.Format("{0},{1},{2:yyyyMMdd,HHmmss},{3},{4},{5},{6},{7}",
-                bar.Symbol, bar.Interval, bar.DateTime.ToString(ci), bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
+            string result = String.Format("{0},{1},{2:yyyyMMdd,HHmmssfffffff},{3},{4},{5},{6},{7}",
+            //bar.Symbol, bar.Interval, bar.DateTime.ToString(ci), bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
+            bar.Symbol, bar.Interval, bar.DateTime, bar.Open.ToString("0.0000", ci), bar.High.ToString("0.0000", ci), bar.Low.ToString("0.0000", ci), bar.Close.ToString("0.0000", ci), bar.Volume.ToString("0.0000", ci));
 
             Assert.AreEqual(result, bar.ToImportString());
         }

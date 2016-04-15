@@ -1,4 +1,7 @@
-﻿throw new NotImplementedException();
+﻿«Аск» — цена, по которой продавец готов продать.
+«Бид» — цена, которую готов заплатить покупатель финансового инструмента.
+
+throw new NotImplementedException();
 this.Id = SerialIntegerFactory.Make();
 
 Millisecond

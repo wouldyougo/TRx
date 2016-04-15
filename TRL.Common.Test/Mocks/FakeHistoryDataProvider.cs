@@ -21,7 +21,7 @@ namespace TRL.Common.Test.Mocks
         public void Send(IHistoryDataRequest request)
         {
             for (int i = 0; i < request.Quantity; i++)
-                this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(request.Symbol, request.FromDate.AddSeconds(-1), TradeAction.Buy, 1, 1));
+                this.tradingData.Get<ObservableCollection<Tick>>().Add(new Tick(request.Symbol, request.FromDate.AddSeconds(-1), 1, 1));
         }
     }
 }

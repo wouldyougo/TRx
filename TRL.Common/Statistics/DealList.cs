@@ -9,6 +9,7 @@ namespace TRL.Common.Statistics
 {
     public class DealList
     {
+        public string Portfolio { get; set; }
         public string Symbol { get; set; }
         public Queue<Trade> BuyTrades { get; set; }
         public Queue<Trade> SellTrades { get; set; }
@@ -145,6 +146,7 @@ namespace TRL.Common.Statistics
             {
                 throw new NotImplementedException();
             }
+            this.Portfolio = strategyHeader.Portfolio;
             this.Symbol = strategyHeader.Symbol;
             Deals = new List<Deal>();
             BuyTrades = new Queue<Trade>();
@@ -152,6 +154,10 @@ namespace TRL.Common.Statistics
         }
         public void OnItemAdded(Trade item)
         {
+            if (Portfolio != item.Portfolio)
+            {
+                return;
+            }
             if (Symbol != item.Symbol)
             {
                 return;

@@ -327,7 +327,7 @@ namespace TRL.Common.Models.Test
 
             Common.Enums.DataModelType barType;
             barBuilder = CreateBarBuilderTimeBar(out barSettings, out barType);
-            var tick = new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 10, 0, 00, 600), TradeAction.Buy, 151000, 25);
+            var tick = new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 10, 0, 00, 600), 151000, 25);
 
             var bar = barBuilder.GetBarTemplate(tick);
             Assert.IsNotNull(bar);
@@ -342,7 +342,7 @@ namespace TRL.Common.Models.Test
             try
             {   // проверяем генерацию exception когда
                 // Не удалось создать нужный интервал
-                tick = new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 08, 0, 00, 600), TradeAction.Buy, 151000, 25);
+                tick = new Tick(barSettings.Symbol, new DateTime(2016, 7, 10, 08, 0, 00, 600), 151000, 25);
                 bar = barBuilder.GetBarTemplate(tick);
                 Assert.Fail("no exception thrown");
                 Assert.IsNull(bar);

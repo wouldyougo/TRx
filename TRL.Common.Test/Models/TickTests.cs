@@ -18,7 +18,7 @@ namespace TRL.Common.Test.Models
         {
             DateTime tickDate = BrokerDateTime.Make(DateTime.Now);
 
-            Tick tick = new Tick("RTS-9.13_FT", tickDate, TradeAction.Buy, 150000, 3);
+            Tick tick = new Tick("RTS-9.13_FT", tickDate, 150000, 3, TradeAction.Buy);
 
             Assert.AreEqual("RTS-9.13_FT", tick.Symbol);
             Assert.AreEqual(tickDate, tick.DateTime);
@@ -34,8 +34,9 @@ namespace TRL.Common.Test.Models
 
             Tick tick = new Tick { Symbol = "RTS-3.13_FT", DateTime = new DateTime(2012, 12, 12), Price = 140000, Volume = 1, TradeAction = TradeAction.Buy };
 
-            string result = String.Format("Symbol: {0}, DateTime: {1}, Price: {2}, Volume: {3}, TradeAction: {4}",
-                tick.Symbol, tick.DateTime.ToString(ci), tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction);
+            string result = String.Format("Symbol: {0}, DateTime: {1}, Price: {2}, Volume: {3}, TradeAction: {4}, Id: {5}",
+            //tick.Symbol, tick.DateTime.ToString(ci), tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction);
+            tick.Symbol, tick.DateTime, tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction, tick.Id);
 
             Assert.AreEqual(result, tick.ToString());
         }
@@ -47,8 +48,9 @@ namespace TRL.Common.Test.Models
 
             Tick tick = new Tick { Symbol = "RTS-3.13_FT", DateTime = new DateTime(2012, 12, 12), Price = 140000, Volume = 1, TradeAction = TradeAction.Buy };
 
-            string result = String.Format("{0},{1},{2},{3},{4}",
-                tick.Symbol, tick.DateTime.ToString(ci), tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction);
+            string result = String.Format("{0},{1},{2},{3},{4},{5}",
+            //tick.Symbol, tick.DateTime.ToString(ci), tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction);
+            tick.Symbol, tick.DateTime, tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction, tick.Id);
 
             Assert.AreEqual(result, tick.ToImportString());
         }
@@ -57,7 +59,7 @@ namespace TRL.Common.Test.Models
         public void Tick_Parse()
         {
             //Tick tick = Tick.Parse("20121230, 100000, RTS-3.13_FT, 145000, 1, 0");
-            Tick tick = Tick.Parse("RTS-3.13_FT, 0, 20121230, 100000, 145000, 1");
+            Tick tick = Tick.Parse("RTS-3.13_FT, 20121230, 100000, 145000, 1");
 
             Assert.AreEqual(new DateTime(2012, 12, 30, 10, 0, 0), tick.DateTime);
             Assert.AreEqual("RTS-3.13_FT", tick.Symbol);
@@ -86,17 +88,16 @@ namespace TRL.Common.Test.Models
         public void Tick_parse_my_own_export_string_test()
         {
             //string tickString = "RTS-6.14,01/01/2014 00:00:00,10.0000,1.0000,Sell";
-            string tickString = "RTS-6.14,01/01/2014 00:00:00,10.0000,1.0000,Sell";
-            //пока не умеем читать свой формать из 5 частей, 
-            //т.к. добавил формат финам "RTS-6.14,20130802,100001,9826.000000000,10"
+            string tickString = "RTS-6.14,20160405 00:00:00,10.0000,1.0000,Sell,101112";
 
             Tick tick = Tick.Parse(tickString);
 
-            Assert.AreEqual(new DateTime(2014, 1, 1, 0, 0, 0), tick.DateTime);
+            Assert.AreEqual(new DateTime(2016, 4, 5, 0, 0, 0), tick.DateTime);
             Assert.AreEqual("RTS-6.14", tick.Symbol);
             Assert.AreEqual(10, tick.Price);
             Assert.AreEqual(1, tick.Volume);
             Assert.AreEqual(TradeAction.Sell, tick.TradeAction);
+            Assert.AreEqual(101112, tick.Id);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace TRL.Common.Handlers.Test
             Assert.AreEqual(2, order.FilledAmount);
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(1, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -77,7 +77,7 @@ namespace TRL.Common.Handlers.Test
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(1, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -100,7 +100,7 @@ namespace TRL.Common.Handlers.Test
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 8), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 8), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -131,7 +131,7 @@ namespace TRL.Common.Handlers.Test
             o2.SignalId = s2.Id;
             this.tradingData.Get<ICollection<Order>>().Add(o2);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -165,7 +165,7 @@ namespace TRL.Common.Handlers.Test
             Trade t2 = new Trade(o2, o2.Portfolio, o2.Symbol, o2.Price, -1, new DateTime(2013, 1, 1, 10, 0, 5));
             this.tradingData.Get<ObservableHashSet<Trade>>().Add(t2);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -185,7 +185,7 @@ namespace TRL.Common.Handlers.Test
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 8), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 8), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -216,7 +216,7 @@ namespace TRL.Common.Handlers.Test
             o2.SignalId = s2.Id;
             this.tradingData.Get<ICollection<Order>>().Add(o2);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);
@@ -250,7 +250,7 @@ namespace TRL.Common.Handlers.Test
             Trade t2 = new Trade(o2, o2.Portfolio, o2.Symbol, o2.Price, 1, new DateTime(2013, 1, 1, 10, 0, 5));
             this.tradingData.Get<ObservableHashSet<Trade>>().Add(t2);
 
-            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), TradeAction.Buy, 150000, 10);
+            Tick tick = new Tick("RTS-9.13_FT", new DateTime(2013, 1, 1, 10, 0, 11), 150000, 10);
             this.tradingData.Get<ObservableCollection<Tick>>().Add(tick);
 
             Assert.AreEqual(0, this.tradingData.Get<ICollection<OrderCancellationRequest>>().Count);

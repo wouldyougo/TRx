@@ -28,7 +28,7 @@ namespace TRL.Common.Extensions.Data.Test
             Signal s2 = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Sell, OrderType.Market, 10600, 0, 0);
             EmulateTradeFor(s2, 10600, 5);
 
-            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Buy, 10600, 500));
+            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 10600, 500));
 
             Assert.AreEqual(1500, this.tradingData.GetCurrentProfitAndLoss(this.strategyHeader));
         }
@@ -42,8 +42,8 @@ namespace TRL.Common.Extensions.Data.Test
             Signal s2 = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Sell, OrderType.Market, 10600, 0, 0);
             EmulateTradeFor(s2, 10600, 5);
 
-            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Buy, 10600, 500));
-            this.tradingData.Get<ICollection<Tick>>().Add(new Tick("AnotherSymbol", DateTime.Now, TradeAction.Buy, 10700, 500));
+            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 10600, 500));
+            this.tradingData.Get<ICollection<Tick>>().Add(new Tick("AnotherSymbol", DateTime.Now, 10700, 500));
 
             Assert.AreEqual(1500, this.tradingData.GetCurrentProfitAndLoss(this.strategyHeader));
         }
@@ -66,7 +66,7 @@ namespace TRL.Common.Extensions.Data.Test
             Signal s4 = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Buy, OrderType.Market, 10600, 0, 0);
             EmulateTradeFor(s4, 10600, 10);
 
-            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Buy, 10600, 500));
+            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 10600, 500));
 
             Assert.AreEqual(3000, this.tradingData.GetCurrentProfitAndLoss(this.strategyHeader));
         }
@@ -89,7 +89,7 @@ namespace TRL.Common.Extensions.Data.Test
             Signal s4 = new Signal(this.strategyHeader, DateTime.Now, TradeAction.Buy, OrderType.Market, 10600, 0, 0);
             EmulateTradeFor(s4, 10600, 10);
 
-            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, TradeAction.Buy, 10600, 500));
+            this.tradingData.Get<ICollection<Tick>>().Add(new Tick(this.strategyHeader.Symbol, DateTime.Now, 10600, 500));
 
             Assert.AreEqual(3000, this.tradingData.GetCurrentProfitAndLoss(this.strategyHeader));
         }
