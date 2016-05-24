@@ -20,7 +20,7 @@ namespace TRL.Transaction
 
         public override Tick TryParseItem(string src)
         {
-            try
+            //try
             {
                 Tick item = Tick.Parse(src);
 
@@ -29,9 +29,10 @@ namespace TRL.Transaction
 
                 return item;
             }
-            catch
+            //catch(Exception e)
             {
-                return null;
+                //throw e;
+                //return null;
             }
         }
     }

@@ -433,6 +433,7 @@ namespace TRx.Base
         {
             Console.WriteLine("Base.ConsoleHandlerX()");
             Console.WriteLine("Base.ConsoleHandlerX().ExportDataOnExit");
+            Export.ExportData<Tick>(AppSettings.GetValue<bool>("ExportTicksOnExit"));
             Export.ExportData<Bar>(AppSettings.GetValue<bool>("ExportBarsOnExit"));
             Export.ExportData<Signal>(AppSettings.GetValue<bool>("ExportSignalsOnExit"));
             Export.ExportData<Order>(AppSettings.GetValue<bool>("ExportOrdersOnExit"));

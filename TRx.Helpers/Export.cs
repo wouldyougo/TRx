@@ -60,12 +60,20 @@ namespace TRx.Helpers
             if (prefix == "Bar")
             {
                 //logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>");
-                logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>,<DATEID>");
-
+                //logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>,<DATEID>");
+                logger.Log(Bar.ToStringHeader());
                 foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
                 {
                     //logger.Log(item.ToStringFinam());
-                    logger.Log(item.ToStringDateID());
+                    logger.Log(item.ToStringShort());
+                }
+            }
+            else if (prefix == "Tick")
+            {
+                logger.Log(Tick.ToStringHeader());
+                foreach (Tick item in TradingData.Instance.Get<IEnumerable<Tick>>().OrderBy(i => i.DateTime))
+                {
+                    logger.Log(item.ToStringShort());
                 }
             }
             else
@@ -78,42 +86,26 @@ namespace TRx.Helpers
 
         public static void ExportData<T>(IEnumerable<T> data)
         {
-            //if (!confirmExport)
-            //    return;
             string prefix = typeof(T).Name;
-            ILogger logger = new TextFileLogger(prefix, 10000000, true);
-
-            //if (prefix == "Bar")
-            //{
-            //    //logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>");
-
-            //    foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
-            //    {
-            //        logger.Log(item.ToFinamString());
-            //    }
-            //}
-                foreach (T item in data)
-                    logger.Log(item.ToString());
+            //ILogger logger = new TextFileLogger(prefix, 10000000, true);
+            //    foreach (T item in data)
+            //        logger.Log(item.ToString());
+            ExportData<T>(prefix, data);
         }
-
-        public static void ExportDeal<Deal>(IEnumerable<Deal> data)
+        public static void ExportData<T>(string prefix, IEnumerable<T> data)
         {
-            //if (!confirmExport)
-            //    return;
-            string prefix = typeof(Deal).Name;
+            //string prefix = typeof(T).Name;
             ILogger logger = new TextFileLogger(prefix, 10000000, true);
-
-            //if (prefix == "Bar")
-            //{
-            //    //logger.Log("<TICKER>,<PER>,<DATE>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>");
-
-            //    foreach (Bar item in TradingData.Instance.Get<IEnumerable<Bar>>().OrderBy(i => i.DateTime))
-            //    {
-            //        logger.Log(item.ToFinamString());
-            //    }
-            //}
-            foreach (Deal item in data)
+            foreach (T item in data)
                 logger.Log(item.ToString());
         }
+        //public static void ExportDeal<Deal>(IEnumerable<Deal> data)
+        //{
+        //    string prefix = typeof(Deal).Name;
+        //    ILogger logger = new TextFileLogger(prefix, 10000000, true);
+
+        //    foreach (Deal item in data)
+        //        logger.Log(item.ToString());
+        //}
     }
 }

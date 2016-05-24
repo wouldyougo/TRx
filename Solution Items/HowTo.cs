@@ -19,6 +19,13 @@ d1 = d1.AddTicks(1);
 Console.WriteLine(d1.ToString("yyyy.MM.dd HH:mm:ss.fffffff"));
 2016.01.12 17:12:00.2385833
 
+//пример Parse даты
+var str = "2016.04.25 10:03:58.0000001";
+var date = DateTime.Parse(str);
+var strdate = date.ToString("yyyy.MM.dd HH:mm:ss.fffffff");
+strdate
+"2016.04.25 10:03:58.0000001"
+
 //пример формата даты
 DateTime DateTime = new DateTime(2015, 1, 8);
 System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InvariantCulture;

@@ -52,7 +52,8 @@ namespace TRL.Common.Test.Models
             //tick.Symbol, tick.DateTime.ToString(ci), tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction);
             tick.Symbol, tick.DateTime, tick.Price.ToString("0.0000", ci), tick.Volume.ToString("0.0000", ci), tick.TradeAction, tick.Id);
 
-            Assert.AreEqual(result, tick.ToImportString());
+            //Assert.AreEqual(result, tick.ToImportString());
+            Assert.AreEqual(result, tick.ToStringShort());
         }
 
         [TestMethod]

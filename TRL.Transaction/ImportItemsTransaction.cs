@@ -34,15 +34,17 @@ namespace TRL.Transaction
 
         private void ReadItemsFromStream(StreamReader streamReader)
         {
+            //читаем заголовок
             string line = streamReader.ReadLine();
 
+            line = streamReader.ReadLine();
             while (line != null)
             {
                 if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line))
                     continue;
 
                 T item = TryParseItem(line);
-
+                //if(item != null)
                 AddItemToCollection(item);
 
                 line = streamReader.ReadLine();

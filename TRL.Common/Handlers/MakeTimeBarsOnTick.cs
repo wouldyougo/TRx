@@ -41,6 +41,7 @@ namespace TRL.Common.Handlers
         private BarBuilderTimeBar barBuilder;
         private Bar barCurrent;
         private Bar barPrevious = new Bar();
+        private static bool flagLogSymbol = true;
 
         //public MakeTimeBarsOnTick(BarSettings barSettings, ITimeTrackable timeTracker, IDataContext tradingData, ILogger logger)
         public MakeTimeBarsOnTick(BarSettings barSettings, IDataContext tradingData, ILogger logger)
@@ -59,8 +60,15 @@ namespace TRL.Common.Handlers
 
         public override void OnItemAdded(Tick tick)
         {
-            if (barSettings.Symbol != tick.Symbol)
+            if (barSettings.Symbol != tick.Symbol) {
+                if (flagLogSymbol) {
+                    this.logger.Log(  String.Format("Ошибка. тик Symbol {0}, {1}", barSettings.Symbol, tick.Symbol));
+                    Console.WriteLine(String.Format("Ошибка. тик Symbol {0}, {1}", barSettings.Symbol, tick.Symbol));
+                    flagLogSymbol = false;
+                }
                 return;
+            }
+                
             // П1
             // Проверяем попадание Тика в текущий бар           
             try
